@@ -1,0 +1,50 @@
+# Raw datasets: keep only the data instructions
+/data/*
+!/data/README.md
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local settings and credentials
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Intermediate outputs and model weights
+**/cache/
+**/checkpoints/
+**/runs/
+**/logs/
+*.log
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+
+# Final metrics and report figures in results/ are intentionally tracked.
+# Store large generated artifacts under ignored cache/ or checkpoints/.

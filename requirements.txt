@@ -1,0 +1,2 @@
+# Add verified Python dependencies and versions when implementing tasks.
+# This scaffold currently has no algorithm dependencies.
