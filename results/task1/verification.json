@@ -1,0 +1,28 @@
+{
+  "unit_tests": {
+    "passed": 21,
+    "command": ".venv/Scripts/python.exe -m pytest task1_clustering/tests -q"
+  },
+  "full_data_runs": 16,
+  "images_per_run": 600,
+  "nonempty_clusters_per_run": 6,
+  "all_assignments_independently_match_original_json": true,
+  "all_external_metrics": {
+    "ari": 1.0,
+    "nmi": 1.0,
+    "acc": 1.0
+  },
+  "cached_default_main_predictions_identical": true,
+  "isolated_source_and_new_venv_main_predictions_identical": true,
+  "isolated_run_used_feature_cache": false,
+  "isolated_raw_features_bitwise_equal": true,
+  "source_fingerprint": "99d5625c2c2997ee89ad49a317c861d3ace6736dd80c07cb2b2af9b6bed7b3af",
+  "dataset_fingerprint": "638bc6471c22faaad98ce76b7acb810389c636b4aa658ec4f03035994f2a4265",
+  "all_suite_figures_verified": 17,
+  "device_tested": "cpu",
+  "cuda_tested": false,
+  "fresh_environment_method": "Source-only export and independently installed Python 3.11 venv; explicit input and official weights paths; no existing feature cache.",
+  "full_suite_seconds": 141.6081468000002,
+  "cached_main_seconds": 14.805947199999537,
+  "isolated_uncached_main_seconds": 47.95744829999967
+}

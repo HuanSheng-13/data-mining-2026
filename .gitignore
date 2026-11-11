@@ -48,3 +48,18 @@ Desktop.ini
 
 # Final metrics and report figures in results/ are intentionally tracked.
 # Store large generated artifacts under ignored cache/ or checkpoints/.
+
+/docs
+
+# Curated task 1 submission; full reproductions remain local.
+/results/task1/*
+!/results/task1/README.md
+!/results/task1/report.md
+!/results/task1/summary.csv
+!/results/task1/metrics.csv
+!/results/task1/run.json
+!/results/task1/audit.json
+!/results/task1/manifest.csv
+!/results/task1/verification.json
+!/results/task1/experiments/
+!/results/task1/figures/

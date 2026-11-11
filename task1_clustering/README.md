@@ -1,47 +1,96 @@
 # 任务1：图像无监督聚类
 
-## 作业要求
+使用ResNet-18图像特征、PCA与K-Means，将课程提供的600张图像分为6簇，并完成传统特征、降维与聚类算法的对比实验。
 
-使用合适的聚类算法，对给定图片进行无监督分组，并评估聚类效果。
+[实验报告](../results/task1/report.md) · [指标汇总](../results/task1/summary.csv) · [逐次实验指标](../results/task1/metrics.csv)
 
-- 数据：`Cluster.zip`，说明中指出图片位于 `dataset/`，共 6 个类别，每类 100 张。
-- 要说明如何将图片转换成可供算法使用的特征，并解释聚类算法选择。
-- 类别标签可用于评估，不能作为无监督聚类模型的训练输入。
+## 环境配置
 
-评分项（共 25 分）：问题形式化描述 5 分、图像特征处理 5 分、聚类算法 10 分、效果评估 5 分。
-
-以上为课程要求摘要，具体以老师作业说明及后续通知为准。
-
-## 当前状态及独立运行约定
-
-当前仅有说明文档，尚未实现算法和 `main.py`。本任务必须可以从仓库根目录独立运行，不以其他任务先运行或生成结果为前提。
-
-数据来源及放置方法见 [数据说明](../data/README.md)。本任务的数据根目录为 `data/cluster`，输出目录为 `results/task1`。保留原始数据不变，特征缓存与权重另存，不提交到 Git。
-
-下面是待实现的接口，不是当前可执行的命令：
+环境：Windows 64位、Python 3.11、CPU。以下命令在PowerShell中执行：
 
 ```powershell
-python task1_clustering/main.py --data-dir data/cluster --output-dir results/task1 --seed 42
+git clone https://github.com/HuanSheng-13/data-mining-2026.git
+cd data-mining-2026
+py -3.11 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r task1_clustering/requirements-lock-cpu.txt
 ```
 
-## 待补充：环境和运行说明
+## 数据准备
 
-实现本任务时，在本节直接补齐，不能只保留 TODO：
+从[课程数据地址](https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665)下载 `Cluster.zip`，解压至：
 
-- **环境**：经验证的 Python 版本、依赖安装命令；如需额外依赖文件，给出文件名及命令。
-- **数据路径**：实际文件结构、程序读取的文件、必要的列名/标签约定。
-- **运行命令**：可复制的完整命令及执行位置；说明是一条命令完成全部流程，还是需要依次预处理、训练和评估。
-- **参数**：支持的参数、默认值、选用的超参数及配置文件路径。
-- **外部资源**：预训练权重或其他资源的获取方式；是否需要联网、GPU，以及大致运行时间。
-- **输出**：指标、图表和模型保存位置，文件含义及复现实验的方法。
-- **常见问题**：必要的报错处理或运行限制。
+```text
+data/cluster/Cluster/
+├── cluster_labels.json
+└── dataset/
+    ├── 001.png
+    ├── 002.png
+    └── ...（共600张PNG）
+```
 
-## 待补充：方法、实验与结果
+六类为bottle、cable、leather、pill、tile、transistor，各100张。`cluster_labels.json`保存图片文件名与类别的对应关系。程序读取全部图像进行聚类，类别标签用于数据核验和最终评估。
 
-- 输入、输出与问题定义。
-- 数据处理和划分方式，训练/验证/测试的使用边界。
-- 模型或算法、选择理由、随机种子和关键超参数。
-- 评价指标、最终结果、必要的对比实验，以及失败案例或误差分析。
-- 结果对应的代码提交、配置和输出文件位置，保证报告能追溯到实际实验。
+## 运行与复现
 
-将本任务经验证的依赖汇总到根目录 `requirements.txt`。提交前请按本 README 在新的克隆目录中验证独立运行，并将上述约定命令替换或补充为真实可用的说明。
+在仓库根目录运行完整实验：
+
+```powershell
+.\.venv\Scripts\python.exe task1_clustering/main.py --data-dir data/cluster --output-dir results/task1/reproduced --seed 42 --experiment all --device cpu
+```
+
+首次运行自动下载约45MB的[ResNet-18官方权重](https://download.pytorch.org/models/resnet18-f37072fd.pth)。完整实验运行16次聚类，生成的指标和报告位于 `results/task1/reproduced/all/`；仓库保存的实验结果位于 `results/task1/`。
+
+运行测试：
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest task1_clustering/tests -q
+```
+
+| 参数 | 默认值 | 含义 |
+| --- | --- | --- |
+| `--data-dir` | `data/cluster` | 数据根目录 |
+| `--output-dir` | `results/task1` | 运行输出目录；上述复现命令指定为reproduced |
+| `--seed` | `42` | 起始随机种子 |
+| `--experiment` | `main` | main运行主方案一次，all运行四个方案 |
+| `--device` | `auto` | auto、cpu或cuda |
+| `--batch-size` | `32` | 特征提取批大小 |
+| `--weights-path` | 自动下载 | 本地官方权重文件路径 |
+
+所有相对路径以执行命令的当前目录为基准。
+
+## 方法与对照实验
+
+图像转换为RGB，短边双线性缩放至256，中心裁剪为224×224。ResNet-18使用 `IMAGENET1K_V1` 权重及其配套归一化，将分类层替换为恒等映射，提取512维全局平均池化特征。编码器参数冻结。
+
+| 方案 | 特征处理 | 聚类算法 |
+| --- | --- | --- |
+| A：传统特征 | HSV每通道16个直方图区间，拼接uniform LBP（P=8、R=1）的10维直方图，共58维；StandardScaler后L2归一化 | K-Means |
+| B：深度特征 | 512维ResNet-18特征，L2归一化 | K-Means |
+| C：主方案 | ResNet-18特征L2归一化，PCA保留95%累计解释方差，再次L2归一化 | K-Means |
+| D：算法对照 | 与C相同 | Ward凝聚层次聚类 |
+
+传统特征的各直方图先做L1归一化再拼接，LBP使用8位灰度图。PCA采用完整SVD和原始主成分尺度。K-Means固定6簇，采用k-means++初始化、20次重启、最多300轮Lloyd迭代，收敛阈值为 `1e-4`。Ward使用欧氏距离，聚合为6簇。
+
+A、B、C分别使用随机种子42—46运行五次；D运行一次。评价指标包括ARI、NMI、最优一对一匹配后的ACC，以及轮廓系数和Davies–Bouldin指数。
+
+## 实验结果
+
+四个方案的ARI、NMI、ACC均为1.0；三个K-Means方案在五个种子下的外部指标标准差均为0。主方案PCA输出29维，累计解释方差95.0285%。
+
+传统颜色与纹理特征已足以区分这批图像；PCA主要减少特征维度与后续聚类计算。完整结果、图像观察和方法分析见[实验报告](../results/task1/report.md)。
+
+## 提交文件
+
+```text
+results/task1/
+├── README.md
+├── report.md
+├── summary.csv / metrics.csv
+├── run.json / audit.json / manifest.csv
+├── verification.json
+├── experiments/
+│   └── 各方案/                  # 种子42的配置、指标、600张图像的分组结果
+└── figures/                     # 报告使用的四张图
+```
+
+`run.json`记录实验环境、超参数、源码摘要与耗时。`experiments/`保存四个方案的代表运行，`metrics.csv`保存全部16次运行的指标。原始数据、预训练权重、特征缓存和复现运行产物存放在本地。

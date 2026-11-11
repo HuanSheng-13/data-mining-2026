@@ -1,0 +1,51 @@
+{
+  "experiment": "D_resnet18_pca_ward",
+  "seed": 42,
+  "extractor": "resnet18",
+  "preprocess": {
+    "version": 1,
+    "rgb": true,
+    "resize_short_edge": 256,
+    "center_crop": 224,
+    "interpolation": "bilinear",
+    "antialias": true,
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "feature_extraction": {
+    "cache_key": "3c2f6d2e5056b25a1a7a3eb86c0dad1aca99e12374fd120d6d9af86acd39c09c",
+    "cache_hit": false,
+    "raw_dimension": 512,
+    "elapsed_seconds": 48.49518139999964,
+    "weights": "IMAGENET1K_V1",
+    "weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+  },
+  "transform": {
+    "method": "l2_pca95_l2",
+    "dimension": 29,
+    "explained_variance_ratio": 0.9502852559089661,
+    "elapsed_seconds": 0.10793370000010327
+  },
+  "clustering": {
+    "inertia": null,
+    "iterations": null,
+    "parameters": {
+      "n_clusters": 6,
+      "linkage": "ward",
+      "metric": "euclidean"
+    },
+    "elapsed_seconds": 0.06764019999991433,
+    "deterministic": true
+  },
+  "dataset_fingerprint": "638bc6471c22faaad98ce76b7acb810389c636b4aa658ec4f03035994f2a4265",
+  "source_fingerprint": "99d5625c2c2997ee89ad49a317c861d3ace6736dd80c07cb2b2af9b6bed7b3af",
+  "label_usage": "audit and post-clustering evaluation only"
+}

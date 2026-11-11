@@ -1,0 +1,25 @@
+{
+  "image_count": 600,
+  "class_counts": {
+    "bottle": 100,
+    "cable": 100,
+    "leather": 100,
+    "pill": 100,
+    "tile": 100,
+    "transistor": 100
+  },
+  "image_sizes": {
+    "1024x1024": 300,
+    "800x800": 100,
+    "840x840": 100,
+    "900x900": 100
+  },
+  "image_modes": {
+    "RGB": 600
+  },
+  "duplicate_content_groups": [],
+  "dataset_fingerprint": "638bc6471c22faaad98ce76b7acb810389c636b4aa658ec4f03035994f2a4265",
+  "labels_sha256": "9c0a292b699e9573faece150575ad5d47a99269e53640268289c57ec3dc3c745",
+  "layout": "flat_json",
+  "image_dir": "data/cluster/Cluster/dataset"
+}

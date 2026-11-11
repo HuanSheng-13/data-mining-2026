@@ -1,0 +1,95 @@
+{
+  "created_at_utc": "2026-11-10T13:47:07.299970+00:00",
+  "suite": "all",
+  "run_count": 16,
+  "base_seed": 42,
+  "kmeans_seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "reproduce_command": ".venv/Scripts/python.exe task1_clustering/main.py --data-dir data/cluster --output-dir results/task1/reproduced --seed 42 --experiment all --device cpu",
+  "parameters": {
+    "device": "auto",
+    "batch_size": 32,
+    "weights_path": null
+  },
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "device": "cpu",
+    "torch_cpu_threads": 4,
+    "cuda_available": false,
+    "torch_cuda_version": null,
+    "gpu": null,
+    "packages": {
+      "torch": "2.7.1+cpu",
+      "torchvision": "0.22.1+cpu",
+      "numpy": "2.3.5",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.7.2",
+      "scikit-image": "0.25.2",
+      "pillow": "12.0.0",
+      "pandas": "2.3.3",
+      "matplotlib": "3.10.6",
+      "pytest": "8.4.2",
+      "threadpoolctl": "3.6.0"
+    }
+  },
+  "source": {
+    "experiment_base_commit": "53c211e61d33b95c308418f1ac5d5d972972c8de",
+    "source_sha256": {
+      "__init__.py": "1d2f99c21ed3278417c9b1d9d59eca34405732e5fecc86b8ad404fa62e2f2551",
+      "clustering.py": "43b8b4b643d82f364f2026a10d5c1511d76c0b1980325bd6be9cc724d2e1197d",
+      "data.py": "a44352da2be8c1d099e9cce4467dfed1d951dd2566c39ef7ed62feecb86d0c86",
+      "evaluation.py": "a2a29004f8c4c815e71bf09ef60aa8ec61d530eb54b5454af51da1139c3b5278",
+      "features.py": "5fbf63b1f896b5800954951c6faaf01bd721c902d94e16252d2c10bdcc78fb30",
+      "main.py": "19d551ba353efdf8d7e0ce3af6377e21d47f00e40e3b804c523b1b57939ad0e1",
+      "plots.py": "df06cb7e8506b6cea888b0d85a1f801851efc9d2800a5819cf0e45912e94dd53"
+    },
+    "source_fingerprint": "99d5625c2c2997ee89ad49a317c861d3ace6736dd80c07cb2b2af9b6bed7b3af"
+  },
+  "dataset_fingerprint": "638bc6471c22faaad98ce76b7acb810389c636b4aa658ec4f03035994f2a4265",
+  "feature_extraction": {
+    "handcrafted": {
+      "cache_key": "2029a0356dab995b978d71ceafd2b0c1cd8728c151e691731564b0209370c2cd",
+      "cache_hit": false,
+      "raw_dimension": 58,
+      "elapsed_seconds": 40.27692649999972,
+      "weights": null,
+      "weights_sha256": null
+    },
+    "resnet18": {
+      "cache_key": "3c2f6d2e5056b25a1a7a3eb86c0dad1aca99e12374fd120d6d9af86acd39c09c",
+      "cache_hit": false,
+      "raw_dimension": 512,
+      "elapsed_seconds": 48.49518139999964,
+      "weights": "IMAGENET1K_V1",
+      "weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    }
+  },
+  "transformations": {
+    "handcrafted/standard_l2": {
+      "method": "standard_l2",
+      "dimension": 58,
+      "explained_variance_ratio": null,
+      "elapsed_seconds": 0.20782750000034866
+    },
+    "resnet18/l2": {
+      "method": "l2",
+      "dimension": 512,
+      "explained_variance_ratio": null,
+      "elapsed_seconds": 0.026703200000156357
+    },
+    "resnet18/l2_pca95_l2": {
+      "method": "l2_pca95_l2",
+      "dimension": 29,
+      "explained_variance_ratio": 0.9502852559089661,
+      "elapsed_seconds": 0.10793370000010327
+    }
+  },
+  "elapsed_seconds": 141.6081468000002
+}
