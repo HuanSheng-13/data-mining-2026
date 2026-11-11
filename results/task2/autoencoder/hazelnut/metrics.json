@@ -1,0 +1,14 @@
+{
+  "auroc": 0.895,
+  "ap": 0.8447943603038501,
+  "threshold": 0.0005597376730293036,
+  "f1": 0.7647058823529411,
+  "precision": 0.6842105263157895,
+  "recall": 0.8666666666666667,
+  "accuracy": 0.8545454545454545,
+  "n_normal": 40.0,
+  "n_anomaly": 15.0,
+  "model": "Autoencoder",
+  "category": "hazelnut",
+  "final_train_mse": 0.00051704291254282
+}

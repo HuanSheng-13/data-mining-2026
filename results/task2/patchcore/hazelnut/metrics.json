@@ -1,0 +1,15 @@
+{
+  "auroc": 0.8266666666666667,
+  "ap": 0.7833800829593363,
+  "threshold": 0.26691654324531555,
+  "f1": 0.75,
+  "precision": 1.0,
+  "recall": 0.6,
+  "accuracy": 0.8909090909090909,
+  "n_normal": 40.0,
+  "n_anomaly": 15.0,
+  "model": "PatchCore-ae",
+  "backbone": "ae",
+  "category": "hazelnut",
+  "memory_bank_size": 1000.0
+}
