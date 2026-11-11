@@ -24,7 +24,7 @@ data/
 
 - 将各压缩包解压内容放入对应目录，保留包内文件名及目录结构。例如 Cluster 中的 `dataset/` 若为包内目录，则保留为 `data/cluster/dataset/`。
 - 不把压缩包本身当作程序输入，不在 Git 中保存下载压缩包。
-- 任务1实际压缩包已核验，结构见下文；其他任务仍需在实现数据加载器时核实实际内容，不要根据文件扩展名猜测数据格式。
+- 任务1、任务2压缩包均已核验，结构见下文；其他任务仍需在实现数据加载器时核实实际内容，不要根据文件扩展名猜测数据格式。
 - `--data-dir` 指向表中对应的任务数据根目录；加载器在此目录内定位实际文件。
 - 下载和解压后应核对样本数、训练/测试划分及标签含义。不要为了方便而混合老师已划分的训练集和测试集。
 
@@ -47,7 +47,24 @@ data/cluster/Cluster/
 
 cluster_labels.json将图片文件名映射到类别字符串。六类为bottle、cable、leather、pill、tile、transistor，各100张；600张均可解码为RGB，未发现字节内容重复。尺寸1024×1024共300张，800×800、840×840、900×900各100张。来源为上述课程下载链接；每次运行的audit.json记录数据及标签摘要，可校验具体版本。
 
-任务1继续传入 `--data-dir data/cluster` 即可，程序会定位外层Cluster中的dataset。标签只用于数据核验及最终评估。其他三个任务的实际结构和核对记录待实现时补充。
+任务1继续传入 `--data-dir data/cluster` 即可，程序会定位外层Cluster中的dataset。标签只用于数据核验及最终评估。其他任务的实际结构和核对记录待实现时补充。
+
+## 任务2实际解压结构和核对记录
+
+```text
+data/image_anomaly/
+├── image_anomaly_labels.json
+├── hazelnut/
+│   ├── train/good/             # 训练实际读取的正常样本
+│   ├── train/bad/              # 保留但不参与无监督训练
+│   └── test/
+└── zipper/
+    ├── train/good/
+    ├── train/bad/
+    └── test/
+```
+
+任务2程序以 `image_anomaly_labels.json` 为测试集标签来源，仅在最终评估阶段读取标签。训练阶段严格只读取两个类别的 `train/good`。具体命令、结果与参数见 [`task2_image_anomaly/README.md`](../task2_image_anomaly/README.md)。
 
 ## 版本管理
 
