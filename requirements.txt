@@ -1,4 +1,4 @@
-# Task 1: Python 3.11. CPU/CUDA wheel selection: task1_clustering/README.md.
+# Task 1 direct dependencies; verified CPU environment: task1_clustering/requirements-lock-cpu.txt.
 torch==2.7.1
 torchvision==0.22.1
 numpy==2.3.5
