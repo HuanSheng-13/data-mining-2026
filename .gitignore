@@ -63,3 +63,7 @@ Desktop.ini
 !/results/task1/verification.json
 !/results/task1/experiments/
 !/results/task1/figures/
+
+# Keep the published comparison results separate from local reproductions.
+/results/task3/reproduced/
+/results/task4/reproduced/

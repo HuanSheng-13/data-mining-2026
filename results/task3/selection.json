@@ -1,0 +1,92 @@
+{
+  "criterion": "minimum validation RMSE",
+  "selected_model": "HistGB",
+  "candidates": [
+    {
+      "model": "Persistence",
+      "params": {},
+      "MAE_ppm": 1.29986610558531,
+      "RMSE_ppm": 2.431025158360457,
+      "R2": 0.9802380273693743,
+      "fit_seconds": 0.003060499991988763
+    },
+    {
+      "model": "Ridge",
+      "params": {
+        "alpha": 0.1
+      },
+      "MAE_ppm": 1.2858455606058612,
+      "RMSE_ppm": 2.2993344798780524,
+      "R2": 0.9823210816279461,
+      "fit_seconds": 0.2385857000190299
+    },
+    {
+      "model": "Ridge",
+      "params": {
+        "alpha": 1.0
+      },
+      "MAE_ppm": 1.2777015415505555,
+      "RMSE_ppm": 2.2952045664782843,
+      "R2": 0.9823845320154203,
+      "fit_seconds": 0.21435070000006817
+    },
+    {
+      "model": "Ridge",
+      "params": {
+        "alpha": 10.0
+      },
+      "MAE_ppm": 1.2729487107809114,
+      "RMSE_ppm": 2.294599060872299,
+      "R2": 0.9823938251806753,
+      "fit_seconds": 0.22660319998976775
+    },
+    {
+      "model": "Ridge",
+      "params": {
+        "alpha": 100.0
+      },
+      "MAE_ppm": 1.2700818629453665,
+      "RMSE_ppm": 2.300620473108509,
+      "R2": 0.9823013008372345,
+      "fit_seconds": 0.21090770000591874
+    },
+    {
+      "model": "Ridge",
+      "params": {
+        "alpha": 1000.0
+      },
+      "MAE_ppm": 1.2670740897136508,
+      "RMSE_ppm": 2.3109675112863086,
+      "R2": 0.9821417430748102,
+      "fit_seconds": 0.20086589999846183
+    },
+    {
+      "model": "HistGB",
+      "params": {
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 7,
+        "l2_regularization": 10.0,
+        "min_samples_leaf": 40
+      },
+      "MAE_ppm": 1.1868578158819143,
+      "RMSE_ppm": 2.2187992461965433,
+      "R2": 0.9835378177204123,
+      "fit_seconds": 4.26810819999082
+    },
+    {
+      "model": "HistGB",
+      "params": {
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 10.0,
+        "min_samples_leaf": 40
+      },
+      "MAE_ppm": 1.1872474217841247,
+      "RMSE_ppm": 2.207931954301542,
+      "R2": 0.9836986806118859,
+      "fit_seconds": 6.409049300011247
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "train_rows": 1839,
+  "test_rows": 1933,
+  "features": [
+    "feature_1",
+    "feature_2",
+    "feature_3",
+    "feature_4",
+    "feature_5",
+    "feature_6"
+  ],
+  "fit_rows": 1476,
+  "calibration_rows": 363,
+  "train_duplicate_rows": 57,
+  "test_duplicate_rows": 23,
+  "test_feature_rows_overlapping_train": 56,
+  "test_normal": 1839,
+  "test_anomaly": 94,
+  "missing_values": 0,
+  "fit_calibration_group_overlap": 0,
+  "policy": "official test rows preserved; duplicate training feature vectors grouped for calibration split"
+}
