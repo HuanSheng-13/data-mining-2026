@@ -4,6 +4,7 @@
 图像即为异常。图像级异常分数取重建误差图的像素均值。
 """
 import os
+import random
 from typing import Tuple
 
 import numpy as np
@@ -11,6 +12,15 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
+
+
+def seed_everything(seed: int) -> None:
+    """在创建网络参数前固定 Python、NumPy 与 PyTorch 的随机状态。"""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 
 class ConvAutoencoder(nn.Module):
@@ -68,10 +78,11 @@ class AutoEncoderDetector:
         self.epochs = epochs
         self.batch_size = batch_size
         self.seed = seed
+        # 必须在 Conv/ConvTranspose 层创建前设种子，否则初始权重不可复现。
+        seed_everything(self.seed)
         self.model = ConvAutoencoder().to(device)
 
     def fit(self, train_loader: DataLoader, verbose: bool = True):
-        torch.manual_seed(self.seed)
         opt = torch.optim.Adam(self.model.parameters(), lr=self.lr)
         sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=self.epochs)
         history = []

@@ -11,14 +11,21 @@ from sklearn.metrics import (auc, roc_curve, precision_recall_curve,
                              recall_score, accuracy_score, roc_auc_score)
 
 
-def evaluate_binary(y_true: np.ndarray, y_score: np.ndarray,
-                    threshold: float = None) -> dict:
-    """计算阈值无关（AUROC/AP）与阈值相关（F1 等）指标。
+def normal_quantile_threshold(normal_scores: np.ndarray, quantile: float = 0.99) -> float:
+    """由独立的正常校准集确定固定阈值，不读取测试标签。"""
+    normal_scores = np.asarray(normal_scores, dtype=float)
+    if normal_scores.ndim != 1 or len(normal_scores) == 0:
+        raise ValueError("normal_scores 必须是一维且非空的正常样本分数")
+    if not 0.0 < quantile < 1.0:
+        raise ValueError("quantile 必须在 (0, 1) 内")
+    return float(np.quantile(normal_scores, quantile))
 
-    Args:
-        y_true: 0=正常, 1=异常
-        y_score: 异常分数（越大越异常）
-        threshold: 若给定则直接用于二值化；否则用 Youden 最优阈值
+
+def evaluate_binary(y_true: np.ndarray, y_score: np.ndarray, threshold: float) -> dict:
+    """计算 AUROC/AP 与固定阈值下的分类指标。
+
+    ``threshold`` 必须由训练集划出的正常校准集预先确定。函数刻意不再根据
+    ``y_true`` 搜索 Youden 阈值，避免将测试标签泄漏到判定规则中。
     """
     y_true = np.asarray(y_true, dtype=int)
     y_score = np.asarray(y_score, dtype=float)
@@ -26,12 +33,8 @@ def evaluate_binary(y_true: np.ndarray, y_score: np.ndarray,
 
     auroc = roc_auc_score(y_true, y_score)
     ap = average_precision_score(y_true, y_score)
-    fpr, tpr, thr = roc_curve(y_true, y_score)
-
-    if threshold is None:
-        youden = tpr - fpr
-        idx = int(np.argmax(youden))
-        threshold = float(thr[idx])
+    if threshold is None or not np.isfinite(threshold):
+        raise ValueError("threshold 必须由独立正常校准集确定")
     y_pred = (y_score >= threshold).astype(int)
 
     return {
@@ -39,8 +42,8 @@ def evaluate_binary(y_true: np.ndarray, y_score: np.ndarray,
         "ap": ap,
         "threshold": threshold,
         "f1": f1_score(y_true, y_pred),
-        "precision": precision_score(y_true, y_pred),
-        "recall": recall_score(y_true, y_pred),
+        "precision": precision_score(y_true, y_pred, zero_division=0),
+        "recall": recall_score(y_true, y_pred, zero_division=0),
         "accuracy": accuracy_score(y_true, y_pred),
         "n_normal": int((y_true == 0).sum()),
         "n_anomaly": int((y_true == 1).sum()),
@@ -82,10 +85,19 @@ def plot_score_distribution(y_true: np.ndarray, y_score: np.ndarray, save_path: 
 
 
 def save_patch_heatmap(img: np.ndarray, patch_scores: np.ndarray, save_path: str,
-                       title: str = "", vmax: float = None):
-    """将 patch 级异常分数叠加为热力图。img: HxWx3 0-255 原图。"""
+                       patch_grid: Tuple[int, int], title: str = "", vmax: float = None):
+    """将 patch 级异常分数叠加为热力图。
+
+    ``patch_grid`` 来自本次特征提取的实际网格，而不是假定所有骨干都是 64×64。
+    例如默认 AE 为 64×64，WideResNet 的 layer2 为 32×32。
+    """
     h, w = img.shape[:2]
-    score_map = patch_scores.reshape(64, 64)
+    grid_h, grid_w = patch_grid
+    if patch_scores.size != grid_h * grid_w:
+        raise ValueError(
+            f"patch 分数数目 {patch_scores.size} 与网格 {patch_grid} 不一致"
+        )
+    score_map = patch_scores.reshape(grid_h, grid_w)
     # 上采样到原图尺寸
     import torch.nn.functional as F
     import torch

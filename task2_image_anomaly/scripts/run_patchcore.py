@@ -17,9 +17,10 @@ import torch
 from torch.utils.data import DataLoader
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from src.dataset import AnomalyImageDataset, TestImageDataset, load_test_labels
+from src.dataset import (AnomalyImageDataset, TestImageDataset, load_test_labels,
+                         split_normal_train_dataset)
 from src.patchcore import PatchCore
-from src.metrics import (evaluate_binary, plot_roc_curves,
+from src.metrics import (evaluate_binary, normal_quantile_threshold, plot_roc_curves,
                          plot_score_distribution, save_patch_heatmap)
 
 
@@ -44,13 +45,19 @@ def run_category(args, category: str, results_all: dict):
     # AE 骨干使用 [0,1] 像素域变换；ImageNet 骨干使用标准归一化
     transform = (AnomalyImageDataset.ae_transform() if args.backbone == "ae"
                  else None)
-    train_ds = AnomalyImageDataset(data_root, category, "train", subdir="good",
-                                   transform=transform)
+    normal_ds = AnomalyImageDataset(data_root, category, "train", subdir="good",
+                                    transform=transform)
+    train_ds, calibration_ds = split_normal_train_dataset(
+        normal_ds, calibration_fraction=args.calibration_fraction, seed=args.seed
+    )
     test_ds = TestImageDataset(data_root, category, labels, transform=transform)
-    print(f"训练(正常): {len(train_ds)} 张 | 测试: {len(test_ds)} 张")
+    print(f"训练(正常): {len(train_ds)} 张 | 正常校准: {len(calibration_ds)} 张 | "
+          f"测试: {len(test_ds)} 张")
 
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=False,
                               num_workers=0)
+    calibration_loader = DataLoader(calibration_ds, batch_size=args.batch_size,
+                                    shuffle=False, num_workers=0)
     test_loader = DataLoader(test_ds, batch_size=args.batch_size, shuffle=False,
                              num_workers=0)
 
@@ -82,7 +89,7 @@ def run_category(args, category: str, results_all: dict):
     t0 = time.time()
     model = PatchCore(device=args.device, coreset_ratio=args.coreset_ratio,
                       max_pool=args.max_pool, top_k=args.top_k,
-                      feature_extractor=feature_extractor)
+                      random_state=args.seed, feature_extractor=feature_extractor)
     feats = []
     for x, _ in train_loader:
         feats.append(model.extract_features(x))
@@ -90,6 +97,15 @@ def run_category(args, category: str, results_all: dict):
     model.build_memory_bank(feats)
     n_core = model.memory_bank.shape[0]
     print(f"记忆库规模: {n_core} 个 patch 特征 | 特征提取+构建耗时 {time.time()-t0:.1f}s")
+
+    # 校准集从未用于构建记忆库；仅用其正常分数确定固定的判定阈值。
+    calibration_scores = []
+    for x, _ in calibration_loader:
+        score, _ = model.predict(x)
+        calibration_scores.extend(score.tolist())
+    calibration_scores = np.asarray(calibration_scores)
+    threshold = normal_quantile_threshold(calibration_scores, args.threshold_quantile)
+    print(f"正常校准集 q={args.threshold_quantile:.3f} 阈值: {threshold:.6f}")
 
     # 2) 测试打分
     t0 = time.time()
@@ -106,13 +122,16 @@ def run_category(args, category: str, results_all: dict):
 
     y_true = np.asarray(y_true)
     y_score = np.asarray(y_score)
-    metrics = evaluate_binary(y_true, y_score)
+    metrics = evaluate_binary(y_true, y_score, threshold=threshold)
     metrics["model"] = f"PatchCore-{args.backbone}"
     metrics["backbone"] = args.backbone
     metrics["category"] = category
     metrics["memory_bank_size"] = int(n_core)
+    metrics["threshold_source"] = "held_out_normal_calibration"
+    metrics["threshold_quantile"] = args.threshold_quantile
     print(f"AUROC={metrics['auroc']:.4f} | AP={metrics['ap']:.4f} | "
-          f"F1(Youden)={metrics['f1']:.4f} | threshold={metrics['threshold']:.4f}")
+          f"F1(q{args.threshold_quantile:.2f} normal)={metrics['f1']:.4f} | "
+          f"threshold={metrics['threshold']:.4f}")
 
     # 3) 保存结果
     out = os.path.join(args.out_dir, category)
@@ -123,6 +142,10 @@ def run_category(args, category: str, results_all: dict):
     np.savez(os.path.join(out, "scores.npz"),
              y_true=y_true, y_score=y_score,
              patch_maps=np.stack(patch_maps))
+    np.savez(os.path.join(out, "calibration_scores.npz"),
+             normal_scores=calibration_scores,
+             quantile=args.threshold_quantile,
+             threshold=threshold)
 
     # 4) 可视化：ROC / 分数分布
     plot_roc_curves({f"PatchCore-{category}": (y_true, y_score)},
@@ -152,6 +175,7 @@ def run_category(args, category: str, results_all: dict):
             pm = patch_maps[idx]
             save_patch_heatmap(arr, pm,
                                os.path.join(out, f"heatmap_{key}_{fname}"),
+                               patch_grid=model.patch_grid,
                                title=f"{category}/{fname} ({key})", vmax=vmax)
 
     results_all[category] = metrics
@@ -175,6 +199,11 @@ def main():
     p.add_argument("--lr", type=float, default=1e-3, help="AE 学习率")
     p.add_argument("--device", type=str, default="mps" if torch.backends.mps.is_available() else "cpu")
     p.add_argument("--batch_size", type=int, default=16)
+    p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--calibration_fraction", type=float, default=0.1,
+                   help="从正常训练样本中固定划出的阈值校准比例")
+    p.add_argument("--threshold_quantile", type=float, default=0.99,
+                   help="正常校准分数分位数；高于此阈值判为异常")
     p.add_argument("--coreset_ratio", type=float, default=0.1)
     p.add_argument("--max_pool", type=int, default=10000)
     # 与报告和已提交 results 保持同一口径：Top-3 既能突出局部缺陷，又比单点最大值稳定。

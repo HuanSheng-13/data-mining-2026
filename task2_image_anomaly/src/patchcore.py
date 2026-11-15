@@ -9,6 +9,7 @@
 本实现基于 CPU/MPS 环境优化：Coreset 采样与最近邻搜索均采用分块计算，避免显存/内存峰值。
 """
 import os
+import math
 import random
 from typing import Optional, Tuple
 
@@ -95,11 +96,24 @@ class PatchCore:
         self.top_k = top_k
         self.random_state = random_state
         self.memory_bank: Optional[torch.Tensor] = None
+        self.patch_grid: Optional[Tuple[int, int]] = None
+
+    @staticmethod
+    def _infer_patch_grid(n_patches: int) -> Tuple[int, int]:
+        """由实际特征数量恢复网格；当前数据预处理输出正方形图像。"""
+        side = math.isqrt(n_patches)
+        if side * side != n_patches:
+            raise ValueError(
+                f"无法从 {n_patches} 个 patch 推断二维网格，请让特征提取器显式提供尺寸"
+            )
+        return side, side
 
     @torch.no_grad()
     def extract_features(self, images: torch.Tensor) -> torch.Tensor:
         """批量提取 patch 特征。"""
-        return self.feature_extractor(images.to(self.device)).cpu()
+        features = self.feature_extractor(images.to(self.device)).cpu()
+        self.patch_grid = self._infer_patch_grid(features.shape[1])
+        return features
 
     def build_memory_bank(self, normal_features: torch.Tensor) -> torch.Tensor:
         """从全部正常 patch 特征构建 Coreset 记忆库。

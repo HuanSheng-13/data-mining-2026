@@ -33,6 +33,11 @@ def main() -> None:
     parser.add_argument("--device", default="auto", choices=["auto", "cpu", "mps", "cuda"])
     parser.add_argument("--epochs", type=int, default=60, help="AE 训练轮数")
     parser.add_argument("--batch-size", type=int, default=16)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--calibration-fraction", type=float, default=0.1,
+                        help="从正常训练集划出的固定阈值校准比例")
+    parser.add_argument("--threshold-quantile", type=float, default=0.99,
+                        help="正常校准分数分位数；高于此阈值判为异常")
     parser.add_argument("--backbone", choices=["ae", "wideresnet"], default="ae",
                         help="默认 AE 不下载外部权重；wideresnet 首次运行需要联网")
     parser.add_argument("--save-heatmaps", action="store_true")
@@ -52,19 +57,24 @@ def main() -> None:
     if args.experiment in {"autoencoder", "all"}:
         run("run_autoencoder.py", ["--data_root", args.data_dir, "--all",
                                     "--out_dir", str(ae_dir), "--epochs", str(args.epochs),
-                                    "--batch_size", str(args.batch_size), *device_args])
+                                    "--batch_size", str(args.batch_size), "--seed", str(args.seed),
+                                    "--calibration_fraction", str(args.calibration_fraction),
+                                    "--threshold_quantile", str(args.threshold_quantile), *device_args])
 
     if args.experiment in {"patchcore", "all"}:
         patchcore_args = ["--data_root", args.data_dir, "--all", "--backbone", args.backbone,
                           "--out_dir", str(patchcore_dir), "--ae_epochs", str(args.epochs),
-                          "--batch_size", str(args.batch_size), *device_args]
+                          "--batch_size", str(args.batch_size), "--seed", str(args.seed),
+                          "--calibration_fraction", str(args.calibration_fraction),
+                          "--threshold_quantile", str(args.threshold_quantile), *device_args]
         if args.save_heatmaps:
             patchcore_args.append("--save_heatmaps")
         run("run_patchcore.py", patchcore_args)
 
     # 融合依赖两种方法写出的 scores.npz，所以只在 all 模式生成。
     if args.experiment == "all":
-        run("fuse_scores.py", ["--results_dir", str(output_dir)])
+        run("fuse_scores.py", ["--results_dir", str(output_dir),
+                                 "--threshold_quantile", str(args.threshold_quantile)])
         run("plot_compare.py", ["--results_dir", str(output_dir),
                                  "--out_dir", str(output_dir / "compare")])
 

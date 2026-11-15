@@ -25,8 +25,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.metrics import evaluate_binary
 
 
-def minmax(x: np.ndarray) -> np.ndarray:
-    lo, hi = x.min(), x.max()
+def apply_minmax(x: np.ndarray, lo: float, hi: float) -> np.ndarray:
     return (x - lo) / (hi - lo + 1e-12)
 
 
@@ -43,8 +42,10 @@ def main():
         ae = np.load(os.path.join(args.results_dir, "autoencoder", cat, "scores.npz"))
         pc = np.load(os.path.join(args.results_dir, "patchcore", cat, "scores.npz"))
         y_true = ae["y_true"]
-        s_ae = minmax(ae["y_score"])
-        s_pc = minmax(pc["y_score"])
+        s_ae = apply_minmax(ae["y_score"], fusion[cat]["ae_calibration_min"],
+                            fusion[cat]["ae_calibration_max"])
+        s_pc = apply_minmax(pc["y_score"], fusion[cat]["patchcore_calibration_min"],
+                            fusion[cat]["patchcore_calibration_max"])
         alpha = fusion[cat]["alpha"]
         s_fu = alpha * s_pc + (1 - alpha) * s_ae
 
@@ -62,8 +63,22 @@ def main():
         plt.savefig(os.path.join(args.out_dir, f"roc_compare_{cat}.png"), dpi=200)
         plt.close()
 
-        for name, s in [("AE", s_ae), ("PatchCore", s_pc), ("Fusion", s_fu)]:
-            m = evaluate_binary(y_true, s)
+        with open(os.path.join(args.results_dir, "autoencoder", cat, "metrics.json"),
+                  encoding="utf-8") as f:
+            ae_metrics = json.load(f)
+        with open(os.path.join(args.results_dir, "patchcore", cat, "metrics.json"),
+                  encoding="utf-8") as f:
+            pc_metrics = json.load(f)
+        for name, s, threshold in [
+            ("AE", s_ae, apply_minmax(np.asarray([ae_metrics["threshold"]]),
+                                        fusion[cat]["ae_calibration_min"],
+                                        fusion[cat]["ae_calibration_max"])[0]),
+            ("PatchCore", s_pc, apply_minmax(np.asarray([pc_metrics["threshold"]]),
+                                               fusion[cat]["patchcore_calibration_min"],
+                                               fusion[cat]["patchcore_calibration_max"])[0]),
+            ("Fusion", s_fu, fusion[cat]["threshold"]),
+        ]:
+            m = evaluate_binary(y_true, s, threshold=threshold)
             rows.append({"category": cat, "method": name,
                          "auroc": round(m["auroc"], 4), "ap": round(m["ap"], 4),
                          "f1": round(m["f1"], 4), "precision": round(m["precision"], 4),

@@ -5,7 +5,7 @@ from typing import List, Tuple
 import numpy as np
 from PIL import Image
 import torch
-from torch.utils.data import Dataset
+from torch.utils.data import Dataset, Subset
 from torchvision import transforms
 
 
@@ -103,3 +103,24 @@ def load_test_labels(label_json_path: str) -> dict:
     import json
     with open(label_json_path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def split_normal_train_dataset(dataset: Dataset, calibration_fraction: float = 0.1,
+                               seed: int = 42) -> Tuple[Subset, Subset]:
+    """把正常训练样本固定切分为拟合集与阈值校准集。
+
+    校准集只含正常样本，因此其分数分位数可在不读取测试标签的前提下确定阈值。
+    返回顺序为 ``(fit_subset, calibration_subset)``。
+    """
+    n = len(dataset)
+    if n < 2:
+        raise ValueError("至少需要 2 个正常训练样本，才能划分校准集")
+    if not 0.0 < calibration_fraction < 1.0:
+        raise ValueError("calibration_fraction 必须在 (0, 1) 内")
+    n_calibration = max(1, int(round(n * calibration_fraction)))
+    n_calibration = min(n_calibration, n - 1)
+    rng = np.random.default_rng(seed)
+    permutation = rng.permutation(n)
+    calibration_indices = sorted(int(i) for i in permutation[:n_calibration])
+    fit_indices = sorted(int(i) for i in permutation[n_calibration:])
+    return Subset(dataset, fit_indices), Subset(dataset, calibration_indices)
