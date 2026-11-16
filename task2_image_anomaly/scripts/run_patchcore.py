@@ -18,7 +18,7 @@ from torch.utils.data import DataLoader
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.dataset import (AnomalyImageDataset, TestImageDataset, load_test_labels,
-                         split_normal_train_dataset)
+                         split_normal_train_dataset, training_context, resolve_data_root)
 from src.patchcore import PatchCore
 from src.metrics import (evaluate_binary, normal_quantile_threshold, plot_roc_curves,
                          plot_score_distribution, save_patch_heatmap)
@@ -38,7 +38,7 @@ def denorm(tensor: torch.Tensor, mode: str = "imagenet") -> np.ndarray:
 
 def run_category(args, category: str, results_all: dict):
     print(f"\n========== 类别: {category} ==========")
-    data_root = args.data_root
+    data_root = resolve_data_root(args.data_root)
     label_path = os.path.join(data_root, "image_anomaly_labels.json")
     labels = load_test_labels(label_path)
 
@@ -56,6 +56,8 @@ def run_category(args, category: str, results_all: dict):
 
     train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=False,
                               num_workers=0)
+    ae_train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True,
+                                 num_workers=0, generator=torch.Generator().manual_seed(args.seed))
     calibration_loader = DataLoader(calibration_ds, batch_size=args.batch_size,
                                     shuffle=False, num_workers=0)
     test_loader = DataLoader(test_ds, batch_size=args.batch_size, shuffle=False,
@@ -65,22 +67,42 @@ def run_category(args, category: str, results_all: dict):
     if args.backbone == "ae":
         from src.autoencoder import AutoEncoderDetector
         ae = AutoEncoderDetector(device=args.device, epochs=args.ae_epochs,
-                                 lr=args.lr, batch_size=args.batch_size, seed=42)
+                                 lr=args.lr, batch_size=args.batch_size, seed=args.seed)
         # 默认复用 run_autoencoder.py 在同一任务目录下保存的权重。
         # out_dir 默认为 results/task2/patchcore，因此权重目录是它的同级 autoencoder。
         task_result_dir = os.path.dirname(os.path.normpath(args.out_dir))
         default_ae = os.path.join(task_result_dir, "autoencoder", category, "autoencoder.pt")
         ae_path = args.ae_weights or default_ae
+        context = training_context(train_ds)
+        loaded = False
         if os.path.exists(ae_path):
-            ae.load(ae_path)
-            print(f"加载 AE 权重: {ae_path}")
-        else:
+            try:
+                ae.load(ae_path, context)
+                loaded = True
+                print(f"加载匹配的 AE 权重: {ae_path}")
+            except ValueError as exc:
+                if args.ae_weights:
+                    raise ValueError(f"显式指定的 AE 权重不可复用: {exc}") from exc
+                print(f"忽略过期 AE 缓存，重新训练: {exc}")
+        if not loaded:
             print("训练自监督 Autoencoder 特征提取器 ...")
-            ae.fit(train_loader, verbose=True)
-            os.makedirs(os.path.dirname(ae_path), exist_ok=True)
-            ae.save(ae_path)
+            ae.fit(ae_train_loader, verbose=True)
+            os.makedirs(os.path.dirname(os.path.abspath(ae_path)), exist_ok=True)
+            ae.save(ae_path, context)
             print(f"AE 权重已保存: {ae_path}")
         feature_extractor = lambda x: ae.model.encode_patches(x.to(args.device))
+    elif args.backbone == "resnet18":
+        from src.patchcore import ResNet18FeatureExtractor
+        weights_path = args.weights_path
+        if not weights_path:
+            from torchvision.models import ResNet18_Weights
+            directory = os.path.join(args.out_dir, "checkpoints")
+            os.makedirs(directory, exist_ok=True)
+            weights_path = os.path.join(directory, "resnet18-f37072fd.pth")
+            if not os.path.isfile(weights_path):
+                torch.hub.load_state_dict_from_url(ResNet18_Weights.IMAGENET1K_V1.url,
+                                                  model_dir=directory, check_hash=True)
+        feature_extractor = ResNet18FeatureExtractor(args.device, weights_path)
     else:
         from src.patchcore import WideResNetFeatureExtractor
         feature_extractor = WideResNetFeatureExtractor("wide_resnet50_2", args.device)
@@ -189,10 +211,11 @@ def main():
     p.add_argument("--category", type=str, default="hazelnut",
                    choices=["hazelnut", "zipper"])
     p.add_argument("--all", action="store_true", help="跑全部类别")
-    p.add_argument("--backbone", type=str, default="ae",
-                   choices=["ae", "wideresnet"],
-                   help="特征提取骨干：ae=自监督自编码器特征（默认，无需联网下载权重）；"
+    p.add_argument("--backbone", type=str, default="resnet18",
+                   choices=["resnet18", "ae", "wideresnet"],
+                   help="特征提取骨干：resnet18=预训练特征（默认）；ae=自编码器对照；"
                         "wideresnet=ImageNet预训练WideResNet-50（需联网下载权重）")
+    p.add_argument("--weights_path", default="", help="本地官方 ResNet-18 权重路径")
     p.add_argument("--ae_weights", type=str, default="",
                    help="复用已训练的 AE 权重路径（可选）")
     p.add_argument("--ae_epochs", type=int, default=60, help="AE 训练轮数")

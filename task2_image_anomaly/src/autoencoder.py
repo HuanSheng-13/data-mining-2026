@@ -128,13 +128,20 @@ class AutoEncoderDetector:
             feats.append(self.model.encode_patches(x).cpu())
         return torch.cat(feats, dim=0)
 
-    def save(self, path: str):
+    def configuration(self):
+        return {"lr": self.lr, "epochs": self.epochs,
+                "batch_size": self.batch_size, "seed": self.seed}
+
+    def save(self, path: str, training_context: dict):
         torch.save({"state_dict": self.model.state_dict(),
-                    "config": {"lr": self.lr, "epochs": self.epochs,
-                               "batch_size": self.batch_size, "seed": self.seed}},
+                    "config": self.configuration(),
+                    "training_context": training_context},
                    path)
 
-    def load(self, path: str):
-        ckpt = torch.load(path, map_location=self.device)
+    def load(self, path: str, training_context: dict):
+        ckpt = torch.load(path, map_location=self.device, weights_only=True)
+        if (ckpt.get("config") != self.configuration()
+                or ckpt.get("training_context") != training_context):
+            raise ValueError("AE 权重的训练配置或数据划分不匹配（旧版权重也需重训）")
         self.model.load_state_dict(ckpt["state_dict"])
         return self

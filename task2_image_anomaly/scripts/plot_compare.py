@@ -17,7 +17,7 @@ for fp in ["/System/Library/Fonts/PingFang.ttc",
         font_manager.fontManager.addfont(fp)
         break
 plt.rcParams["font.sans-serif"] = ["PingFang SC", "Hiragino Sans GB",
-                                   "STHeiti", "Arial Unicode MS"]
+                                   "STHeiti", "Arial Unicode MS", "Microsoft YaHei", "DejaVu Sans"]
 plt.rcParams["axes.unicode_minus"] = False
 from sklearn.metrics import roc_curve, roc_auc_score
 

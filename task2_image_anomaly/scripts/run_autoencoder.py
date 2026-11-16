@@ -16,7 +16,7 @@ from torch.utils.data import DataLoader
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.dataset import (AnomalyImageDataset, TestImageDataset, load_test_labels,
-                         split_normal_train_dataset)
+                         split_normal_train_dataset, training_context, resolve_data_root)
 from src.autoencoder import AutoEncoderDetector
 from src.metrics import (evaluate_binary, normal_quantile_threshold, plot_roc_curves,
                          plot_score_distribution)
@@ -24,7 +24,7 @@ from src.metrics import (evaluate_binary, normal_quantile_threshold, plot_roc_cu
 
 def run_category(args, category: str, results_all: dict):
     print(f"\n========== 类别: {category} ==========")
-    data_root = args.data_root
+    data_root = resolve_data_root(args.data_root)
     labels = load_test_labels(os.path.join(data_root, "image_anomaly_labels.json"))
 
     normal_ds = AnomalyImageDataset(data_root, category, "train", subdir="good",
@@ -48,13 +48,13 @@ def run_category(args, category: str, results_all: dict):
 
     t0 = time.time()
     model = AutoEncoderDetector(device=args.device, epochs=args.epochs,
-                                lr=args.lr, batch_size=args.batch_size, seed=42)
+                                lr=args.lr, batch_size=args.batch_size, seed=args.seed)
     history = model.fit(train_loader, verbose=True)
     print(f"训练耗时 {time.time()-t0:.1f}s")
     # 保存权重（供 PatchCore 特征复用 / 复现）
     ckpt_path = os.path.join(args.out_dir, category, "autoencoder.pt")
     os.makedirs(os.path.dirname(ckpt_path), exist_ok=True)
-    model.save(ckpt_path)
+    model.save(ckpt_path, training_context(train_ds))
     print(f"AE 权重已保存: {ckpt_path}")
 
     # 阈值仅由未参与拟合的正常样本确定；此处不访问任何测试标签。

@@ -24,6 +24,30 @@ MEAN = np.array([0.485, 0.456, 0.406], dtype=np.float32)
 STD = np.array([0.229, 0.224, 0.225], dtype=np.float32)
 
 
+class ResNet18FeatureExtractor(nn.Module):
+    """冻结的 ImageNet 特征与局部平均池化，保留缺陷的空间信息。"""
+
+    def __init__(self, device="cpu", weights_path=None):
+        super().__init__()
+        weights = models.ResNet18_Weights.IMAGENET1K_V1
+        if weights_path:
+            net = models.resnet18(weights=None)
+            net.load_state_dict(torch.load(weights_path, map_location="cpu", weights_only=True))
+        else:
+            net = models.resnet18(weights=weights)
+        self.extractor = create_feature_extractor(net, return_nodes=["layer2", "layer3"])
+        self.extractor.eval().to(device)
+        self.extractor.requires_grad_(False)
+
+    @torch.no_grad()
+    def forward(self, images):
+        features = self.extractor(images)
+        f2 = nn.functional.avg_pool2d(features["layer2"], 3, 1, 1)
+        f3 = nn.functional.avg_pool2d(features["layer3"], 3, 1, 1)
+        f3 = nn.functional.interpolate(f3, size=f2.shape[-2:], mode="bilinear", align_corners=False)
+        return torch.cat([f2, f3], dim=1).flatten(2).transpose(1, 2)
+
+
 class WideResNetFeatureExtractor(nn.Module):
     """从预训练 WideResNet-50 的 layer2/layer3 提取多尺度特征。"""
 

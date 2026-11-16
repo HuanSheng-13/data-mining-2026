@@ -1,5 +1,7 @@
 """数据加载与预处理模块：读取 Image_Anomaly_Detection 数据集。"""
 import os
+import hashlib
+from pathlib import Path
 from typing import List, Tuple
 
 import numpy as np
@@ -7,6 +9,30 @@ from PIL import Image
 import torch
 from torch.utils.data import Dataset, Subset
 from torchvision import transforms
+
+
+def resolve_data_root(root: str) -> str:
+    """兼容保留压缩包外层目录的解压方式。"""
+    root = Path(root)
+    if not (root / "image_anomaly_labels.json").is_file():
+        root = root / "Image_Anomaly_Detection"
+    if not (root / "image_anomaly_labels.json").is_file():
+        raise FileNotFoundError(f"未找到图像异常检测数据: {root}")
+    return str(root)
+
+
+def training_context(fit_subset: Subset) -> dict:
+    """绑定实际拟合样本、内容和预处理，防止缓存跨划分/数据版本复用。"""
+    dataset = fit_subset.dataset
+    digest = hashlib.sha256()
+    for index in fit_subset.indices:
+        name = dataset.files[index]
+        path = Path(dataset.root) / dataset.category / dataset.split / dataset.subdir / name
+        digest.update(name.encode("utf-8"))
+        digest.update(hashlib.sha256(path.read_bytes()).digest())
+    return {"format_version": 1, "category": dataset.category,
+            "fit_digest": digest.hexdigest(), "fit_count": len(fit_subset),
+            "transform": repr(dataset.transform)}
 
 
 class AnomalyImageDataset(Dataset):

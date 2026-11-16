@@ -7,6 +7,8 @@
 from __future__ import annotations
 
 import argparse
+import json
+import platform
 import subprocess
 import sys
 from pathlib import Path
@@ -38,8 +40,9 @@ def main() -> None:
                         help="从正常训练集划出的固定阈值校准比例")
     parser.add_argument("--threshold-quantile", type=float, default=0.99,
                         help="正常校准分数分位数；高于此阈值判为异常")
-    parser.add_argument("--backbone", choices=["ae", "wideresnet"], default="ae",
-                        help="默认 AE 不下载外部权重；wideresnet 首次运行需要联网")
+    parser.add_argument("--backbone", choices=["resnet18", "ae", "wideresnet"], default="resnet18",
+                        help="默认预训练 ResNet-18；ae 为无外部权重的对照")
+    parser.add_argument("--weights-path", help="本地官方 ResNet-18 权重；不指定则自动下载")
     parser.add_argument("--save-heatmaps", action="store_true")
     args = parser.parse_args()
 
@@ -67,6 +70,8 @@ def main() -> None:
                           "--batch_size", str(args.batch_size), "--seed", str(args.seed),
                           "--calibration_fraction", str(args.calibration_fraction),
                           "--threshold_quantile", str(args.threshold_quantile), *device_args]
+        if args.weights_path:
+            patchcore_args.extend(["--weights_path", args.weights_path])
         if args.save_heatmaps:
             patchcore_args.append("--save_heatmaps")
         run("run_patchcore.py", patchcore_args)
@@ -77,6 +82,10 @@ def main() -> None:
                                  "--threshold_quantile", str(args.threshold_quantile)])
         run("plot_compare.py", ["--results_dir", str(output_dir),
                                  "--out_dir", str(output_dir / "compare")])
+
+    (output_dir / "run.json").write_text(json.dumps(
+        {"arguments": vars(args), "python": platform.python_version(),
+         "platform": platform.platform()}, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

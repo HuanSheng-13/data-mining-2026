@@ -1,0 +1,27 @@
+{
+  "arguments": {
+    "data_dir": "data/image_anomaly",
+    "output_dir": "results/task2",
+    "experiment": "all",
+    "device": "cpu",
+    "epochs": 10,
+    "batch_size": 16,
+    "seed": 42,
+    "calibration_fraction": 0.1,
+    "threshold_quantile": 0.99,
+    "backbone": "resnet18",
+    "weights_path": "results/task1/checkpoints/resnet18-f37072fd.pth",
+    "save_heatmaps": true
+  },
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "base_commit": "225dba284dd7fee9e6d38e1e80512a995d0bd459",
+  "working_tree_uncommitted": true,
+  "dependencies": {
+    "torch": "2.7.1+cpu",
+    "torchvision": "0.22.1+cpu",
+    "sklearn": "1.7.2",
+    "numpy": "2.3.5"
+  },
+  "weights_sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+}

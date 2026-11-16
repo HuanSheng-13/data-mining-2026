@@ -64,6 +64,8 @@ data/image_anomaly/
     └── test/
 ```
 
+也可保留压缩包的 `Image_Anomaly_Detection/` 外层目录，程序会自动定位实际根目录。
+
 任务2程序以 `image_anomaly_labels.json` 为测试集标签来源，仅在最终评估阶段读取标签。训练阶段严格只读取两个类别的 `train/good`。具体命令、结果与参数见 [`task2_image_anomaly/README.md`](../task2_image_anomaly/README.md)。
 
 ## 版本管理
