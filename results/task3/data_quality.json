@@ -1,0 +1,78 @@
+{
+  "raw_rows": 26200,
+  "rows_after_timestamp_dedup": 26199,
+  "duplicate_timestamps_removed": 1,
+  "non_10minute_intervals": 1,
+  "invalid_by_feature": {
+    "p (mbar)": 0,
+    "T (degC)": 0,
+    "Tpot (K)": 0,
+    "Tdew (degC)": 0,
+    "rh (%)": 0,
+    "VPmax (mbar)": 0,
+    "VPact (mbar)": 0,
+    "VPdef (mbar)": 0,
+    "sh (g/kg)": 0,
+    "H2OC (mmol/mol)": 0,
+    "rho (g/m**3)": 0,
+    "wv (m/s)": 1,
+    "max. wv (m/s)": 0,
+    "wd (deg)": 0,
+    "rain (mm)": 0,
+    "raining (s)": 0,
+    "SWDR (W/m²)": 0,
+    "PAR (µmol/m²/s)": 0,
+    "max. PAR (µmol/m²/s)": 10,
+    "Tlog (degC)": 0,
+    "CO2 (ppm)": 34
+  },
+  "features": [
+    "p (mbar)",
+    "T (degC)",
+    "Tpot (K)",
+    "Tdew (degC)",
+    "rh (%)",
+    "VPmax (mbar)",
+    "VPact (mbar)",
+    "VPdef (mbar)",
+    "sh (g/kg)",
+    "H2OC (mmol/mol)",
+    "rho (g/m**3)",
+    "wv (m/s)",
+    "max. wv (m/s)",
+    "wd (deg)",
+    "rain (mm)",
+    "raining (s)",
+    "SWDR (W/m²)",
+    "PAR (µmol/m²/s)",
+    "max. PAR (µmol/m²/s)",
+    "Tlog (degC)",
+    "CO2 (ppm)"
+  ],
+  "raw_boundaries": [
+    0,
+    15719,
+    20959,
+    26199
+  ],
+  "first_timestamp": "2020-01-01 00:10:00",
+  "last_timestamp": "2020-07-01 00:00:00",
+  "policy": "keep first duplicate; causal forward fill inputs; never impute targets; reject non-contiguous windows",
+  "splits": {
+    "train": {
+      "samples": 15673,
+      "first_target": "2020-01-01 02:10:00",
+      "last_target": "2020-04-19 03:50:00"
+    },
+    "validation": {
+      "samples": 5228,
+      "first_target": "2020-04-19 06:00:00",
+      "last_target": "2020-05-25 13:10:00"
+    },
+    "test": {
+      "samples": 5216,
+      "first_target": "2020-05-25 15:20:00",
+      "last_target": "2020-07-01 00:00:00"
+    }
+  }
+}
