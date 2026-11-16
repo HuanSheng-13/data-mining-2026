@@ -43,6 +43,15 @@ from experiment_common import (
 PRIMARY = "LOF"
 
 
+def resolve_data_dir(data):
+    """Locate either flat CSV files or the archive's nested thyroid directory."""
+    base = Path(data)
+    for candidate in (base, base / "thyroid"):
+        if all((candidate / name).is_file() for name in ("train-set.csv", "test-set.csv")):
+            return candidate
+    raise FileNotFoundError(f"Cannot locate train-set.csv and test-set.csv under {base}")
+
+
 def calibrated_threshold(scores, alpha):
     """Conservative finite-sample upper quantile; mark anomaly iff score > threshold."""
     k = int(np.ceil((len(scores) + 1) * (1 - alpha)))
@@ -73,8 +82,9 @@ def run(data, out, alpha=0.05, seed=SEED):
         raise ValueError("alpha must be in (0,1)")
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
-    train_path = Path(data) / "train-set.csv"
-    test_path = Path(data) / "test-set.csv"
+    data = resolve_data_dir(data)
+    train_path = data / "train-set.csv"
+    test_path = data / "test-set.csv"
     train = pd.read_csv(train_path)
     test = pd.read_csv(test_path)
     cols = list(train.columns)
@@ -286,7 +296,4 @@ if __name__ == "__main__":
     p.add_argument("--alpha", type=float, default=0.05)
     a = p.parse_args()
     with threadpool_limits(limits=2):
-        data_dir = (
-            a.data_dir / "thyroid" if (a.data_dir / "thyroid").is_dir() else a.data_dir
-        )
-        run(data_dir, a.output_dir, a.alpha, a.seed)
+        run(a.data_dir, a.output_dir, a.alpha, a.seed)

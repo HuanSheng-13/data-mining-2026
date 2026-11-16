@@ -1,0 +1,9 @@
+{
+  "tests_passed": 8,
+  "full_pipeline_epochs": 10,
+  "full_pipeline_backbone": "resnet18",
+  "cpu_primary_repeat_scores_identical": true,
+  "threshold_source": "held_out_normal_calibration",
+  "fit_count_per_category": 180,
+  "calibration_count_per_category": 20
+}

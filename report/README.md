@@ -3,7 +3,7 @@
 | 任务 | 报告 | 状态 |
 | --- | --- | --- |
 | 任务1：图像无监督聚类 | [实验报告](../results/task1/report.md) | 已完成 |
-| 任务2：图像异常检测 | 待补充 | 待实现 |
+| 任务2：图像异常检测 | [实验报告](../results/task2/report.md) · [复现说明](../task2_image_anomaly/README.md) | 已完成 |
 | 任务3：时间序列预测 | [实验报告](../results/task3/report.md) · [LaTeX 正文](task3_section.tex) | 已完成 |
 | 任务4：无监督疾病判断 | [实验报告](../results/task4/report.md) · [LaTeX 正文](task4_section.tex) | 已完成 |
 

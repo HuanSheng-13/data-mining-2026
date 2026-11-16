@@ -1,0 +1,7 @@
+﻿category,method,auroc,ap,f1,precision,recall,accuracy
+hazelnut,AE,0.635,0.4494,0.0,0.0,0.0,0.7273
+hazelnut,PatchCore,1.0,1.0,0.9677,0.9375,1.0,0.9818
+hazelnut,Fusion,1.0,1.0,0.9286,1.0,0.8667,0.9636
+zipper,AE,0.5437,0.3696,0.1053,0.25,0.0667,0.6383
+zipper,PatchCore,0.9437,0.8917,0.8667,0.8667,0.8667,0.9149
+zipper,Fusion,0.9437,0.8917,0.8276,0.8571,0.8,0.8936

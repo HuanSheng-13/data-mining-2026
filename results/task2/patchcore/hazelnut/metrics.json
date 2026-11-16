@@ -1,0 +1,17 @@
+{
+  "auroc": 1.0,
+  "ap": 1.0,
+  "threshold": 0.6166773635149002,
+  "f1": 0.967741935483871,
+  "precision": 0.9375,
+  "recall": 1.0,
+  "accuracy": 0.9818181818181818,
+  "n_normal": 40.0,
+  "n_anomaly": 15.0,
+  "model": "PatchCore-resnet18",
+  "backbone": "resnet18",
+  "category": "hazelnut",
+  "memory_bank_size": 1000.0,
+  "threshold_source": "held_out_normal_calibration",
+  "threshold_quantile": 0.99
+}

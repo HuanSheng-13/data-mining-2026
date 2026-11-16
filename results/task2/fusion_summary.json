@@ -1,0 +1,34 @@
+{
+  "hazelnut": {
+    "alpha": 0.30000000000000004,
+    "auroc": 1.0,
+    "f1": 0.9285714285714286,
+    "ap": 1.0,
+    "precision": 1.0,
+    "recall": 0.8666666666666667,
+    "accuracy": 0.9636363636363636,
+    "threshold": 0.8606049539961587,
+    "threshold_source": "held_out_normal_calibration",
+    "threshold_quantile": 0.99,
+    "ae_calibration_min": 0.002702352125197649,
+    "ae_calibration_max": 0.008879219181835651,
+    "patchcore_calibration_min": 0.5422800183296204,
+    "patchcore_calibration_max": 0.6200792789459229
+  },
+  "zipper": {
+    "alpha": 0.9500000000000001,
+    "auroc": 0.94375,
+    "f1": 0.8275862068965517,
+    "ap": 0.8917452917452917,
+    "precision": 0.8571428571428571,
+    "recall": 0.8,
+    "accuracy": 0.8936170212765957,
+    "threshold": 0.9009009915551949,
+    "threshold_source": "held_out_normal_calibration",
+    "threshold_quantile": 0.99,
+    "ae_calibration_min": 0.0035056958440691233,
+    "ae_calibration_max": 0.009979184716939926,
+    "patchcore_calibration_min": 0.3149925768375397,
+    "patchcore_calibration_max": 0.42563700675964355
+  }
+}

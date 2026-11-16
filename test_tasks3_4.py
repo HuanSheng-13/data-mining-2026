@@ -2,16 +2,29 @@
 
 import json
 import unittest
+import tempfile
+from pathlib import Path
 import joblib
 import numpy as np
 import pandas as pd
 from experiment_common import ROOT
 from predict import predict_weather, predict_thyroid
 from task3_forecasting.main import load_weather, windows, WINDOW, TARGET, metrics
-from task4_thyroid.main import calibrated_threshold, evaluate
+from task4_thyroid.main import calibrated_threshold, evaluate, resolve_data_dir
 
 
 class ProtocolTests(unittest.TestCase):
+    def test_thyroid_flat_and_nested_data_directories(self):
+        for nested in (False, True):
+            with self.subTest(nested=nested), tempfile.TemporaryDirectory() as directory:
+                base = Path(directory)
+                actual = base / "thyroid" if nested else base
+                actual.mkdir(exist_ok=True)
+                for name in ("train-set.csv", "test-set.csv"):
+                    (actual / name).touch()
+                self.assertEqual(resolve_data_dir(base), actual)
+                self.assertEqual(resolve_data_dir(actual), actual)
+
     def test_weather_window_boundaries_and_targets(self):
         d, clean, filled, cols, (b1, b2), audit = load_weather(
             ROOT / "data/weather/weather.csv"
@@ -65,7 +78,8 @@ class ProtocolTests(unittest.TestCase):
         )
 
     def test_thyroid_no_group_overlap_or_label_dependency(self):
-        train = pd.read_csv(ROOT / "data/thyroid/train-set.csv")
+        data_dir = resolve_data_dir(ROOT / "data/thyroid")
+        train = pd.read_csv(data_dir / "train-set.csv")
         protocol = json.loads(
             (ROOT / "results/task4/reproduced/protocol.json").read_text()
         )
@@ -74,7 +88,7 @@ class ProtocolTests(unittest.TestCase):
             set(h.iloc[protocol["fit_rows"]])
             & set(h.iloc[protocol["calibration_rows"]])
         )
-        test = pd.read_csv(ROOT / "data/thyroid/test-set.csv")
+        test = pd.read_csv(data_dir / "test-set.csv")
         b = joblib.load(ROOT / "results/task4/reproduced/LOF.joblib")
         original = predict_thyroid(b, test)
         test["label"] = 1 - test.label

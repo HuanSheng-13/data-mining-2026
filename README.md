@@ -7,7 +7,7 @@
 | 任务 | 状态 | 说明与结果 |
 | --- | --- | --- |
 | 任务1：图像无监督聚类 | 已完成 | [复现说明](task1_clustering/README.md) · [实验报告](results/task1/report.md) · [指标汇总](results/task1/summary.csv) |
-| 任务2：图像异常检测 | 待实现 | [任务说明](task2_image_anomaly/README.md) |
+| 任务2：图像异常检测 | 已完成 | [复现说明](task2_image_anomaly/README.md) · [指标与图表](results/task2/) |
 | 任务3：时间序列预测 | 已完成 | [复现说明](task3_forecasting/README.md) · [实验报告](results/task3/report.md) · [指标](results/task3/metrics.csv) |
 | 任务4：无监督疾病判断 | 已完成 | [复现说明](task4_thyroid/README.md) · [实验报告](results/task4/report.md) · [指标](results/task4/metrics.csv) |
 
@@ -52,10 +52,11 @@ data-mining-2026/
 ├── requirements.txt
 ├── data/README.md              # 各任务的数据下载与放置说明
 ├── task1_clustering/           # 任务1代码、锁定依赖与测试
-├── task2_image_anomaly/        # 任务2说明
+├── task2_image_anomaly/        # 任务2代码、复现说明与独立入口
 ├── task3_forecasting/          # 任务3代码与复现说明
 ├── task4_thyroid/              # 任务4代码与复现说明
 ├── results/task1/              # 任务1最终报告、指标、配置和图表
+├── results/task2/              # 任务2最终报告、指标与图表
 ├── results/task3/              # 任务3最终报告、指标、配置和图表
 ├── results/task4/              # 任务4最终报告、指标、配置和图表
 └── report/README.md            # 课程报告材料索引

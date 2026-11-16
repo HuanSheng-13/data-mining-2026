@@ -1,0 +1,34 @@
+{
+  "hazelnut": {
+    "auroc": 0.635,
+    "ap": 0.44942607163702497,
+    "threshold": 0.00879475343041122,
+    "f1": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "accuracy": 0.7272727272727273,
+    "n_normal": 40.0,
+    "n_anomaly": 15.0,
+    "model": "Autoencoder",
+    "category": "hazelnut",
+    "final_train_mse": 0.00526436288944549,
+    "threshold_source": "held_out_normal_calibration",
+    "threshold_quantile": 0.99
+  },
+  "zipper": {
+    "auroc": 0.54375,
+    "ap": 0.3695936654728984,
+    "threshold": 0.009796138871461153,
+    "f1": 0.10526315789473684,
+    "precision": 0.25,
+    "recall": 0.06666666666666667,
+    "accuracy": 0.6382978723404256,
+    "n_normal": 32.0,
+    "n_anomaly": 15.0,
+    "model": "Autoencoder",
+    "category": "zipper",
+    "final_train_mse": 0.005566297569829556,
+    "threshold_source": "held_out_normal_calibration",
+    "threshold_quantile": 0.99
+  }
+}
