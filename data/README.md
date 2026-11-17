@@ -1,80 +1,59 @@
-# 数据来源、下载与放置
+# 数据下载与文件组织
 
-## 来源及下载
+四项必做任务使用[课程数据地址](https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665)中的 `Cluster.zip`、`Image_Anomaly_Detection.zip`、`weather.csv` 和 `thyroid.zip`。
 
-使用课程《作业说明_2026.pdf》提供的数据集，不将原始数据上传到 Git 仓库。
+## 解压方式
 
-课程数据下载地址：<https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665>
+以下路径均相对于仓库根目录。先新建四个目标目录，再将压缩包内容直接解压到对应目录，保留包内原始文件名和层级：
 
-请在浏览器打开上述地址，按需要下载 `Cluster.zip`、`Image_Anomaly_Detection.zip`、`weather.csv` 和 `thyroid.zip`。如果访问权限或链接发生变化，以老师提供的最新链接为准。
+| 下载文件 | 存放操作 | 程序使用的数据目录 |
+| --- | --- | --- |
+| `Cluster.zip` | 将压缩包内容直接解压到 `data/cluster/` | `data/cluster` |
+| `Image_Anomaly_Detection.zip` | 将压缩包内容直接解压到 `data/image_anomaly/` | `data/image_anomaly` |
+| `weather.csv` | 直接复制到 `data/weather/weather.csv` | `data/weather` |
+| `thyroid.zip` | 将压缩包内容直接解压到 `data/thyroid/` | `data/thyroid` |
 
-## 本地放置方式
+ZIP内已自带 `Cluster/`、`Image_Anomaly_Detection/` 或 `thyroid/` 文件夹，解压后保留它们即可，无需把其中的文件再移到上一层。解压软件的目标目录请选择表中的路径，不要再额外创建压缩包同名目录。`weather.csv` 是独立CSV文件，不是压缩包。
 
-在仓库根目录按以下方式放置：
+如将四个下载文件保存到Windows的“下载”目录，可从仓库根目录在PowerShell执行以下命令。若下载到其他位置，仅修改第一行；解压目标应为新建的空目录：
+
+## 解压后的结构
+
+下面与本地数据直接解压后的实际结构一致，四个任务均支持直接读取：
 
 ```text
 data/
 ├── README.md
-├── cluster/          # Cluster.zip 解压内容
-├── image_anomaly/    # Image_Anomaly_Detection.zip 解压内容
+├── cluster/
+│   └── Cluster/
+│       ├── cluster_labels.json
+│       └── dataset/                # 600张图像
+├── image_anomaly/
+│   └── Image_Anomaly_Detection/
+│       ├── image_anomaly_labels.json
+│       ├── hazelnut/
+│       │   ├── train/
+│       │   │   ├── good/
+│       │   │   └── bad/
+│       │   └── test/
+│       └── zipper/
+│           ├── train/
+│           │   ├── good/
+│           │   └── bad/
+│           └── test/
 ├── weather/
 │   └── weather.csv
 └── thyroid/
-    └── thyroid/      # 外层同名目录可保留，也可将两个 CSV 直接放进 data/thyroid/
+    └── thyroid/
         ├── train-set.csv
         └── test-set.csv
 ```
 
-- 将各压缩包解压内容放入对应目录，保留包内文件名及目录结构。例如 Cluster 中的 `dataset/` 若为包内目录，则保留为 `data/cluster/dataset/`。
-- 不把压缩包本身当作程序输入，不在 Git 中保存下载压缩包。
-- 已核对任务1、2、3、4的数据结构。
-- `--data-dir` 指向表中对应的任务数据根目录；加载器在此目录内定位实际文件。
-- 下载和解压后应核对样本数、训练/测试划分及标签含义。不要为了方便而混合老师已划分的训练集和测试集。
+## 数据核对
 
-| 任务 | 输入数据 | 传入的目录 |
-| --- | --- | --- |
-| 任务1：图像聚类 | Cluster.zip | `data/cluster` |
-| 任务2：图像异常检测 | Image_Anomaly_Detection.zip | `data/image_anomaly` |
-| 任务3：时间序列预测 | weather.csv | `data/weather` |
-| 任务4：疾病判断 | thyroid.zip | `data/thyroid` |
-
-## 任务1实际解压结构和核对记录
-
-```text
-data/cluster/Cluster/
-├── cluster_labels.json
-└── dataset/
-    ├── 001.png
-    └── ...（共600张PNG）
-```
-
-cluster_labels.json将图片文件名映射到类别字符串。六类为bottle、cable、leather、pill、tile、transistor，各100张；600张均可解码为RGB，未发现字节内容重复。尺寸1024×1024共300张，800×800、840×840、900×900各100张。来源为上述课程下载链接；每次运行的audit.json记录数据及标签摘要，可校验具体版本。
-
-任务1继续传入 `--data-dir data/cluster` 即可，程序会定位外层Cluster中的dataset。标签只用于数据核验及最终评估。
-
-## 任务2实际解压结构和核对记录
-
-```text
-data/image_anomaly/
-├── image_anomaly_labels.json
-├── hazelnut/
-│   ├── train/good/             # 训练实际读取的正常样本
-│   ├── train/bad/              # 保留但不参与无监督训练
-│   └── test/
-└── zipper/
-    ├── train/good/
-    ├── train/bad/
-    └── test/
-```
-
-也可保留压缩包的 `Image_Anomaly_Detection/` 外层目录，程序会自动定位实际根目录。
-
-任务2程序以 `image_anomaly_labels.json` 为测试集标签来源，仅在最终评估阶段读取标签。训练阶段严格只读取两个类别的 `train/good`。具体命令、结果与参数见 [`task2_image_anomaly/README.md`](../task2_image_anomaly/README.md)。
-
-## 任务3与任务4数据核对记录
-
-任务3的 CSV 有 26200 行、时间戳列和 21 个数值列。任务4的训练 CSV 有 1839 行、6 个特征，测试 CSV 有 1933 行，另有 `label` 列。各任务的 `data_quality.json` 记录了详细检查结果。
-
-## 版本管理
-
-根目录 `.gitignore` 忽略本目录内除本 README 外的所有内容，所以数据目录只在本地存在。克隆仓库后按上述结构新建目录并放置数据即可。不要用 `git add -f` 强制上传数据。
+| 任务 | 数据规模与标签 |
+| --- | --- |
+| 任务1 | 6类、每类100张，共600张图像；`cluster_labels.json` 用于核验和评估 |
+| 任务2 | hazelnut、zipper各有200张训练正常图像和50张训练异常图像；测试标签在 `image_anomaly_labels.json` 中 |
+| 任务3 | `weather.csv` 有26200行、日期列与21个数值指标 |
+| 任务4 | 训练CSV为1839行、6个特征；测试CSV为1933行，并包含 `label` 列 |

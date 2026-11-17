@@ -1,4 +1,4 @@
-"""Shared reproducibility, metrics and plotting utilities."""
+"""Task-local reproducibility, metrics and plotting utilities."""
 
 import hashlib
 import json
@@ -12,7 +12,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SEED = 2026
 COLORS = ["#0072B2", "#D55E00", "#009E73", "#CC79A7"]
 plt.rcParams.update(

@@ -54,15 +54,15 @@ A、B、C分别使用随机种子42、43、44、45、46运行五次，D运行一
 
 表中为均值；A、B、C三个方案的ARI、NMI、ACC在五个种子下的样本标准差均为0。每次实验的600张图像均形成6个非空簇，每簇100张。
 
-![四个方案的外部评价指标](figures/comparison.png)
+![四个方案的外部评价指标](../results/task1/figures/comparison.png)
 
 主方案中，各簇与六个真实类别一一对应。列联热力图的每一行、每一列均只有一个非零值100，ACC为100%。
 
-![主方案类别与簇的列联热力图](figures/contingency.png)
+![主方案类别与簇的列联热力图](../results/task1/figures/contingency.png)
 
 二维PCA投影展示主方案29维聚类特征的主要变化方向。左右两图使用相同坐标，分别按真实类别和簇编号着色，六组样本具有清晰的分离结构。
 
-![主方案二维PCA投影](figures/projection.png)
+![主方案二维PCA投影](../results/task1/figures/projection.png)
 
 ## 5. 对照实验与图像分析
 
@@ -75,7 +75,7 @@ PCA将深度特征从512维压缩到29维。K-Means平均拟合时间由原始�
 
 下图展示各簇距离均值最近的五张原图。leather呈棕色皮革纹理，tile呈灰色颗粒纹理；pill为深色背景上的白色药片，bottle主要为白色背景上的圆形瓶口；cable具有蓝色外缘与彩色线芯，transistor具有铜色载板背景。类别之间的颜色、纹理、物体形状与背景差异，为传统描述子和深度特征提供了清晰的分组依据。
 
-![主方案各簇的代表图像](figures/representatives.png)
+![主方案各簇的代表图像](../results/task1/figures/representatives.png)
 
 主方案600张图像的匹配类别全部正确，误分样本数为0；五个指定种子得到一致的分组。该结果对应给定600张图像的全量聚类实验。
 
@@ -84,7 +84,7 @@ PCA将深度特征从512维压缩到29维。K-Means平均拟合时间由原始�
 完整16次实验和图表生成耗时141.61秒，其中传统特征提取40.28秒，深度特征提取48.50秒。主方案命中特征缓存后约14.81秒；独立新环境重提取特征并运行主方案约47.96秒。
 自动化测试覆盖数据读取、缓存校验、标签使用边界、簇编号匹配及固定种子复现，共21项测试通过。提交前从干净克隆中新建Python 3.11虚拟环境，核对37项锁定依赖，重新运行全部16次实验；逐次指标、汇总指标和四个代表运行的逐图像分组均与本报告结果一致。
 
-复现命令与数据放置方式见[任务1 README](../../task1_clustering/README.md)。本目录的[summary.csv](summary.csv)、[metrics.csv](metrics.csv)提供精确指标；[run.json](run.json)记录环境与源码摘要，[verification.json](verification.json)记录验证结果。各方案的配置和逐图像分组位于[experiments](experiments/)。
+复现命令与数据放置方式见[项目 README 的任务1说明](../README.md#task1)。本目录的[summary.csv](../results/task1/summary.csv)、[metrics.csv](../results/task1/metrics.csv)提供精确指标；[run.json](../results/task1/run.json)记录环境与源码摘要，[verification.json](../results/task1/verification.json)记录验证结果。各方案的配置和逐图像分组位于[experiments](../results/task1/experiments/)。
 
 ## 7. 结论
 
