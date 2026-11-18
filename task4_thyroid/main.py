@@ -29,7 +29,7 @@ from threadpoolctl import threadpool_limits
 if __package__ in (None, ""):
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from experiment_common import (
+from task4_thyroid.utils import (
     ROOT,
     SEED,
     COLORS,

@@ -53,8 +53,6 @@ Desktop.ini
 
 # Curated task 1 submission; full reproductions remain local.
 /results/task1/*
-!/results/task1/README.md
-!/results/task1/report.md
 !/results/task1/summary.csv
 !/results/task1/metrics.csv
 !/results/task1/run.json

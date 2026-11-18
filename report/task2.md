@@ -34,9 +34,7 @@
 测试图像中每个patch的异常分数是其到正常记忆库的最近邻欧氏距离：
 
 $$d_j(x)=\min_{m\in M}\|z_j(x)-m\|_2.$$
-
 将1024个距离从大到小排序，以最大的3个距离均值作为图像级分数：
-
 $$s(x)=\frac{1}{3}\sum_{j\in\operatorname{Top3}(d(x))}d_j(x).$$
 
 最近邻距离计算使用分块矩阵运算。热力图将32×32的patch距离图插值回图像大小，作为模型关注区域的可视化。
@@ -73,9 +71,9 @@ AUROC评价异常分数对正常/异常图像的排序能力，AP为平均精确
 
 主方案zipper的精确AUROC为0.94375。hazelnut虽然AUROC为1.0，固定正常校准阈值下仍有1张正常图像误报；排序指标和给定阈值下的分类指标应分别解释。
 
-![hazelnut三种方法的ROC对比](compare/roc_compare_hazelnut.png)
+![hazelnut三种方法的ROC对比](../results/task2/compare/roc_compare_hazelnut.png)
 
-![zipper三种方法的ROC对比](compare/roc_compare_zipper.png)
+![zipper三种方法的ROC对比](../results/task2/compare/roc_compare_zipper.png)
 
 图中的融合曲线包含测试集选权重的因素。主方案在本次两类测试图像上的AUROC和AP均高于10轮AE基线；融合未提升主方案的AUROC，固定阈值F1还略低。
 
@@ -98,9 +96,9 @@ AUROC评价异常分数对正常/异常图像的排序能力，AP为平均精确
 
 zipper漏检的异常图像为 `007.png`、`021.png`，分数分别为0.3556269和0.3899067，低于0.4156772；误报的正常图像为 `023.png`、`036.png`，分数分别为0.4925642和0.5198497。对这两张漏检图像，本方法的Top-3局部距离尚不足以越过固定阈值。
 
-![hazelnut异常图像局部距离热力图](patchcore/hazelnut/heatmap_bad_004.png)
+![hazelnut异常图像局部距离热力图](../results/task2/patchcore/hazelnut/heatmap_bad_004.png)
 
-![zipper漏检异常图像007的局部距离热力图](patchcore/zipper/heatmap_bad_007.png)
+![zipper漏检异常图像007的局部距离热力图](../results/task2/patchcore/zipper/heatmap_bad_007.png)
 
 热力图反映模型的局部距离分布，并不等同于像素级异常真值；本实验未使用像素掩码，也未评估分割或定位指标。降低阈值可能提高召回率，同时增加误报；若继续改进，应在独立开发/验证数据上制定选择规则，保留新的独立测试评估。
 
@@ -108,20 +106,20 @@ zipper漏检的异常图像为 `007.png`、`021.png`，分数分别为0.3556269�
 
 本次环境为Windows、Python 3.11.15、PyTorch 2.7.1+cpu、torchvision 0.22.1+cpu、scikit-learn 1.7.2、NumPy 2.3.5，采用CPU。完整流程约7分钟，其中两个类别的AE训练分别为191.1秒、158.9秒；主方案两类的特征提取与记忆库构建分别约12.4秒、5.4秒，不需要AE训练。
 
-安装依赖和放置数据见[任务2 README](../../task2_image_anomaly/README.md)。从仓库根目录执行，另存复现输出：
+安装依赖和放置数据见[项目 README 的任务2说明](../README.md#task2)。从仓库根目录执行，另存复现输出：
 
 ```powershell
 .\.venv\Scripts\python.exe task2_image_anomaly/main.py --data-dir data/image_anomaly --output-dir results/task2/reproduced --experiment all --epochs 10 --device cpu --seed 42 --save-heatmaps
 .\.venv\Scripts\python.exe -m pytest task2_image_anomaly/tests -q
 ```
 
-数据根目录既支持直接包含hazelnut、zipper的结构，也支持保留 `Image_Anomaly_Detection/` 外层目录。主方案首次自动下载约45MB官方权重至输出目录；离线时可用 `--weights-path` 指定同一官方文件。本次权重SHA-256为 `f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec`，具体本地文件位置记录于[run.json](run.json)。
+数据根目录既支持直接包含hazelnut、zipper的结构，也支持保留 `Image_Anomaly_Detection/` 外层目录。主方案首次自动下载约45MB官方权重至输出目录；离线时可用 `--weights-path` 指定同一官方文件。本次权重SHA-256为 `f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec`，具体本地文件位置记录于[run.json](../results/task2/run.json)。
 
 AE权重复用会核对拟合样本内容摘要、预处理和训练配置。旧格式或不匹配的自动缓存会重训，防止新校准集包含编码器曾拟合的图像。固定随机种子同时用于模型初始化、样本打乱、划分和记忆库采样。
 
-已完成8项回归测试、真实数据完整流程，以及主方法的独立复跑；两次主方法的测试分数和正常校准分数逐项完全一致。记录见[verification.json](verification.json)。实验生成时使用合并提交 `225dba2` 后的本地修复，相关代码与本报告一起保存；`run.json` 的未提交标记记录实验生成时的状态，基础提交号不能单独复原本次源码。尚未进行干净克隆全流程复现，也未进行多种子统计。
+已完成8项回归测试、真实数据完整流程，以及主方法的独立复跑；两次主方法的测试分数和正常校准分数逐项完全一致。记录见[verification.json](../results/task2/verification.json)。实验生成时使用合并提交 `225dba2` 后的本地修复，相关代码与本报告一起保存；`run.json` 的未提交标记记录实验生成时的状态，基础提交号不能单独复原本次源码。尚未进行干净克隆全流程复现，也未进行多种子统计。
 
-版本管理保留指标、图表和说明；原始数据、权重、逐样本分数、校准分数及日志留在本地。复现后可用[指标表](compare/metrics_table.csv)、[主方案汇总](patchcore/summary.json)和[AE汇总](autoencoder/summary.json)核对结果。
+版本管理保留指标、图表和说明；原始数据、权重、逐样本分数、校准分数及日志留在本地。复现后可用[指标表](../results/task2/compare/metrics_table.csv)、[主方案汇总](../results/task2/patchcore/summary.json)和[AE汇总](../results/task2/autoencoder/summary.json)核对结果。
 
 ## 7. 结论
 
