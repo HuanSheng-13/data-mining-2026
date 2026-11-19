@@ -34,6 +34,8 @@
 | `task2/fusion_summary.json` | 探索性融合权重、缩放范围和指标 |
 | `task2/run.json`、`task2/verification.json` | 实验设置、环境与验证记录 |
 | `task2/compare/*.png`、`task2/各方法/各类别/*.png` | ROC对比、分数分布与局部距离热力图 |
+| `task2/supplement/summary.json`、`metrics.csv` | 固定正常划分的AE多种子统计与独立重训检查 |
+| `task2/supplement/evidence/` | 补充实验逐次指标、逐图预测及环境/数据清单 |
 
 ### 结果概述
 

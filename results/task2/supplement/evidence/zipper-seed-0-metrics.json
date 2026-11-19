@@ -1,0 +1,20 @@
+{
+  "auroc": 0.5645833333333333,
+  "ap": 0.37070621256955544,
+  "threshold": 0.010063459249213336,
+  "f1": 0.10526315789473684,
+  "precision": 0.25,
+  "recall": 0.06666666666666667,
+  "accuracy": 0.6382978723404256,
+  "n_normal": 32.0,
+  "n_anomaly": 15.0,
+  "tp": 1.0,
+  "fp": 3.0,
+  "fn": 14.0,
+  "tn": 29.0,
+  "model": "Autoencoder",
+  "category": "zipper",
+  "final_train_mse": 0.00561522531012694,
+  "threshold_source": "held_out_normal_calibration",
+  "threshold_quantile": 0.99
+}

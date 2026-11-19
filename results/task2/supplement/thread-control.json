@@ -1,0 +1,84 @@
+{
+  "scope": "Earlier seed42 zipper controlled 1/2 thread probe; same local environment, not a cross-platform isolation experiment",
+  "reference_windows": {
+    "auroc": 0.54375,
+    "ap": 0.3695936654728984,
+    "threshold": 0.009796138871461153,
+    "f1": 0.10526315789473684,
+    "precision": 0.25,
+    "recall": 0.06666666666666667,
+    "accuracy": 0.6382978723404256,
+    "n_normal": 32.0,
+    "n_anomaly": 15.0,
+    "model": "Autoencoder",
+    "category": "zipper",
+    "final_train_mse": 0.005566297569829556,
+    "threshold_source": "held_out_normal_calibration",
+    "threshold_quantile": 0.99
+  },
+  "runs": [
+    {
+      "record": "first-threads2.json",
+      "auroc": 0.53125,
+      "ap": 0.3702765922961761,
+      "f1": 0.1111111111111111,
+      "precision": 0.3333333333333333,
+      "recall": 0.06666666666666667,
+      "threshold": 0.009451121799647806,
+      "final_train_mse": 0.0053027438465505835,
+      "threads": 2,
+      "epochs": 10,
+      "python": "3.12.14",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "torch": "2.7.1",
+      "torchvision": "0.22.1"
+    },
+    {
+      "record": "probe-threads2-epochs10.json",
+      "auroc": 0.53125,
+      "ap": 0.3702765922961761,
+      "f1": 0.1111111111111111,
+      "precision": 0.3333333333333333,
+      "recall": 0.06666666666666667,
+      "threshold": 0.009451121799647806,
+      "final_train_mse": 0.0053027438465505835,
+      "threads": 2,
+      "epochs": 10,
+      "python": "3.12.14",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "torch": "2.7.1",
+      "torchvision": "0.22.1"
+    },
+    {
+      "record": "probe-threads1-epochs10.json",
+      "auroc": 0.53125,
+      "ap": 0.3702765922961761,
+      "f1": 0.1111111111111111,
+      "precision": 0.3333333333333333,
+      "recall": 0.06666666666666667,
+      "threshold": 0.009451121799647806,
+      "final_train_mse": 0.0053027438465505835,
+      "threads": 1,
+      "epochs": 10,
+      "python": "3.12.14",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "torch": "2.7.1",
+      "torchvision": "0.22.1"
+    }
+  ],
+  "array_comparison": {
+    "y_true": {
+      "repeat_2_threads_equal": true,
+      "one_vs_two_threads_equal": true
+    },
+    "y_score": {
+      "repeat_2_threads_equal": true,
+      "one_vs_two_threads_equal": true
+    },
+    "calibration_scores": {
+      "repeat_2_threads_equal": true,
+      "one_vs_two_threads_equal": true
+    }
+  },
+  "limitation": "Local Mac/Python3.12 differs from reference Windows/Python3.11. This demonstrates a cross-environment reproduction difference, not its unique cause or the peer environment."
+}

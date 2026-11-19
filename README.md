@@ -135,6 +135,8 @@ hazelnut、zipper的主方案AUROC分别为1.0000、0.94375，异常检出率分
 
 [实验报告](report/task2.md) · [结果文件说明](results/README.md#task2)
 
+AE的跨环境小幅差异与主方案应分开核对。新增[复现与差异定位说明](task2_image_anomaly/REPRODUCIBILITY.md)，提供固定正常划分的多种子检查命令，并自动保存逐图预测、混淆计数、训练损失、数据指纹和环境版本；原Windows参考结果保留，新增补充实验单列于 `results/task2/supplement/`。
+
 <a id="task3"></a>
 
 ## 任务3：时间序列预测

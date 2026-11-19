@@ -47,6 +47,10 @@ def evaluate_binary(y_true: np.ndarray, y_score: np.ndarray, threshold: float) -
         "accuracy": accuracy_score(y_true, y_pred),
         "n_normal": int((y_true == 0).sum()),
         "n_anomaly": int((y_true == 1).sum()),
+        "tp": int(((y_true == 1) & (y_pred == 1)).sum()),
+        "fp": int(((y_true == 0) & (y_pred == 1)).sum()),
+        "fn": int(((y_true == 1) & (y_pred == 0)).sum()),
+        "tn": int(((y_true == 0) & (y_pred == 0)).sum()),
     }
 
 

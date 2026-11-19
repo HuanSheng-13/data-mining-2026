@@ -5,6 +5,7 @@
     python scripts/run_autoencoder.py --all --data_root <路径>
 """
 import argparse
+import csv
 import json
 import os
 import sys
@@ -18,6 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.dataset import (AnomalyImageDataset, TestImageDataset, load_test_labels,
                          split_normal_train_dataset, training_context, resolve_data_root)
 from src.autoencoder import AutoEncoderDetector
+from src.provenance import environment, file_manifest
 from src.metrics import (evaluate_binary, normal_quantile_threshold, plot_roc_curves,
                          plot_score_distribution)
 
@@ -30,7 +32,8 @@ def run_category(args, category: str, results_all: dict):
     normal_ds = AnomalyImageDataset(data_root, category, "train", subdir="good",
                                     transform=AnomalyImageDataset.ae_transform())
     train_ds, calibration_ds = split_normal_train_dataset(
-        normal_ds, calibration_fraction=args.calibration_fraction, seed=args.seed
+        normal_ds, calibration_fraction=args.calibration_fraction,
+        seed=args.seed if getattr(args, "split_seed", None) is None else args.split_seed
     )
     test_ds = TestImageDataset(data_root, category, labels,
                                transform=AnomalyImageDataset.ae_transform())
@@ -62,6 +65,7 @@ def run_category(args, category: str, results_all: dict):
     threshold = normal_quantile_threshold(calibration_scores, args.threshold_quantile)
     np.savez(os.path.join(os.path.dirname(ckpt_path), "calibration_scores.npz"),
              normal_scores=calibration_scores,
+             files=[normal_ds.files[i] for i in calibration_ds.indices],
              quantile=args.threshold_quantile,
              threshold=threshold)
     print(f"正常校准集 q={args.threshold_quantile:.3f} 阈值: {threshold:.6f}")
@@ -87,7 +91,33 @@ def run_category(args, category: str, results_all: dict):
     with open(os.path.join(out, "metrics.json"), "w", encoding="utf-8") as f:
         json.dump({k: (float(v) if isinstance(v, (int, float, np.floating)) else v)
                    for k, v in metrics.items()}, f, ensure_ascii=False, indent=2)
-    np.savez(os.path.join(out, "scores.npz"), y_true=y_true, y_score=y_score)
+    np.savez(os.path.join(out, "scores.npz"), y_true=y_true, y_score=y_score,
+             files=test_ds.files)
+    # 逐图结果让指标差异能追溯到具体样本，避免只对比四舍五入后的 F1。
+    with open(os.path.join(out, "predictions.csv"), "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["file", "y_true", "score", "threshold", "y_pred", "outcome"])
+        for name, truth, score in zip(test_ds.files, y_true, y_score):
+            pred = int(score >= threshold)
+            outcome = ("TP" if pred else "FN") if truth else ("FP" if pred else "TN")
+            writer.writerow([name, int(truth), float(score), threshold, pred, outcome])
+    fit_files = [normal_ds.files[i] for i in train_ds.indices]
+    cal_files = [normal_ds.files[i] for i in calibration_ds.indices]
+    paths = ([f"{category}/train/good/{name}" for name in normal_ds.files]
+             + [f"{category}/test/{name}" for name in test_ds.files]
+             + ["image_anomaly_labels.json"])
+    # 不复制原始图像。清单足以区分数据、划分、配置和数值环境差异。
+    evidence = {"environment": environment(args.device),
+                "configuration": {**model.configuration(),
+                    "split_seed": args.seed if getattr(args, "split_seed", None) is None else args.split_seed,
+                    "calibration_fraction": args.calibration_fraction,
+                    "threshold_quantile": args.threshold_quantile},
+                "fit_files": fit_files, "calibration_files": cal_files,
+                "test_files": test_ds.files, "training_context": training_context(train_ds),
+                "data_manifest": file_manifest(data_root, paths),
+                "train_mse_history": history}
+    with open(os.path.join(out, "reproducibility.json"), "w", encoding="utf-8") as f:
+        json.dump(evidence, f, ensure_ascii=False, indent=2)
     plot_roc_curves({f"AE-{category}": (y_true, y_score)},
                     os.path.join(out, "roc_curve.png"))
     plot_score_distribution(y_true, y_score,
@@ -110,6 +140,10 @@ def main():
     p.add_argument("--lr", type=float, default=1e-3)
     p.add_argument("--batch_size", type=int, default=16)
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--split_seed", type=int, default=None,
+                   help="独立划分种子；默认跟随 seed，统计初始化波动时固定为42")
+    p.add_argument("--threads", type=int, default=None,
+                   help="显式设置CPU运算线程；不保证不同平台逐位一致")
     p.add_argument("--calibration_fraction", type=float, default=0.1,
                    help="从正常训练样本中固定划出的阈值校准比例")
     p.add_argument("--threshold_quantile", type=float, default=0.99,
@@ -117,6 +151,10 @@ def main():
     # 统一写入本任务的结果目录，避免与任务 1 等其他任务混在一起。
     p.add_argument("--out_dir", type=str, default="results/task2/autoencoder")
     args = p.parse_args()
+    if args.epochs < 1 or args.batch_size < 1 or (args.threads is not None and args.threads < 1):
+        p.error("epochs、batch_size、threads 必须为正数")
+    if args.threads is not None:
+        torch.set_num_threads(args.threads)
 
     os.makedirs(args.out_dir, exist_ok=True)
     results_all = {}

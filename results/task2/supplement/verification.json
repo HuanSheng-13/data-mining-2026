@@ -1,0 +1,16 @@
+{
+  "checked_on": "2026-11-19",
+  "regression_tests_passed": 10,
+  "all_six_run_metrics_recomputed": true,
+  "normal_quantile_thresholds_verified": true,
+  "fixed_split_and_data_across_training_seeds": true,
+  "predictions_align_with_score_arrays": true,
+  "seed42_scores_match_prechange_probe": true,
+  "independent_repeat": {
+    "y_score_identical": true,
+    "y_score_max_abs_diff": 0.0,
+    "normal_scores_identical": true,
+    "normal_scores_max_abs_diff": 0.0
+  },
+  "scope": "AE supplement only; original Windows reference and frozen ResNet primary results retained"
+}

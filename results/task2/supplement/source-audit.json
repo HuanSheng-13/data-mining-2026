@@ -1,0 +1,65 @@
+{
+  "checked_on": "2026-11-19",
+  "source": {
+    "sha256": "5b041cb3bb905e7db856d4c933f981c40816fc3c3131ad893e5bfd41e9fea789",
+    "files": [
+      {
+        "file": "task2_image_anomaly/main.py",
+        "sha256": "69aac5b30fb873d076c164d52bff78969c74676738b7bb381a6acf7397c5c975"
+      },
+      {
+        "file": "task2_image_anomaly/scripts/check_ae_stability.py",
+        "sha256": "ede64212eaba4c782a0f4221c55459ad48f6d9dbf52ab360bce0ea2ed71ca483"
+      },
+      {
+        "file": "task2_image_anomaly/scripts/fuse_scores.py",
+        "sha256": "3c81c7b05fdf6bf46f19c435a8f442305f8e648f03282be27ee1fc1bd3457825"
+      },
+      {
+        "file": "task2_image_anomaly/scripts/plot_compare.py",
+        "sha256": "8aa920943fe959365062abe6563785c50629552d0b5ab068e705eb3a507f4fc0"
+      },
+      {
+        "file": "task2_image_anomaly/scripts/run_autoencoder.py",
+        "sha256": "c6aed8b500049f36651011ada0d3693f21bc681b5a8cc3aae69a24029e606b2c"
+      },
+      {
+        "file": "task2_image_anomaly/scripts/run_patchcore.py",
+        "sha256": "e7346352e863ec6c8431a762ca9786f4c92fa8c513e6204f0e33f663d70285cf"
+      },
+      {
+        "file": "task2_image_anomaly/src/autoencoder.py",
+        "sha256": "aa988edd13abd5a2d842e649831e7c9fb07bbb2bbe82b0ff6cbca046f8c3b04c"
+      },
+      {
+        "file": "task2_image_anomaly/src/dataset.py",
+        "sha256": "8721e6e5830876bb39d6e34be352db176f67bd60755ed373441cfc2adafa0b28"
+      },
+      {
+        "file": "task2_image_anomaly/src/metrics.py",
+        "sha256": "464fc14dbdd94f8dc2ec7010cda11c25a3810b24ee41efc1f8badf7b5a6db1e0"
+      },
+      {
+        "file": "task2_image_anomaly/src/patchcore.py",
+        "sha256": "929cd44503484cbf0ee462b879986fac33236e4de06b4a8bcf7a92b07c76f4ff"
+      },
+      {
+        "file": "task2_image_anomaly/src/provenance.py",
+        "sha256": "d957e1403e82e2f9f7ca2100a66a3a0b1af3c1968ff44d702126e6fb65a8730c"
+      },
+      {
+        "file": "task2_image_anomaly/tests/test_checkpoint_compatibility.py",
+        "sha256": "2120260c814b1de8f2805676d5a6c6d4ec04ac3a69e8381c5a246a10c33ec1e6"
+      },
+      {
+        "file": "task2_image_anomaly/tests/test_reproducibility_and_heatmap.py",
+        "sha256": "327651305270339cb7737748c3f2557049fac3686f50914bb07e748f2167f5ff"
+      },
+      {
+        "file": "task2_image_anomaly/tests/test_training_evidence.py",
+        "sha256": "4895972908b34939dbeb2a65a92f7d5cb91e7f55437a19b137ad210a8031d959"
+      }
+    ]
+  },
+  "note": "Final task2 Python source inventory; evidence collection was expanded during the run, scoring and training code unchanged throughout."
+}
