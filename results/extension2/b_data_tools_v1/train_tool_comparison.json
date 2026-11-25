@@ -1,0 +1,1955 @@
+{
+  "kind": "manual_train_tool_comparison_no_model_or_checker",
+  "baseline_commit": "8021a1628c48990030d3ae2dfe2a8381102ca0da",
+  "configuration": {
+    "baseline": {
+      "data_root": "data/financeqa/FinanceQA",
+      "artifacts_dir": "extension2_finance_agent/artifacts/baseline",
+      "tool_factory": "extension2_finance_agent.tools.baseline:create_tools",
+      "prepare_factory": "extension2_finance_agent.prepare.reports:prepare",
+      "validate_factory": "extension2_finance_agent.prepare.reports:validate_artifacts",
+      "strategy_factory": "extension2_finance_agent.strategies.baseline:create_strategy",
+      "prompt_file": "extension2_finance_agent/prompts/baseline.txt",
+      "skill_files": []
+    },
+    "data_optimized": {
+      "data_root": "data/financeqa/FinanceQA",
+      "artifacts_dir": "extension2_finance_agent/artifacts/data_optimized",
+      "tool_factory": "extension2_finance_agent.tools.optimized:create_tools",
+      "prepare_factory": "extension2_finance_agent.prepare.optimized:prepare",
+      "validate_factory": "extension2_finance_agent.prepare.optimized:validate_artifacts",
+      "strategy_factory": "extension2_finance_agent.strategies.baseline:create_strategy",
+      "prompt_file": "extension2_finance_agent/prompts/baseline.txt",
+      "skill_files": []
+    }
+  },
+  "manifests": {
+    "baseline": {
+      "parser_version": "baseline-html-v1",
+      "database_sha256": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
+      "reports": [
+        {
+          "company": "Palantir Technologies Inc.",
+          "company_cik": "1321655",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1321655/pltr-20241231.htm",
+          "sha256": "bb6a5c0f6020fcdd206f57691e08bfdc3f3fd2ddb075271fc3707374ac9b5e4a"
+        },
+        {
+          "company": "ServiceNow, Inc.",
+          "company_cik": "1373715",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2024-01-31",
+          "source": "data/filings/1640147/snow-20240131.htm",
+          "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2025-01-31",
+          "source": "data/filings/1640147/snow-20250131.htm",
+          "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2023-12-31",
+          "source": "data/filings/1682852/mrna-20231231.htm",
+          "sha256": "faa3b41c0ab8f5f2010d6669c4658a0641eeb3a6f3f6dd72900e7f35d8da3d9e"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1682852/mrna-20241231.htm",
+          "sha256": "6a3deff7504c734227dc8f0f4170a0ff7d3af17bdb9e7ff2c01984505eaef9db"
+        },
+        {
+          "company": "ABBOTT LABORATORIES",
+          "company_cik": "1800",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2023-12-31",
+          "source": "data/filings/702165/nsc-20231231.htm",
+          "sha256": "390a35fd2228fc5c2a55fd5a028a9fa3b28465556e306434b8975330d8b2b923"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2024-12-31",
+          "source": "data/filings/702165/nsc-20241231.htm",
+          "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
+        }
+      ],
+      "chunks": 2787,
+      "chunk_chars": 1800,
+      "overlap_chars": 200,
+      "chunks_sha256": "9bd2fa9b5aadadacccf852f637a1d21ed8e74c6c59235f11497aec244e282b55"
+    },
+    "data_optimized": {
+      "parser_version": "finance-evidence-v1",
+      "parameters": {
+        "version": "finance-evidence-v1",
+        "max_excerpt_chars": 1300,
+        "tokenizer": "porter unicode61",
+        "bm25_weights": [
+          1.0,
+          0.25,
+          0.45
+        ],
+        "max_query_terms": 24,
+        "period_filter": "exact report_end when supplied"
+      },
+      "reports": [
+        {
+          "company": "Palantir Technologies Inc.",
+          "company_cik": "1321655",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1321655/pltr-20241231.htm",
+          "sha256": "bb6a5c0f6020fcdd206f57691e08bfdc3f3fd2ddb075271fc3707374ac9b5e4a"
+        },
+        {
+          "company": "ServiceNow, Inc.",
+          "company_cik": "1373715",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2024-01-31",
+          "source": "data/filings/1640147/snow-20240131.htm",
+          "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2025-01-31",
+          "source": "data/filings/1640147/snow-20250131.htm",
+          "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2023-12-31",
+          "source": "data/filings/1682852/mrna-20231231.htm",
+          "sha256": "faa3b41c0ab8f5f2010d6669c4658a0641eeb3a6f3f6dd72900e7f35d8da3d9e"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1682852/mrna-20241231.htm",
+          "sha256": "6a3deff7504c734227dc8f0f4170a0ff7d3af17bdb9e7ff2c01984505eaef9db"
+        },
+        {
+          "company": "ABBOTT LABORATORIES",
+          "company_cik": "1800",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2023-12-31",
+          "source": "data/filings/702165/nsc-20231231.htm",
+          "sha256": "390a35fd2228fc5c2a55fd5a028a9fa3b28465556e306434b8975330d8b2b923"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2024-12-31",
+          "source": "data/filings/702165/nsc-20241231.htm",
+          "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
+        }
+      ],
+      "inputs": {
+        "finance.db": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
+        "schema.md": "1de4145dbf7498e2d67ab0048945c1b90ff64edc4135357201132b0f75d2fe39",
+        "business_rules.md": "7f2fdd6b28cdca26420d3fe96aab911670c9c576407f1d4ce9a893d5e9d6646b",
+        "companies.json": "82d529cfe993278e49c6ae717383660bb116d2499da650d640b1ee95fe947689",
+        "filings/README.md": "55798cfce6dd8a316e5189b3e7ca3e677e2ab3d76ef6574ad201b6391f4008c4"
+      },
+      "chunks": 19817,
+      "metric_groups": 2439,
+      "index_sha256": "ab80883db3b8e52c761ad481ae7fdee239a153867aa6d447100db38805d1cb3d"
+    }
+  },
+  "retrieval": [
+    {
+      "task": {
+        "question_id": "FQA-1640147-02",
+        "company_cik": "1640147",
+        "question": "How is the company's geographic and cloud footprint changing?"
+      },
+      "markers": [
+        "47 regional deployments"
+      ],
+      "checks": {
+        "baseline": {
+          "arguments": {
+            "query": "cloud geographic regions",
+            "report_end": "2025-01-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.0628322999982629,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:171200",
+                  "char_start": 171200,
+                  "char_end": 173000,
+                  "text": " the public cloud data centers on which our platform runs are located in the San Francisco Bay Area and Pacific Northwest, regions known for seismic activity. Despite any precautions we may take, the occurrence of a natural disaster or other unanticipated problems at our facilities or the facilities of our public cloud providers could result in disruptions, outages, and other performance and quality problems.\nOur customers are also subject to the risk of catastrophic events. If those events occur, demand for our platform may decrease.\nIf we are unable to develop and maintain adequate plans to ensure that our business functions continue to operate during and after a catastrophic event and to execute successfully on those plans if such an event occurs, our business could be seriously harmed.\n34\nTable of Contents\nOur current operations are international in scope, and we plan further geographic expansion, creating a variety of operational challenges.\nA component of our growth strategy involves the further expansion of our operations and customer base internationally. Customer accounts outside the United States generated 24% of our revenue for the fiscal year ended January 31, 2025. We are continuing to adapt to and develop strategies to address international markets, but there is no guarantee that such efforts will have the desired effect. For example, we anticipate that we will need to establish relationships with new partners in order to expand or continue our expansion into certain countries, including China, and if we fail to identify, establish, and maintain such relationships, we may be unable to execute on our expansion plans. We expect that our international activities will continue to grow for the foreseeable future as we continue to pursue opportunities in existin",
+                  "score": 3.4
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:60800",
+                  "char_start": 60800,
+                  "char_end": 62600,
+                  "text": "streams through seamless collaboration. Our platform allows customers to seamlessly share and consume live data across their organizations, and with their partners, customers, and suppliers, without moving the underlying data. Our platform also allows customers to unlock previously untapped monetization streams through creating and sharing data applications and data products. Customers can also leverage the Snowflake Marketplace, which provides access to hundreds of live, ready-to-query third-party data sets and data products across a wide range of categories. Through collaborating within and outside of their ecosystems, our customers are able to enhance insights and better reach, engage, and retain their end customers.\n•Benefit from a global multi-cloud strategy. Our platform delivers a consistent product experience across connected regions and public clouds. With a global multi-cloud strategy, organizations can optimize for the best features and functionality each public cloud provides, without becoming overly reliant on a single public cloud provider. Our customers can optimize their cloud costs, seamlessly migrate data among connected public clouds without having to alter existing security policies, and implement regional strategies, including to meet regulatory and data sovereignty requirements.\n•Reduce time spent managing infrastructure. Because we deliver our platform as a service, our customers can focus on driving immediate value from their data and not on managing complex and expensive infrastructure.\n•Enable greater data access through enhanced data governance. Security and governance, including the encryption of data in transit and at rest, are part of our core design values. This provides customers with the confidence to share their data inside their organi",
+                  "score": 2.6
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:86400",
+                  "char_start": 86400,
+                  "char_end": 88200,
+                  "text": "tition\nThe markets we serve are highly competitive and rapidly evolving. With the introduction of new technologies and innovations, we expect the competitive environment to remain intense. Our competition includes the following:\n•large, well-established, public cloud providers that generally compete in all of our markets, including Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platform (GCP);\n•less-established public and private cloud companies with products that compete in some or all of our markets;\n•other established vendors of legacy database solutions or big data offerings; and\n•new or emerging entrants seeking to develop competing technologies.\n15\nTable of Contents\nWe believe we compete favorably based on the following competitive factors:\n•ability to provide and innovate around an architecture that is purpose-built for the cloud;\n•ability to efficiently and seamlessly ingest diverse data types in one location at scale;\n•ability to drive business value and ROI;\n•ability to support multiple use cases in one platform, including various industry-specific use cases;\n•ability to provide seamless and secure access of data to many users simultaneously;\n•ability to seamlessly and securely share and move data across public clouds or regions;\n•ability to provide a consistent user experience across multiple public cloud providers;\n•ability to provide pricing transparency and optimized price-performance benefits;\n•ability to elastically scale up and scale down in high-intensity use cases;\n•ease of deployment, implementation, and use;\n•choice of programming language;\n•performance, scalability, and reliability;\n•security and governance; and\n•quality of service and customer satisfaction.\nSee the section titled “Risk Factors” for a more comprehensive descri",
+                  "score": 2.6
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:72000",
+                  "char_start": 72000,
+                  "char_end": 73800,
+                  "text": "uire data sets to enrich analytics. Leverage public and commercially available data sets on the Snowflake Marketplace to enrich insights, augment analysis, and train AI models.\n◦Monetize new data products and applications. List data, applications and AI products on the Snowflake Marketplace and tap into new monetization streams.\n◦Invite external parties to access governed data. Invite customers, suppliers, and partners to securely access their data, streamline operations, and increase transparency.\n◦Easy data replication. Our platform allows for easy replication of data, accounts, policies, and pipelines for multiple users across multiple public cloud providers and regions without compromising data integrity and governance, enabling our customers and their users to rely on a single source of truth and achieve cross-cloud business continuity.\n◦Enable data clean rooms. Our platform enables data clean rooms, allowing organizations to design their own collaborative data environment in a privacy-compliant manner.\nArchitecture\nOur platform was built from the ground up to take advantage of the cloud, and is built on an innovative multi-cluster, shared data architecture. It consists of three independently scalable layers deployed and generally connected globally across public clouds and regions:\n•Centralized storage. The storage layer is based on scalable cloud storage and can manage structured, semi-structured, and unstructured data. It can be grown independently of compute resources, allowing for maximum scalability and elasticity, and ensures a single, persistent copy of the data. The stored data is automatically partitioned, and metadata is extracted during loading to enable efficient processing.\n•Multi-cluster compute. The compute layer is designed to capitalize on the ins",
+                  "score": 2.5999999999999996
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:56000",
+                  "char_start": 56000,
+                  "char_end": 57800,
+                  "text": "ganizations to effortlessly discover, access, derive insights from, and share data from a variety of sources. Customers can share and provide access to each other’s data or data products, build and deploy AI applications and experiences, augment data science and machine learning (ML) algorithms with more data sets, connect global supply chains through data hubs, build data and AI products, and create new monetization channels by connecting data providers and consumers. As the AI Data Cloud grows through broad adoption and increasing usage, there are enhanced benefits from greater data availability. Moving forward, we are continuing to foster these benefits through industry-specific AI Data Clouds and the Native Application Framework.\nOur Solution\nOur platform is built on a cloud-native architecture that leverages the massive scalability and performance of the public cloud. Our platform allows customers to consolidate data into a single source of truth, whether stored in Snowflake or connected from external storage like Apache Iceberg tables, to drive meaningful insights, power applications, and share data across regions and public clouds. Key elements of our platform include:\n•Diverse data types. Our platform integrates and optimizes structured, semi-structured, and unstructured data, while maintaining performance and flexibility.\n•Massive scalability of data volumes. Our platform leverages the scalability and performance of the public cloud to support growing data sets without sacrificing performance.\n•Multiple use cases and users simultaneously. Our platform makes compute resources dynamically available to address the demand of as many users and use cases as needed. Because the storage layer is independent of compute, the data is centralized and simultaneously accessi",
+                  "score": 2.5
+                }
+              ],
+              "location_basis": "character offsets in normalized extracted text, not raw HTML"
+            },
+            "sources": [
+              {
+                "chunk_id": "1640147/snow-20250131:171200",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 171200,
+                "char_end": 173000
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:60800",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 60800,
+                "char_end": 62600
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:86400",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 86400,
+                "char_end": 88200
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:72000",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 72000,
+                "char_end": 73800
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:56000",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 56000,
+                "char_end": 57800
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": null
+        },
+        "data_optimized": {
+          "arguments": {
+            "query": "cloud geographic regions",
+            "report_end": "2025-01-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.011860700000397628,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "•Multi-cloud and multi-region. Our platform is available on three major public clouds across 47 regional deployments around the world. These deployments are generally interconnected to provide a global and consistent user experience.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 297734,
+                  "html_end": 298260,
+                  "char_start": 27974,
+                  "char_end": 28207,
+                  "chunk_id": "1640147/snow-20250131:27974",
+                  "score": 12.858079377441017
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "◦Replication. Our platform enables customers to replicate data from one region or public cloud to another region or public cloud while maintaining transactional integrity, either at the granularity of a database or an account.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 356785,
+                  "html_end": 357305,
+                  "char_start": 49598,
+                  "char_end": 49824,
+                  "chunk_id": "1640147/snow-20250131:49598",
+                  "score": 12.858079377441017
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "•Benefit from a global multi-cloud strategy. Our platform delivers a consistent product experience across connected regions and public clouds. With a global multi-cloud strategy, organizations can optimize for the best features and functionality each public cloud provides, without becoming overly reliant on a single public cloud provider. Our customers can optimize their cloud costs, seamlessly migrate data among connected public clouds without having to alter existing security policies, and implement regional strategies, including to meet regulatory and data sovereignty requirements.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 303001,
+                  "html_end": 303886,
+                  "char_start": 30226,
+                  "char_end": 30817,
+                  "chunk_id": "1640147/snow-20250131:30226",
+                  "score": 12.2649339319806
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "•ability to seamlessly and securely share and move data across public clouds or regions;",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 374844,
+                  "html_end": 375083,
+                  "char_start": 56289,
+                  "char_end": 56377,
+                  "chunk_id": "1640147/snow-20250131:56289",
+                  "score": 11.950974680051939
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "◦Global listings for sharing. Our platform enables a listing to be published globally to access consumers across regions or public clouds.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 358242,
+                  "html_end": 358674,
+                  "char_start": 50049,
+                  "char_end": 50187,
+                  "chunk_id": "1640147/snow-20250131:50049",
+                  "score": 10.957454455308714
+                }
+              ],
+              "location_basis": "Offsets are in decoded HTML characters and normalized optimized text, respectively (0-based, end-exclusive)."
+            },
+            "sources": [
+              {
+                "chunk_id": "1640147/snow-20250131:27974",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 27974,
+                "char_end": 28207,
+                "html_start": 297734,
+                "html_end": 298260
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:49598",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 49598,
+                "char_end": 49824,
+                "html_start": 356785,
+                "html_end": 357305
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:30226",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 30226,
+                "char_end": 30817,
+                "html_start": 303001,
+                "html_end": 303886
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:56289",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 56289,
+                "char_end": 56377,
+                "html_start": 374844,
+                "html_end": 375083
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:50049",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 50049,
+                "char_end": 50187,
+                "html_start": 358242,
+                "html_end": 358674
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": 1,
+          "source_span_verified": true
+        }
+      }
+    },
+    {
+      "task": {
+        "question_id": "FQA-1640147-06",
+        "company_cik": "1640147",
+        "question": "What major strategic product and technology initiatives did the company emphasize?"
+      },
+      "markers": [
+        "snowpark",
+        "cortex ai"
+      ],
+      "checks": {
+        "baseline": {
+          "arguments": {
+            "query": "product technology initiatives Cortex Snowpark",
+            "report_end": "2025-01-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.06442629999946803,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:284800",
+                  "char_start": 284800,
+                  "char_end": 286600,
+                  "text": "st-combination stock-based compensation over the requisite service period of four years.\nThe results of operations of this business combination have been included in our consolidated financial statements from the date of acquisition. See Note 7, “Business Combinations,” to our consolidated financial statements included elsewhere in this Annual Report on Form 10-K for details regarding this business combination.\nKey Factors Affecting Our Performance\nAdoption of our Platform and Expansion of the AI Data Cloud\nOur future success depends in large part on the market adoption of our platform, including new product functionality, such as, Snowpark and our artificial intelligence and machine learning technology (AI Technology), such as Snowflake Cortex AI. While we see growing demand for our platform, particularly from large enterprises, many of these organizations have invested substantial technical, financial, and personnel resources in their existing database products or big data offerings. In addition, customers’ use of our AI Technology is often dependent on their ability to meet evolving regulatory standards, successfully complete internal compliance reviews, and enter into mutually acceptable contractual terms. While this makes it difficult to predict customer adoption rates and future demand, we believe that the benefits of our platform put us in a strong position to capture the significant market opportunity ahead.\nOur platform powers the AI Data Cloud, a network of data providers, data consumers, and data application developers that enables our customers to securely share, monetize, and acquire live data sets and data products. The AI Data Cloud includes access to the Snowflake Marketplace, through which customers can access or acquire third-party data sets, data appl",
+                  "score": 4.6000000000000005
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:129600",
+                  "char_start": 129600,
+                  "char_end": 131400,
+                  "text": "ur platform or changes in our pricing model;\n•fluctuations in usage of our platform, including as a result of customer optimization efforts that result in reduced consumption to execute workloads;\n•our ability to attract new customers;\n•our ability to retain existing customers and drive their increased sustained consumption of our platform (including new product features and functionality);\n•customer expansion rates;\n•timing, amount, and cost of our investments to expand the capacity of our public cloud providers;\n•seasonality, including the impact of holidays;\n25\nTable of Contents\n•investments in new features, functionality, and programming languages, including investments in AI Technology and in making our platform available to store and process highly regulated data or comply with new or existing data sovereignty requirements;\n•fluctuations in consumption resulting from the introduction of new features, technologies, or capabilities to our software, systems, or to underlying cloud infrastructure, including features or capabilities that may increase or decrease the consumption required to execute existing or future workloads, like better storage compression, cloud infrastructure processor improvements, or compute optimization, or that allow customers to use our platform for compute services without requiring storage;\n•our ability to execute on our business strategy, including our strategies related to the AI Data Cloud, such as Snowpark, the Snowflake Marketplace, and Snowflake Cortex AI;\n•the timing and frequency of purchases;\n•the speed with which customers are able to migrate data onto our platform;\n•fluctuations or delays in purchasing decisions in anticipation of new products or enhancements by us or our competitors;\n•changes in customers’ budgets and cash flow m",
+                  "score": 4.4
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:65600",
+                  "char_start": 65600,
+                  "char_end": 67400,
+                  "text": "s, including through the Snowflake Marketplace. We plan to continue investing in adding new customers, partners, data providers, data consumers, and forms of sharing to connect on our platform, and to drive market awareness of the AI Data Cloud.\n•Grow and invest in our partner network. Our Snowflake Partner Network is comprised of system integrators, resellers, data providers, and other services partners who help accelerate the adoption of our platform, and technology partners, who help provide end-to-end solutions to our customers. We plan to continue investing in building out our partner program to drive more consumption on our platform, broaden our distribution footprint, acquire new customers, and drive greater awareness of our platform. Partners can participate in programs like AI Competencies, Industry Competencies, Snowpark Accelerated, and Governance Accelerated to receive special support from Snowflake technical experts.\nOur Platform\nOur platform unifies data and supports a growing variety of product categories, including analytics, data engineering, AI, and applications and collaboration. Customers can leverage our platform for any one of these products, but when taken together, they provide an integrated, end-to-end solution that delivers greater insights, faster data transformations, improved data sharing, and accelerated application development. Delivered as a service, our platform is deployed across multiple public clouds and regions, is easy to use, and requires near-zero maintenance.\n10\nTable of Contents\nProduct Categories\nOrganizations use our platform to power the following product categories:\n•Analytics. Our platform provides reporting and analytics to improve business intelligence. For Analytics, our platform enables organizations to:\n◦Support multip",
+                  "score": 3.5000000000000004
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:51200",
+                  "char_start": 51200,
+                  "char_end": 53000,
+                  "text": "d to deliver the AI Data Cloud, enabling a consistent, global user experience.\nOur platform supports a wide range of product categories that enable our customers’ most important business objectives, including analytics, data engineering, AI, and applications and collaboration. We are committed to expanding our platform’s product features and use cases and supporting developers in building their applications and businesses. Many of our product features help power multiple product categories. In 2021, we launched Snowpark for Java and Scala to allow developers to build in the language of their choice, and in 2022 we added support for Python. Snowpark brings the power of Python and Java to our platform and complements many use cases for our customers across several product categories, including data engineering and AI. In 2023, we launched Snowpark Container Services, a fully managed container platform designed to facilitate the deployment, management, and scaling of containerized applications and AI models within our ecosystem. Snowpark Container Services are used in several of our product categories, including AI and applications. In 2024, we announced Snowflake Intelligence, within our AI product category, to enable our customers to create data agents, empowering business users to take actions on structured and unstructured data without the need for technical knowledge or coding skills. We continue to invest in our Native Application program to help companies build, operate, and market applications in the AI Data Cloud by supporting developers across all stages of the application journey.\nWe have an industry-vertical focus, which allows us to go to market with tailored business solutions. For example, we have launched the AI Data Cloud for Financial Services, Advertisin",
+                  "score": 2.9
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "chunk_id": "1640147/snow-20250131:328000",
+                  "char_start": 328000,
+                  "char_end": 329800,
+                  "text": "025, compared to the prior fiscal year. The increase was primarily due to an increase of $176.8 million in third-party cloud infrastructure expenses (including those related to GPUs), mainly as a result of increased customer consumption of our platform. Personnel-related costs and allocated overhead costs also increased $45.3 million for the fiscal year ended January 31, 2025, compared to the prior fiscal year, as a result of increased headcount and overall costs to support the growth in our business, and increased stock-based compensation primarily related to additional equity awards granted to existing and new employees. Additionally, amortization of capitalized internal-use software development costs and acquired developed technology intangible assets also increased $37.5 million and $11.1 million, respectively, for the fiscal year ended January 31, 2025, compared to the prior fiscal year. The remaining increase in cost of product revenue was primarily attributable to $7.7 million in costs incurred by us during fiscal 2025 in connection with a restructuring plan for a majority-owned subsidiary.\nOur product gross margin was 71% for the fiscal year ended January 31, 2025, compared to 74% for the prior fiscal year. This decline is primarily attributable to newly launched product capabilities and features that have not yet reached economies of scale. We expect our product gross margin to fluctuate from period to period due to a number of factors, including, but not limited to: (i) fluctuations in the mix and timing of customers’ consumption, which is inherently variable at our customers’ discretion, (ii) our pricing model and discounting practices, (iii) the extent of our investments in new product capabilities, features, and operations, such as investments in AI Technol",
+                  "score": 2.6
+                }
+              ],
+              "location_basis": "character offsets in normalized extracted text, not raw HTML"
+            },
+            "sources": [
+              {
+                "chunk_id": "1640147/snow-20250131:284800",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 284800,
+                "char_end": 286600
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:129600",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 129600,
+                "char_end": 131400
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:65600",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 65600,
+                "char_end": 67400
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:51200",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 51200,
+                "char_end": 53000
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:328000",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "report_end": "2025-01-31",
+                "char_start": 328000,
+                "char_end": 329800
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": 1
+        },
+        "data_optimized": {
+          "arguments": {
+            "query": "product technology initiatives Cortex Snowpark",
+            "report_end": "2025-01-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.020827999996981816,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "•our ability to execute on our business strategy, including our strategies related to the AI Data Cloud, such as Snowpark, the Snowflake Marketplace, and Snowflake Cortex AI;",
+                  "section": "ITEM 1A. RISK FACTORS",
+                  "anchor": "",
+                  "kind": "paragraph",
+                  "html_start": 454754,
+                  "html_end": 455079,
+                  "char_start": 99637,
+                  "char_end": 99811,
+                  "chunk_id": "1640147/snow-20250131:99637",
+                  "score": 16.651938550722317
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "Our future success depends in large part on the market adoption of our platform, including new product functionality, such as, Snowpark and our artificial intelligence and machine learning technology (AI Technology), such as Snowflake Cortex AI. While we see growing demand for our platform, particularly from large enterprises, many of these organizations have invested substantial technical, financial, and personnel resources in their existing database products or big data offerings. In addition, customers’ use of our AI Technology is often dependent on their ability to meet evolving regulatory standards, successfully complete internal compliance reviews, and enter into mutually acceptable contractual terms. While this makes it difficult to predict customer adoption rates and future demand, we believe that the benefits of our platform put us in a strong position to capture the significant market opportunity ahead.",
+                  "section": "ITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_49",
+                  "kind": "paragraph",
+                  "html_start": 730178,
+                  "html_end": 731111,
+                  "char_start": 254009,
+                  "char_end": 254935,
+                  "chunk_id": "1640147/snow-20250131:254009",
+                  "score": 12.590232041104409
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "◦Develop conversational assistants on enterprise data. Interact with data via conversational applications that can answer ad hoc user queries by combining language models in Cortex AI with real-time structured data retrieval using Cortex Analyst and unstructured data retrieval using Cortex Search.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 325661,
+                  "html_end": 326253,
+                  "char_start": 38862,
+                  "char_end": 39160,
+                  "chunk_id": "1640147/snow-20250131:38862",
+                  "score": 11.980044828748726
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "Our platform supports a wide range of product categories that enable our customers’ most important business objectives, including analytics, data engineering, AI, and applications and collaboration. We are committed to expanding our platform’s product features and use cases and supporting developers in building their applications and businesses. Many of our product features help power multiple product categories. In 2021, we launched Snowpark for Java and Scala to allow developers to build in the language of their choice, and in 2022 we added support for Python. Snowpark brings the power of Python and Java to our platform and complements many use cases for our customers across several product categories, including data engineering and AI. In 2023, we launched Snowpark Container Services, a fully managed container platform designed to facilitate the deployment, management, and scaling of containerized applications and AI models within our ecosystem. Snowpark Container Services are used in several of our product categories, including AI and applications. In 2024, we announced Snowflake Intelligence, within our AI product category, to enable our customers to create data agents, empowering business users to take actions on structured and unstructured data without the need for",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 282231,
+                  "html_end": 283774,
+                  "char_start": 19975,
+                  "char_end": 21267,
+                  "chunk_id": "1640147/snow-20250131:19975",
+                  "score": 10.74129440855025
+                },
+                {
+                  "company": "Snowflake Inc.",
+                  "company_cik": "1640147",
+                  "report_end": "2025-01-31",
+                  "source": "data/filings/1640147/snow-20250131.htm",
+                  "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+                  "text": "◦Transform unstructured data into insights. Efficiently and securely run natural language processing tasks (such as summarization, translation, and categorization) on unstructured data at scale using Document AI and Cortex LLM Functions.",
+                  "section": "ITEM 1. BUSINESS",
+                  "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                  "kind": "paragraph",
+                  "html_start": 324919,
+                  "html_end": 325451,
+                  "char_start": 38624,
+                  "char_end": 38861,
+                  "chunk_id": "1640147/snow-20250131:38624",
+                  "score": 8.385880999295878
+                }
+              ],
+              "location_basis": "Offsets are in decoded HTML characters and normalized optimized text, respectively (0-based, end-exclusive)."
+            },
+            "sources": [
+              {
+                "chunk_id": "1640147/snow-20250131:99637",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1A. RISK FACTORS",
+                "anchor": "",
+                "char_start": 99637,
+                "char_end": 99811,
+                "html_start": 454754,
+                "html_end": 455079
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:254009",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_49",
+                "char_start": 254009,
+                "char_end": 254935,
+                "html_start": 730178,
+                "html_end": 731111
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:38862",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 38862,
+                "char_end": 39160,
+                "html_start": 325661,
+                "html_end": 326253
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:19975",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 19975,
+                "char_end": 21267,
+                "html_start": 282231,
+                "html_end": 283774
+              },
+              {
+                "chunk_id": "1640147/snow-20250131:38624",
+                "source": "data/filings/1640147/snow-20250131.htm",
+                "company_cik": "1640147",
+                "report_end": "2025-01-31",
+                "section": "ITEM 1. BUSINESS",
+                "anchor": "i33eda16a4c5144d6beb606fe6d5a2e98_19",
+                "char_start": 38624,
+                "char_end": 38861,
+                "html_start": 324919,
+                "html_end": 325451
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": 1,
+          "source_span_verified": true
+        }
+      }
+    },
+    {
+      "task": {
+        "question_id": "FQA-702165-05",
+        "company_cik": "702165",
+        "question": "What happened to the company's operating efficiency (railway operating ratio) in the recent period?"
+      },
+      "markers": [
+        "railway operating ratio",
+        "65.8",
+        "67.4"
+      ],
+      "checks": {
+        "baseline": {
+          "arguments": {
+            "query": "railway operating ratio adjusted operating ratio",
+            "report_end": "2024-12-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.03831799999898067,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "chunk_id": "702165/nsc-20241231:120000",
+                  "char_start": 120000,
+                  "char_end": 121800,
+                  "text": " | | | | | | | | | | | | | | |\n| Diluted earnings | $ | 11.57 | | | | $ | (1.44) | | | $ | 0.55 | | | | | $ | 1.09 | | | $ | 0.20 | | | $ | (0.12) | | | $ | 11.85 |\n| per share | | | | | | | | |\n| | | | | | | | | | | | | | | | |\n| Railway | | | | | | | | | | | | | | | |\n| operating ratio | 66.4 | | | | 3.6 | | | (1.5) | | | | | (2.7) | | | — | | | — | | | 65.8 |\n| (percent) | | | | | | | | | | | | | | | |\n| | | | | | | | | | | | | | | | |\nK26\n| | | | | | | | | | | | | | | | | | |\n| | Non-GAAP Reconciliation for 2023\n| | Reported\n(GAAP) | | | Eastern Ohio Incident | | Adjusted\n(non-GAAP)\n| | ($ in millions, except per share amounts)\n| | | | | | |\n| Railway operating expenses | $ | 9,305 | | | | $ | (1,116) | | | $ | 8,189 |\n| Income from railway operations | $ | 2,851 | | | | $ | 1,116 | | | $ | 3,967 |\n| | | | | | |\n| | | | | | |\n| Net income | $ | 1,827 | | | | $ | 846 | | | $ | 2,673 |\n| Diluted earnings per share | $ | 8.02 | | | | $ | 3.72 | | | $ | 11.74 |\n| Railway operating ratio (percent) | 76.5 | | | | (9.1) | | | 67.4 |\n| | | | | | |\nIn the table below, references to 2024 and 2023 results and related comparisons use the adjusted, non-GAAP results from the reconciliations in the tables above.\n| | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| | Adjusted 2024 (Non-GAAP) | | Adjusted 2023 (Non-GAAP) | | 2022 | | Adjusted 2024 (Non-GAAP) vs. Adjusted 2023 (Non-GAAP) | | Adjusted 2023 (Non-GAAP) vs. 2022\n| | ($ in millions, except per share amounts) | | (% change)\n| | | | | | | | | |\n| Railway operating expenses | $ | 7,977 | | | $ | 8,189 | | | $ | 7,936 | | | (3 | %) | | 3 | %\n| Income from railway operations | $ | 4,146 | | | $ | 3,967 | | | $ | 4,809 | | | 5 | % | | (18 | %)\n| | | | | | | | | |\n| | | | | | | | | |\n| Net income | $ | 2,684 | | | $ | 2",
+                  "score": 5.6
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "chunk_id": "702165/nsc-20241231:113600",
+                  "char_start": 113600,
+                  "char_end": 115400,
+                  "text": "network more safely and efficiently, better serve our customers, and increase productivity in order to deliver improved financial performance. We enhanced our executive leadership team and continued to execute on our strategy of providing high-quality service to our customers to enable smart, sustainable growth and delivering on productivity initiatives. Additionally, we executed on several strategic initiatives, including the purchase of the Cincinnati Southern Railway, sales of certain railway lines, and completion of targeted rationalization and restructuring efforts, to further advance our organizational objectives. Furthermore, we continued our efforts related to the Eastern Ohio Incident (as defined and further described in Note 18 in the Notes to the Consolidated Financial Statements), including the pursuit of recoveries under our insurance programs.\nOur operational improvements during the year, while handling 5% higher volumes, helped drive improvements to income from railway operations, diluted earnings per share, and railway operating ratio (a measure of the amount of operating revenues consumed by operating expenses). For the full year, we achieved an operating ratio of 66.4%, and an adjusted operating ratio of 65.8% (see our non-GAAP reconciliations beginning on page K26), both of which improved on a year-over-year basis. We remain committed to being a safe, productive, resilient, and efficient railroad with industry-competitive margins.\nSUMMARIZED RESULTS OF OPERATIONS\n| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| | | | | | | | 2024 | | 2023 |\n| | 2024 | | 2023 | | 2022 | | vs. 2023 | | vs. 2022 |\n| | ($ in millions, except per share amounts) | | (% change) |\n| | | | | | | | | | |\n| Railway operating revenues | $ | 12,123 | | | $ | 12,",
+                  "score": 5.4
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "chunk_id": "702165/nsc-20241231:121600",
+                  "char_start": 121600,
+                  "char_end": 123400,
+                  "text": "| | (3 | %) | | 3 | %\n| Income from railway operations | $ | 4,146 | | | $ | 3,967 | | | $ | 4,809 | | | 5 | % | | (18 | %)\n| | | | | | | | | |\n| | | | | | | | | |\n| Net income | $ | 2,684 | | | $ | 2,673 | | | $ | 3,270 | | | — | % | | (18 | %)\n| Diluted earnings per share | $ | 11.85 | | | $ | 11.74 | | | $ | 13.88 | | | 1 | % | | (15 | %)\n| Railway operating ratio (percent) | 65.8 | | | 67.4 | | | 62.3 | | | (2 | %) | | 8 | %\nOn an adjusted basis, income from railway operations in 2024 increased due to lower adjusted railway operating expenses, with lower fuel prices, decreased costs of purchased services, and lower other expenses contributing significantly to the overall decline, and more than offsetting the decline in revenue. Lower other income-net and higher interest expense on debt contributed to net income and diluted earnings per share that were only up slightly compared to the prior year.\nIn 2023, on a non-GAAP basis excluding the impact of direct costs resulting from the Incident, income from railway operations decreased due to lower railway operating revenues and higher railway operating expenses. Railway operating revenues declined due to decreased fuel surcharge revenue, decreased intermodal storage revenues, and lower volume, partially offset by increased pricing and favorable mix compared to the prior year. Railway operating expenses increased due to inflationary pressures, investments in operational resiliency, and higher service-related costs, partially offset by lower fuel prices.\nK27\nDETAILED RESULTS OF OPERATIONS\nRailway Operating Revenues\nThe following tables present a three-year comparison of revenues, volumes (units), and average revenue per unit by commodity group.\n| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| | Revenues |",
+                  "score": 5.3
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "chunk_id": "702165/nsc-20241231:38400",
+                  "char_start": 38400,
+                  "char_end": 40200,
+                  "text": "hio to Chattanooga, Tennessee from the Cincinnati Southern Railway (CSR), which we previously operated under a lease. See further discussion in Item 7 “Management's Discussion and Analysis of Financial Condition and Results of Operations” and Item 8 “Notes to Consolidated Financial Statements.”\nWe operate freight service over lines with significant ongoing Amtrak and commuter passenger operations and conduct freight operations over trackage owned or leased by Amtrak, New Jersey Transit, Southeastern Pennsylvania Transportation Authority, Metro-North Commuter Railroad Company, Virginia Passenger Rail Authority (VPRA), and Michigan Department of Transportation.\nThe following table sets forth certain statistics relating to our operations for the past five years:\n| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |\n| | Years ended December 31, |\n| | 2024 | | 2023 | | 2022 | | 2021 | | 2020 |\n| | | | | | | | | | |\n| Revenue ton miles (billions) | 178 | | | 176 | | | 179 | | | 178 | | | 164 | |\n| Revenue per thousand revenue ton miles | $ | 68.09 | | | $ | 69.05 | | | $ | 71.35 | | | $ | 62.56 | | | $ | 59.67 | |\n| Revenue ton miles (thousands) per railroad employee | 8,846 | | | 8,719 | | | 9,513 | | | 9,694 | | | 8,191 | |\n| Ratio of railway operating expenses to railway | | | | | | | | | |\n| operating revenues (railway operating ratio) | 66.4% | | 76.5% | | 62.3% | | 60.1% | | 69.3% |\nRAILWAY OPERATING REVENUES – Total railway operating revenues were $12.1 billion in 2024. Following is an overview of our three commodity groups. See the discussion of merchandise revenues by major commodity group, intermodal revenues, and coal revenues and tonnage in Item 7 “Management’s Discussion and Analysis of Financial Condition and Results of Operations.”\nMERCHANDISE – Our",
+                  "score": 4.2
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "chunk_id": "702165/nsc-20241231:115200",
+                  "char_start": 115200,
+                  "char_end": 117000,
+                  "text": "23 |\n| | 2024 | | 2023 | | 2022 | | vs. 2023 | | vs. 2022 |\n| | ($ in millions, except per share amounts) | | (% change) |\n| | | | | | | | | | |\n| Railway operating revenues | $ | 12,123 | | | $ | 12,156 | | | $ | 12,745 | | | — | % | | (5 | %) |\n| Railway operating expenses | $ | 8,052 | | | $ | 9,305 | | | $ | 7,936 | | | (13 | %) | | 17 | % |\n| Income from railway operations | $ | 4,071 | | | $ | 2,851 | | | $ | 4,809 | | | 43 | % | | (41 | %) |\n| Net income | $ | 2,622 | | | $ | 1,827 | | | $ | 3,270 | | | 44 | % | | (44 | %) |\n| Diluted earnings per share | $ | 11.57 | | | $ | 8.02 | | | $ | 13.88 | | | 44 | % | | (42 | %) |\n| Railway operating ratio (percent) | 66.4 | | | 76.5 | | | 62.3 | | | (13 | %) | | 23 | % |\nIncome from railway operations, net income and diluted earnings per share increased in 2024 compared to 2023, primarily as a result of lower railway operating expenses. The reduction in our operating expenses includes lower net expenses related to the Eastern Ohio Incident and $433 million of gains on the sale of railway lines. Railway operating revenues were slightly lower as decreased fuel surcharge revenue, an adverse mix of traffic, and decreased pricing were nearly offset by increased volumes. Our railway operating ratio improved to 66.4 percent.\nIncome from railway operations, net income and diluted earnings per share declined in 2023 compared to 2022, driven by expenses incurred with our response efforts to the Incident, lower railway operating revenues, and higher\nK25\nnon-Incident-related railway operating expenses. Railway operating revenues declined 5% due to lower average revenue per unit, the result of lower fuel surcharge revenue and decreased intermodal storage service revenues partially offset by favorable pricing and mix. Additionally, l",
+                  "score": 4.2
+                }
+              ],
+              "location_basis": "character offsets in normalized extracted text, not raw HTML"
+            },
+            "sources": [
+              {
+                "chunk_id": "702165/nsc-20241231:120000",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "report_end": "2024-12-31",
+                "char_start": 120000,
+                "char_end": 121800
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:113600",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "report_end": "2024-12-31",
+                "char_start": 113600,
+                "char_end": 115400
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:121600",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "report_end": "2024-12-31",
+                "char_start": 121600,
+                "char_end": 123400
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:38400",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "report_end": "2024-12-31",
+                "char_start": 38400,
+                "char_end": 40200
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:115200",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "report_end": "2024-12-31",
+                "char_start": 115200,
+                "char_end": 117000
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": 1
+        },
+        "data_optimized": {
+          "arguments": {
+            "query": "railway operating ratio adjusted operating ratio",
+            "report_end": "2024-12-31",
+            "top_k": 5
+          },
+          "elapsed_seconds": 0.03167529999700491,
+          "result": {
+            "ok": true,
+            "data": {
+              "hits": [
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "text": "Railway operating ratio (percent) | 65.8 | 67.4 | 62.3 | (2 | %) | 8 | %",
+                  "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                  "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                  "kind": "table_row",
+                  "table_start": 591845,
+                  "row_number": 7,
+                  "cells": [
+                    {
+                      "text": "Railway operating ratio (percent)",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "65.8",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "67.4",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "62.3",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "(2",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "%)",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "8",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "%",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    }
+                  ],
+                  "headers": [
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Adjusted 2024 (Non-GAAP)",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Adjusted 2023 (Non-GAAP)",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2022",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Adjusted 2024 (Non-GAAP) vs. Adjusted 2023 (Non-GAAP)",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Adjusted 2023 (Non-GAAP) vs. 2022",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 592846,
+                      "html_end": 594335
+                    }
+                  ],
+                  "html_start": 607339,
+                  "html_end": 609509,
+                  "char_start": 89404,
+                  "char_end": 89476,
+                  "chunk_id": "702165/nsc-20241231:89404",
+                  "score": 17.59828494236845
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "text": "Ratio of railway operating expenses to railway",
+                  "section": "Item 1. Business and Item 2. Properties",
+                  "anchor": "if83f74baa00f4545bf8c7223ec69db57_13",
+                  "kind": "table_row",
+                  "table_start": 275123,
+                  "row_number": 6,
+                  "cells": [
+                    {
+                      "text": "Ratio of railway operating expenses to railway",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    }
+                  ],
+                  "headers": [
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Years ended December 31,",
+                          "header": false,
+                          "colspan": 27,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 276206,
+                      "html_end": 276712
+                    },
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2024",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2023",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2022",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2021",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2020",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 276717,
+                      "html_end": 278214
+                    }
+                  ],
+                  "html_start": 285719,
+                  "html_end": 286407,
+                  "char_start": 9942,
+                  "char_end": 9988,
+                  "chunk_id": "702165/nsc-20241231:9942",
+                  "score": 17.41003882246106
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "text": "Our operational improvements during the year, while handling 5% higher volumes, helped drive improvements to income from railway operations, diluted earnings per share, and railway operating ratio (a measure of the amount of operating revenues consumed by operating expenses). For the full year, we achieved an operating ratio of 66.4%, and an adjusted operating ratio of 65.8% (see our non-GAAP reconciliations beginning on page K26), both of which improved on a year-over-year basis. We remain committed to being a safe, productive, resilient, and efficient railroad with industry-competitive margins.",
+                  "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                  "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                  "kind": "paragraph",
+                  "html_start": 517509,
+                  "html_end": 518121,
+                  "char_start": 83338,
+                  "char_end": 83941,
+                  "chunk_id": "702165/nsc-20241231:83338",
+                  "score": 17.044298229318773
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "text": "operating revenues (railway operating ratio) | 66.4% | 76.5% | 62.3% | 60.1% | 69.3%",
+                  "section": "Item 1. Business and Item 2. Properties",
+                  "anchor": "if83f74baa00f4545bf8c7223ec69db57_13",
+                  "kind": "table_row",
+                  "table_start": 275123,
+                  "row_number": 7,
+                  "cells": [
+                    {
+                      "text": "operating revenues (railway operating ratio)",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "66.4%",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "76.5%",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "62.3%",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "60.1%",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "69.3%",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    }
+                  ],
+                  "headers": [
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Years ended December 31,",
+                          "header": false,
+                          "colspan": 27,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 276206,
+                      "html_end": 276712
+                    },
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2024",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2023",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2022",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2021",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "2020",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 276717,
+                      "html_end": 278214
+                    }
+                  ],
+                  "html_start": 286412,
+                  "html_end": 287959,
+                  "char_start": 9989,
+                  "char_end": 10073,
+                  "chunk_id": "702165/nsc-20241231:9989",
+                  "score": 14.84280076236643
+                },
+                {
+                  "company": "NORFOLK SOUTHERN CORP",
+                  "company_cik": "702165",
+                  "report_end": "2024-12-31",
+                  "source": "data/filings/702165/nsc-20241231.htm",
+                  "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea",
+                  "text": "Railway operating ratio (percent) | 76.5 | (9.1) | 67.4",
+                  "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                  "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                  "kind": "table_row",
+                  "table_start": 579379,
+                  "row_number": 8,
+                  "cells": [
+                    {
+                      "text": "Railway operating ratio (percent)",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "76.5",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "(9.1)",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 3,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "67.4",
+                      "header": false,
+                      "colspan": 2,
+                      "rowspan": 1
+                    },
+                    {
+                      "text": "",
+                      "header": false,
+                      "colspan": 1,
+                      "rowspan": 1
+                    }
+                  ],
+                  "headers": [
+                    {
+                      "cells": [
+                        {
+                          "text": "",
+                          "header": false,
+                          "colspan": 3,
+                          "rowspan": 1
+                        },
+                        {
+                          "text": "Non-GAAP Reconciliation for 2023",
+                          "header": false,
+                          "colspan": 15,
+                          "rowspan": 1
+                        }
+                      ],
+                      "html_start": 580078,
+                      "html_end": 580367
+                    }
+                  ],
+                  "html_start": 589860,
+                  "html_end": 591133,
+                  "char_start": 88666,
+                  "char_end": 88721,
+                  "chunk_id": "702165/nsc-20241231:88666",
+                  "score": 14.822286069484004
+                }
+              ],
+              "location_basis": "Offsets are in decoded HTML characters and normalized optimized text, respectively (0-based, end-exclusive)."
+            },
+            "sources": [
+              {
+                "chunk_id": "702165/nsc-20241231:89404",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "company_cik": "702165",
+                "report_end": "2024-12-31",
+                "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                "char_start": 89404,
+                "char_end": 89476,
+                "html_start": 607339,
+                "html_end": 609509,
+                "table_start": 591845,
+                "row_number": 7
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:9942",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "company_cik": "702165",
+                "report_end": "2024-12-31",
+                "section": "Item 1. Business and Item 2. Properties",
+                "anchor": "if83f74baa00f4545bf8c7223ec69db57_13",
+                "char_start": 9942,
+                "char_end": 9988,
+                "html_start": 285719,
+                "html_end": 286407,
+                "table_start": 275123,
+                "row_number": 6
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:83338",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "company_cik": "702165",
+                "report_end": "2024-12-31",
+                "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                "char_start": 83338,
+                "char_end": 83941,
+                "html_start": 517509,
+                "html_end": 518121
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:9989",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "company_cik": "702165",
+                "report_end": "2024-12-31",
+                "section": "Item 1. Business and Item 2. Properties",
+                "anchor": "if83f74baa00f4545bf8c7223ec69db57_13",
+                "char_start": 9989,
+                "char_end": 10073,
+                "html_start": 286412,
+                "html_end": 287959,
+                "table_start": 275123,
+                "row_number": 7
+              },
+              {
+                "chunk_id": "702165/nsc-20241231:88666",
+                "source": "data/filings/702165/nsc-20241231.htm",
+                "company_cik": "702165",
+                "report_end": "2024-12-31",
+                "section": "Item 7. Management’s Discussion and Analysis of Financial Condition and Results of Operations",
+                "anchor": "if83f74baa00f4545bf8c7223ec69db57_88",
+                "char_start": 88666,
+                "char_end": 88721,
+                "html_start": 589860,
+                "html_end": 591133,
+                "table_start": 579379,
+                "row_number": 8
+              }
+            ],
+            "error": null
+          },
+          "first_evidence_rank": 1,
+          "source_span_verified": true
+        }
+      }
+    }
+  ],
+  "numeric": {
+    "task": {
+      "question_id": "FQA-1640147-05",
+      "company_cik": "1640147",
+      "question": "What was the overall trend in the company's revenue growth?"
+    },
+    "source_rows_verified": true,
+    "checks": {
+      "baseline": {
+        "discovery": {
+          "arguments": {
+            "keyword": "sales revenue"
+          },
+          "elapsed_seconds": 0.008448699998552911,
+          "result": {
+            "ok": true,
+            "data": {
+              "metrics": [],
+              "truncated": false
+            },
+            "sources": [],
+            "error": null
+          },
+          "candidate_count": 0
+        },
+        "sql": {
+          "arguments": {
+            "sql": "SELECT id AS fact_id, cik, fact_name, fact_category, fact_value, unit, end_date, fiscal_year, fiscal_period, frame, filed_date, form_type, accession_number FROM financial_facts WHERE cik=? AND fact_name=? AND end_date=? ORDER BY filed_date DESC, id LIMIT 5",
+            "params": [
+              "1640147",
+              "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "2025-01-31"
+            ]
+          },
+          "elapsed_seconds": 0.0026080999996338505,
+          "result": {
+            "ok": true,
+            "data": {
+              "columns": [
+                "fact_id",
+                "cik",
+                "fact_name",
+                "fact_category",
+                "fact_value",
+                "unit",
+                "end_date",
+                "fiscal_year",
+                "fiscal_period",
+                "frame",
+                "filed_date",
+                "form_type",
+                "accession_number"
+              ],
+              "rows": [
+                [
+                  2509712,
+                  "1640147",
+                  "RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "us-gaap",
+                  3626396000.0,
+                  "USD",
+                  "2025-01-31",
+                  2025,
+                  "FY",
+                  "CY2024",
+                  "2025-03-21",
+                  "10-K",
+                  "0001640147-25-000052"
+                ]
+              ],
+              "truncated": false
+            },
+            "sources": [
+              {
+                "database": "data/finance.db",
+                "sql": "SELECT id AS fact_id, cik, fact_name, fact_category, fact_value, unit, end_date, fiscal_year, fiscal_period, frame, filed_date, form_type, accession_number FROM financial_facts WHERE cik=? AND fact_name=? AND end_date=? ORDER BY filed_date DESC, id LIMIT 5",
+                "params": [
+                  "1640147",
+                  "RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "2025-01-31"
+                ]
+              }
+            ],
+            "error": null
+          }
+        }
+      },
+      "data_optimized": {
+        "discovery": {
+          "arguments": {
+            "keyword": "sales revenue"
+          },
+          "elapsed_seconds": 0.011351599998306483,
+          "result": {
+            "ok": true,
+            "data": {
+              "metrics": [
+                {
+                  "cik": "1640147",
+                  "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "fact_category": "us-gaap",
+                  "unit": "USD",
+                  "disclosures": 65,
+                  "null_values": 0,
+                  "distinct_end_dates": 25,
+                  "first_end_date": "2019-01-31",
+                  "last_end_date": "2025-07-31",
+                  "match": "alias_candidate"
+                },
+                {
+                  "cik": "1640147",
+                  "fact_name": "AmortizationOfDeferredSalesCommissions",
+                  "fact_category": "us-gaap",
+                  "unit": "USD",
+                  "disclosures": 40,
+                  "null_values": 0,
+                  "distinct_end_dates": 23,
+                  "first_end_date": "2020-01-31",
+                  "last_end_date": "2025-07-31",
+                  "match": "partial_terms"
+                },
+                {
+                  "cik": "1640147",
+                  "fact_name": "BusinessAcquisitionsProFormaRevenue",
+                  "fact_category": "us-gaap",
+                  "unit": "USD",
+                  "disclosures": 2,
+                  "null_values": 0,
+                  "distinct_end_dates": 2,
+                  "first_end_date": "2022-01-31",
+                  "last_end_date": "2023-01-31",
+                  "match": "partial_terms"
+                },
+                {
+                  "cik": "1640147",
+                  "fact_name": "ContractWithCustomerLiabilityRevenueRecognized",
+                  "fact_category": "us-gaap",
+                  "unit": "USD",
+                  "disclosures": 65,
+                  "null_values": 0,
+                  "distinct_end_dates": 25,
+                  "first_end_date": "2019-01-31",
+                  "last_end_date": "2025-07-31",
+                  "match": "partial_terms"
+                },
+                {
+                  "cik": "1640147",
+                  "fact_name": "RevenueRemainingPerformanceObligation",
+                  "fact_category": "us-gaap",
+                  "unit": "USD",
+                  "disclosures": 20,
+                  "null_values": 0,
+                  "distinct_end_dates": 20,
+                  "first_end_date": "2020-10-31",
+                  "last_end_date": "2025-07-31",
+                  "match": "partial_terms"
+                }
+              ],
+              "truncated": false,
+              "coverage_basis": "Raw disclosures, including repeats. Date range is end_date, not verified fiscal coverage.",
+              "notes": [
+                "Check end_date, fiscal_period, frame and form_type before comparing flows across periods.",
+                "Check concept, unit, period length and dimensions before identifying repeats.",
+                "Repeated disclosures can reflect revisions. Retain fact IDs and accession numbers and do not sum repeats.",
+                "Do not conflate net income, parent-attributable income, operating income and pretax income."
+              ]
+            },
+            "sources": [],
+            "error": null
+          },
+          "candidate_count": 5
+        },
+        "sql": {
+          "arguments": {
+            "sql": "SELECT id AS fact_id, cik, fact_name, fact_category, fact_value, unit, end_date, fiscal_year, fiscal_period, frame, filed_date, form_type, accession_number FROM financial_facts WHERE cik=? AND fact_name=? AND end_date=? ORDER BY filed_date DESC, id LIMIT 5",
+            "params": [
+              "1640147",
+              "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "2025-01-31"
+            ]
+          },
+          "elapsed_seconds": 0.003526599997712765,
+          "result": {
+            "ok": true,
+            "data": {
+              "columns": [
+                "fact_id",
+                "cik",
+                "fact_name",
+                "fact_category",
+                "fact_value",
+                "unit",
+                "end_date",
+                "fiscal_year",
+                "fiscal_period",
+                "frame",
+                "filed_date",
+                "form_type",
+                "accession_number"
+              ],
+              "rows": [
+                [
+                  2509712,
+                  "1640147",
+                  "RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "us-gaap",
+                  3626396000.0,
+                  "USD",
+                  "2025-01-31",
+                  2025,
+                  "FY",
+                  "CY2024",
+                  "2025-03-21",
+                  "10-K",
+                  "0001640147-25-000052"
+                ]
+              ],
+              "truncated": false,
+              "field_guide": {
+                "cik": "Company identifier stored as text. Join filings using both CIK and accession number.",
+                "fact_name": "Raw XBRL concept. Related concepts may have different definitions.",
+                "fact_category": "Taxonomy namespace. Compare concepts only under compatible definitions.",
+                "fact_value": "Value in the returned unit. NULL is missing and never implies zero.",
+                "unit": "Original units. USD values are unscaled dollars.",
+                "end_date": "Fact period end. It can precede the filing's fiscal year.",
+                "fiscal_year": "Fiscal-year label of the disclosure. Verify the fact's actual end_date.",
+                "fiscal_period": "Source fiscal-period label. Check period length and frame for flows.",
+                "frame": "Supplementary period indicator. A missing frame does not establish annual duration.",
+                "filed_date": "Submission date, distinct from the fact period end.",
+                "form_type": "Source filing form. One period may be disclosed in several filings.",
+                "accession_number": "SEC submission identifier. A matching filings row may be absent."
+              },
+              "interpretation_notes": [
+                "Check end_date, fiscal_period, frame and form_type before comparing flows across periods.",
+                "Check concept, unit, period length and dimensions before identifying repeats.",
+                "Repeated disclosures can reflect revisions. Retain fact IDs and accession numbers and do not sum repeats.",
+                "Do not conflate net income, parent-attributable income, operating income and pretax income."
+              ]
+            },
+            "sources": [
+              {
+                "database": "data/finance.db",
+                "sql": "SELECT id AS fact_id, cik, fact_name, fact_category, fact_value, unit, end_date, fiscal_year, fiscal_period, frame, filed_date, form_type, accession_number FROM financial_facts WHERE cik=? AND fact_name=? AND end_date=? ORDER BY filed_date DESC, id LIMIT 5",
+                "params": [
+                  "1640147",
+                  "RevenueFromContractWithCustomerExcludingAssessedTax",
+                  "2025-01-31"
+                ],
+                "projected_provenance": {
+                  "columns": [
+                    "cik",
+                    "fact_name",
+                    "fact_category",
+                    "unit",
+                    "end_date",
+                    "fiscal_year",
+                    "fiscal_period",
+                    "frame",
+                    "filed_date",
+                    "accession_number",
+                    "form_type",
+                    "fact_id"
+                  ],
+                  "rows": [
+                    [
+                      "1640147",
+                      "RevenueFromContractWithCustomerExcludingAssessedTax",
+                      "us-gaap",
+                      "USD",
+                      "2025-01-31",
+                      2025,
+                      "FY",
+                      "CY2024",
+                      "2025-03-21",
+                      "0001640147-25-000052",
+                      "10-K",
+                      2509712
+                    ]
+                  ],
+                  "truncated": false,
+                  "basis": "Values projected by the supplied SELECT, not inferred source lineage."
+                }
+              }
+            ],
+            "error": null
+          }
+        }
+      }
+    }
+  }
+}
