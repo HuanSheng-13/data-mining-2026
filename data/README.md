@@ -2,6 +2,14 @@
 
 四项必做任务使用[课程数据地址](https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665)中的 `Cluster.zip`、`Image_Anomaly_Detection.zip`、`weather.csv` 和 `thyroid.zip`。
 
+## 拓展二 FinanceQA
+
+当前 FinanceQA 数据包根目录为 `data/financeqa/FinanceQA/`，其下包含 `agent_workspace/`、`evaluation_only/` 和老师提供的说明文件。保留包内结构和原始文件；若本机解压层级不同，修改 Agent 配置的 `data_root` 即可。
+
+`agent_workspace/data/` 中的数据库与年报用于作答，`train/` 用于开发，`test/` 在方法冻结后统一运行。`evaluation_only/` 及评分输出仅用于独立评测，不接入作答 Agent。代码在仓库根目录的 `extension2_finance_agent/` 开发，索引和输出另存，不放入原始数据目录。
+
+完整数据约定、准备方法和 B、C 的开发规范见[拓展二开发说明](../extension2_finance_agent/README.md)。
+
 ## 解压方式
 
 以下路径均相对于仓库根目录。先新建四个目标目录，再将压缩包内容直接解压到对应目录，保留包内原始文件名和层级：

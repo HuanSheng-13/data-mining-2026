@@ -1,0 +1,302 @@
+{
+  "kind": "real_data_tool_smoke_not_model_answers",
+  "reports": 9,
+  "chunks": 2787,
+  "elapsed_seconds": 0.18523070006631315,
+  "calculator_operands": "Synthetic 120/100 used only to validate arithmetic",
+  "checks": [
+    {
+      "tool": "get_schema",
+      "arguments": {},
+      "result": {
+        "ok": true,
+        "data": {
+          "tables": [
+            {
+              "name": "companies",
+              "sql": "CREATE TABLE companies (\n            cik TEXT PRIMARY KEY,\n            entity_type TEXT,\n            sic TEXT,\n            sic_description TEXT,\n            owner_org TEXT,\n            insider_transaction_for_owner_exists INTEGER,\n            insider_transaction_for_issuer_exists INTEGER,\n            name TEXT NOT NULL,\n            ein TEXT,\n            lei TEXT,\n            description TEXT,\n            website TEXT,\n            investor_website TEXT,\n            category TEXT,\n            fiscal_year_end TEXT,\n            state_of_incorporation TEXT,\n            state_of_incorporation_description TEXT,\n            phone TEXT,\n            flags TEXT,\n            former_names TEXT,\n            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\n        )"
+            },
+            {
+              "name": "company_tickers",
+              "sql": "CREATE TABLE company_tickers (\n            cik TEXT NOT NULL,\n            ticker TEXT NOT NULL,\n            exchange TEXT,\n            PRIMARY KEY (cik, ticker),\n            FOREIGN KEY (cik) REFERENCES companies(cik)\n        )"
+            },
+            {
+              "name": "company_addresses",
+              "sql": "CREATE TABLE company_addresses (\n            cik TEXT NOT NULL,\n            address_type TEXT NOT NULL, -- 'mailing' or 'business'\n            street1 TEXT,\n            street2 TEXT,\n            city TEXT,\n            state_or_country TEXT,\n            zip_code TEXT,\n            state_or_country_description TEXT,\n            is_foreign_location INTEGER,\n            foreign_state_territory TEXT,\n            country TEXT,\n            country_code TEXT,\n            PRIMARY KEY (cik, address_type),\n            FOREIGN KEY (cik) REFERENCES companies(cik)\n        )"
+            },
+            {
+              "name": "filings",
+              "sql": "CREATE TABLE filings (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            cik TEXT NOT NULL,\n            accession_number TEXT NOT NULL,\n            filing_date DATE,\n            report_date DATE,\n            acceptance_date_time TEXT,\n            act TEXT,\n            form TEXT,\n            file_number TEXT,\n            film_number TEXT,\n            items TEXT,\n            core_type TEXT,\n            size INTEGER,\n            is_xbrl INTEGER,\n            is_inline_xbrl INTEGER,\n            primary_document TEXT,\n            primary_doc_description TEXT,\n            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n            UNIQUE (cik, accession_number),\n            FOREIGN KEY (cik) REFERENCES companies(cik)\n        )"
+            },
+            {
+              "name": "table_comments",
+              "sql": "CREATE TABLE table_comments (\n            table_name TEXT PRIMARY KEY,\n            comment TEXT NOT NULL\n        )"
+            },
+            {
+              "name": "column_comments",
+              "sql": "CREATE TABLE column_comments (\n            table_name TEXT NOT NULL,\n            column_name TEXT NOT NULL,\n            comment TEXT NOT NULL,\n            PRIMARY KEY (table_name, column_name)\n        )"
+            },
+            {
+              "name": "table_documentation",
+              "sql": "CREATE TABLE table_documentation (\n            table_name TEXT PRIMARY KEY,\n            documentation TEXT NOT NULL\n        )"
+            },
+            {
+              "name": "column_documentation",
+              "sql": "CREATE TABLE column_documentation (\n            table_name TEXT NOT NULL,\n            column_name TEXT NOT NULL,\n            documentation TEXT NOT NULL,\n            PRIMARY KEY (table_name, column_name)\n        )"
+            },
+            {
+              "name": "financial_facts",
+              "sql": "CREATE TABLE financial_facts (\n                id INTEGER PRIMARY KEY AUTOINCREMENT,\n                cik TEXT NOT NULL,\n                fact_name TEXT NOT NULL,\n                fact_value REAL,\n                unit TEXT NOT NULL,\n                fact_category TEXT NOT NULL,\n                fiscal_year INTEGER,\n                fiscal_period TEXT,\n                end_date DATE,\n                accession_number TEXT,\n                form_type TEXT,\n                filed_date DATE,\n                frame TEXT,\n                dimension_segment TEXT,\n                dimension_geography TEXT,\n                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,\n                FOREIGN KEY (cik) REFERENCES companies(cik)\n            )"
+            }
+          ],
+          "company_cik": "1640147",
+          "reports": [
+            {
+              "company": "Snowflake Inc.",
+              "company_cik": "1640147",
+              "report_end": "2024-01-31",
+              "source": "data/filings/1640147/snow-20240131.htm",
+              "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
+            },
+            {
+              "company": "Snowflake Inc.",
+              "company_cik": "1640147",
+              "report_end": "2025-01-31",
+              "source": "data/filings/1640147/snow-20250131.htm",
+              "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
+            }
+          ]
+        },
+        "sources": [],
+        "error": null
+      }
+    },
+    {
+      "tool": "discover_metrics",
+      "arguments": {
+        "keyword": "Revenue"
+      },
+      "result": {
+        "ok": true,
+        "data": {
+          "metrics": [
+            {
+              "fact_name": "BusinessAcquisitionsProFormaRevenue",
+              "fact_category": "us-gaap",
+              "unit": "USD",
+              "disclosures": 2
+            },
+            {
+              "fact_name": "ContractWithCustomerLiabilityRevenueRecognized",
+              "fact_category": "us-gaap",
+              "unit": "USD",
+              "disclosures": 65
+            },
+            {
+              "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+              "fact_category": "us-gaap",
+              "unit": "USD",
+              "disclosures": 65
+            },
+            {
+              "fact_name": "RevenueRemainingPerformanceObligation",
+              "fact_category": "us-gaap",
+              "unit": "USD",
+              "disclosures": 20
+            }
+          ],
+          "truncated": false
+        },
+        "sources": [],
+        "error": null
+      }
+    },
+    {
+      "tool": "query_sql",
+      "arguments": {
+        "sql": "SELECT id, fact_name, fact_value, unit, end_date, frame, accession_number FROM financial_facts WHERE cik=? AND fact_name LIKE ? ORDER BY end_date DESC LIMIT 5",
+        "params": [
+          "1640147",
+          "%Revenue%"
+        ]
+      },
+      "result": {
+        "ok": true,
+        "data": {
+          "columns": [
+            "id",
+            "fact_name",
+            "fact_value",
+            "unit",
+            "end_date",
+            "frame",
+            "accession_number"
+          ],
+          "rows": [
+            [
+              2505324,
+              "ContractWithCustomerLiabilityRevenueRecognized",
+              1400000000.0,
+              "USD",
+              "2025-07-31",
+              "",
+              "0001640147-25-000187"
+            ],
+            [
+              2505325,
+              "ContractWithCustomerLiabilityRevenueRecognized",
+              827600000.0,
+              "USD",
+              "2025-07-31",
+              "CY2025Q2",
+              "0001640147-25-000187"
+            ],
+            [
+              2509714,
+              "RevenueFromContractWithCustomerExcludingAssessedTax",
+              2187043000.0,
+              "USD",
+              "2025-07-31",
+              "",
+              "0001640147-25-000187"
+            ],
+            [
+              2509715,
+              "RevenueFromContractWithCustomerExcludingAssessedTax",
+              1144969000.0,
+              "USD",
+              "2025-07-31",
+              "CY2025Q2",
+              "0001640147-25-000187"
+            ],
+            [
+              2509735,
+              "RevenueRemainingPerformanceObligation",
+              6900000000.0,
+              "USD",
+              "2025-07-31",
+              "CY2025Q2I",
+              "0001640147-25-000187"
+            ]
+          ],
+          "truncated": false
+        },
+        "sources": [
+          {
+            "database": "data/finance.db",
+            "sql": "SELECT id, fact_name, fact_value, unit, end_date, frame, accession_number FROM financial_facts WHERE cik=? AND fact_name LIKE ? ORDER BY end_date DESC LIMIT 5",
+            "params": [
+              "1640147",
+              "%Revenue%"
+            ]
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "tool": "search_reports",
+      "arguments": {
+        "query": "artificial intelligence product technology",
+        "report_end": "2025-01-31",
+        "top_k": 3
+      },
+      "result": {
+        "ok": true,
+        "data": {
+          "hits": [
+            {
+              "company": "Snowflake Inc.",
+              "company_cik": "1640147",
+              "report_end": "2025-01-31",
+              "source": "data/filings/1640147/snow-20250131.htm",
+              "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+              "chunk_id": "1640147/snow-20250131:97600",
+              "char_start": 97600,
+              "char_end": 99400,
+              "text": "l rapid growth, limited operating history, large number of new product features, including those incorporating artificial intelligence and machine learning technology (AI Technology), and unstable macroeconomic conditions, our ability to accurately forecast our future results of operations, including revenue, gross margin, remaining performance obligations (RPO), and the percentage of RPO we expect to recognize as revenue in future periods, is limited and subject to a number of uncertainties, including our ability to plan for and model future growth and platform consumption. Our historical revenue growth should not be considered indicative of our future performance.\nFurther, our revenue growth could slow or our revenue could decline for a number of reasons, including increased competition; changes to technology, such as changes in software or underlying cloud infrastructure or the increasing prominence of new technology like artificial intelligence; reputational harm; and reduced demand for our platform. For example, customers may continue to optimize consumption, rationalize budgets, and prioritize cash flow management, including by reducing storage through shorter data retention policies and shortening committed contract durations. As a result of the foregoing and our rapid revenue growth in prior periods, our revenue growth rate has slowed in recent periods. Any further declines in our revenue growth rate could adversely affect investors’ perceptions of our business, and negatively impact the trading price of our common stock.\nOur revenue growth is also dependent on our ability to increase our penetration into existing markets, and to successfully enter and grow new markets, including highly-regulated markets such as financial services, healthcare, and the public sec",
+              "score": 4.9
+            },
+            {
+              "company": "Snowflake Inc.",
+              "company_cik": "1640147",
+              "report_end": "2025-01-31",
+              "source": "data/filings/1640147/snow-20250131.htm",
+              "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+              "chunk_id": "1640147/snow-20250131:284800",
+              "char_start": 284800,
+              "char_end": 286600,
+              "text": "st-combination stock-based compensation over the requisite service period of four years.\nThe results of operations of this business combination have been included in our consolidated financial statements from the date of acquisition. See Note 7, “Business Combinations,” to our consolidated financial statements included elsewhere in this Annual Report on Form 10-K for details regarding this business combination.\nKey Factors Affecting Our Performance\nAdoption of our Platform and Expansion of the AI Data Cloud\nOur future success depends in large part on the market adoption of our platform, including new product functionality, such as, Snowpark and our artificial intelligence and machine learning technology (AI Technology), such as Snowflake Cortex AI. While we see growing demand for our platform, particularly from large enterprises, many of these organizations have invested substantial technical, financial, and personnel resources in their existing database products or big data offerings. In addition, customers’ use of our AI Technology is often dependent on their ability to meet evolving regulatory standards, successfully complete internal compliance reviews, and enter into mutually acceptable contractual terms. While this makes it difficult to predict customer adoption rates and future demand, we believe that the benefits of our platform put us in a strong position to capture the significant market opportunity ahead.\nOur platform powers the AI Data Cloud, a network of data providers, data consumers, and data application developers that enables our customers to securely share, monetize, and acquire live data sets and data products. The AI Data Cloud includes access to the Snowflake Marketplace, through which customers can access or acquire third-party data sets, data appl",
+              "score": 4.6000000000000005
+            },
+            {
+              "company": "Snowflake Inc.",
+              "company_cik": "1640147",
+              "report_end": "2025-01-31",
+              "source": "data/filings/1640147/snow-20250131.htm",
+              "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937",
+              "chunk_id": "1640147/snow-20250131:96000",
+              "char_start": 96000,
+              "char_end": 97800,
+              "text": "on as reasonably practicable after we electronically file such material with, or furnish it to, the SEC.\nTable of Contents\nITEM 1A. RISK FACTORS\nOur operations and financial results are subject to various risks and uncertainties, including those described below. You should consider and read carefully all of the risks and uncertainties described below, together with all of the other information contained in this Annual Report on Form 10-K, including the sections titled “Special Note about Forward-Looking Statements” and “Management’s Discussion and Analysis of Financial Condition and Results of Operations” and our consolidated financial statements and related notes, before making an investment decision. The risks described below are not the only ones we face. The occurrence of any of the following risks or additional risks and uncertainties not presently known to us or that we currently believe to be immaterial could materially and adversely affect our business, financial condition, results of operations, or growth prospects. In such case, the trading price of our common stock could decline. You should not interpret our disclosure of any of the following risks to imply that such risks have not already materialized.\nRisks Related to Our Business and Operations\nWe have experienced rapid revenue growth and have a limited operating history, both of which make it difficult to forecast our future results of operations.\nOur revenue was $3.6 billion, $2.8 billion, and $2.1 billion for the fiscal years ended January 31, 2025, 2024, and 2023, respectively. As a result of our historical rapid growth, limited operating history, large number of new product features, including those incorporating artificial intelligence and machine learning technology (AI Technology), and unstable mac",
+              "score": 4.5
+            }
+          ],
+          "location_basis": "character offsets in normalized extracted text, not raw HTML"
+        },
+        "sources": [
+          {
+            "chunk_id": "1640147/snow-20250131:97600",
+            "source": "data/filings/1640147/snow-20250131.htm",
+            "report_end": "2025-01-31",
+            "char_start": 97600,
+            "char_end": 99400
+          },
+          {
+            "chunk_id": "1640147/snow-20250131:284800",
+            "source": "data/filings/1640147/snow-20250131.htm",
+            "report_end": "2025-01-31",
+            "char_start": 284800,
+            "char_end": 286600
+          },
+          {
+            "chunk_id": "1640147/snow-20250131:96000",
+            "source": "data/filings/1640147/snow-20250131.htm",
+            "report_end": "2025-01-31",
+            "char_start": 96000,
+            "char_end": 97800
+          }
+        ],
+        "error": null
+      }
+    },
+    {
+      "tool": "calculate",
+      "arguments": {
+        "expression": "(120 / 100 - 1) * 100"
+      },
+      "result": {
+        "ok": true,
+        "data": {
+          "expression": "(120 / 100 - 1) * 100",
+          "value": 19.999999999999996
+        },
+        "sources": [],
+        "error": null
+      }
+    },
+    {
+      "tool": "query_sql",
+      "arguments": {
+        "sql": "DELETE FROM financial_facts",
+        "params": []
+      },
+      "result": {
+        "ok": false,
+        "data": null,
+        "sources": [],
+        "error": "ValueError: Only SELECT or WITH queries are allowed"
+      }
+    }
+  ]
+}
