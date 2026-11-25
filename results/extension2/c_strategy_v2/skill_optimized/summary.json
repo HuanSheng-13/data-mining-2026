@@ -1,0 +1,98 @@
+[
+  {
+    "question_id": "FQA-1640147-01",
+    "log": "logs/000.jsonl",
+    "answer": "I have sufficient evidence from the FY2025 Form 10-K.\n\n**Answer**\n\nSnowflake Inc.'s (CIK 1640147) major strategic initiative is to **advance its \"AI Data Cloud\" platform** — i.e., to embed artificial intelligence and machine learning capabilities into its cloud data platform and drive adoption of that platform. In the FY2025 Form 10-K (fiscal year ended January 31, 2025), the company states: \"We intend to invest in our business to advance the AI Data Cloud through the adoption of our platform\" (source: data/filings/1640147/snow-20250131.htm, chunk 1640147/snow-20250131:62400).\n\nThe filing frames this under \"Our Growth Strategies,\" which include (same chunk, plus chunk 1640147/snow-20250131:64000):\n- **Innovate and advance the platform** — continued significant R&D investment; during FY2025, capabilities such as Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI, and Snowflake ML became generally available, with others (e.g., Snowflake Open Catalog, ML Operations, AI model sharing) in public preview expected to reach GA in FY2026.\n- **Drive growth by acquiring new customers**, with emphasis on large organizations and regulated markets (public sector, financial services).\n- **Drive increased usage within the existing customer base** (consumption-based model).\n- **Expand global footprint** (EMEA, APJ, Latin America).\n- **Expand data content and collaboration** across the ecosystem, including the Snowflake Marketplace.\n\nSupporting this AI-focused strategy, the company also made targeted acquisitions, notably **Datavolo, Inc.** (acquired November 25, 2024, for preliminary consideration of $106.8 million — $87.7 million in stock and $19.1 million cash), described as having \"built a dataflow infrastructure to support the creation, management, and observability of multimodal data pipelines for enterprise AI\" (chunk 1640147/snow-20250131:283200; purchase accounting at chunk 1640147/snow-20250131:467200). The filing also lists earlier acquisitions since fiscal 2024, including Neeva (generative AI search), Samooha, Mobilize.net, LeapYear, and Night Shift Development (chunk 1640147/snow-20250131:163200).\n\n*Note:* These are management's stated strategies and forward-looking intentions as disclosed in the 10-K, not evidence that the initiatives have already produced the intended growth; the filing itself notes that revenue growth has slowed in recent periods (chunk 1640147/snow-20250131:97600).",
+    "status": "completed",
+    "tool_calls": 4,
+    "model_calls": 4,
+    "usage": {
+      "prompt_tokens": 32435,
+      "completion_tokens": 895,
+      "total_tokens": 33330,
+      "prompt_cache_hit_tokens": 20608,
+      "prompt_cache_miss_tokens": 11827
+    },
+    "elapsed_seconds": 6.552320916001918
+  },
+  {
+    "question_id": "FQA-1682852-05",
+    "log": "logs/001.jsonl",
+    "answer": "**Overall trend: sharply declining revenue from 2022 to 2024 (Moderna, Inc., CIK 1682852).**\n\nAnnual total revenue (US GAAP, consolidated, USD):\n\n| Fiscal year (end 12/31) | Revenue | YoY change |\n|---|---|---|\n| 2022 | $19.263 billion | — |\n| 2023 | $6.848 billion | −64.4% |\n| 2024 | $3.236 billion | −52.7% |\n\nOver the full two-year span, revenue fell from $19.263B to $3.236B, a decline of about **83.2%** (calculated).\n\n**Sources (all consolidated, no segment dimension):**\n- FY2022: $19,263,000,000 — fact ID 2606780, `RevenueFromContractWithCustomerExcludingAssessedTax`, frame CY2022, 10-K filed 2025-02-21 (accession 0001682852-25-000022); corroborated by fact ID 2606883 (`Revenues`, 10-K filed 2023-02-24).\n- FY2023: $6,848,000,000 — fact ID 2606789, frame CY2023, 10-K filed 2025-02-21 (accession 0001682852-25-000022); also fact ID 2606788 (10-K filed 2024-02-23).\n- FY2024: $3,236,000,000 — fact ID 2606798, frame CY2024, 10-K filed 2025-02-21 (accession 0001682852-25-000022).\n\n**Notes on basis:** Figures are full-year flows for the December 31 fiscal year, taken from the latest applicable annual disclosures; the `Revenues` and `RevenueFromContractWithCustomerExcludingAssessedTax` tags agree for these years, so no tag conflict arises. The decline is monotonic — a large drop in 2023 followed by a further, somewhat smaller drop in 2024 — consistent with the wind-down of pandemic-era product sales, though the specific drivers are not established by these figures alone.",
+    "status": "completed",
+    "tool_calls": 8,
+    "model_calls": 6,
+    "usage": {
+      "prompt_tokens": 50651,
+      "completion_tokens": 1130,
+      "total_tokens": 51781,
+      "prompt_cache_hit_tokens": 39680,
+      "prompt_cache_miss_tokens": 10971
+    },
+    "elapsed_seconds": 8.333788292016834
+  },
+  {
+    "question_id": "FQA-1682852-09",
+    "log": "logs/002.jsonl",
+    "answer": "I have the key disclosures from both annual reports.\n\n**Short answer:** Moderna's investment portfolio is exposed to interest-rate risk mainly through the fair value of its available-for-sale marketable debt securities, which fall in value when market interest rates rise; management characterizes the exposure as not significant because of short maturities and low-risk profiles. Higher rates also raise interest income.\n\n**Portfolio composition and size**\n- The portfolio comprises money market funds and marketable debt securities (U.S. Treasury securities, U.S. government agency and corporate debt, and commercial paper), classified as available-for-sale. Objectives are capital preservation and liquidity, with an investment policy limiting holdings to investment-grade instruments (2024 10-K, Item 7A, chunk 1682852/mrna-20241231:499200; Note on Concentrations of Credit Risk, chunk 1682852/mrna-20231231:548800).\n- Cash, cash equivalents, restricted cash and investments in marketable securities: $9.5 billion at Dec 31, 2024, $13.3 billion at Dec 31, 2023, and $18.2 billion at Dec 31, 2022 (2024 10-K chunk 1682852/mrna-20241231:499200; 2023 10-K chunk 1682852/mrna-20231231:504000).\n\n**Directional effect of rate changes**\n- \"Our marketable securities are subject to interest rate risk and will fall in value if market interest rates increase.\" Because of short-term maturities and low-risk profiles, the company does \"not anticipate a significant exposure to interest rate risk\" (both 10-Ks, Item 7A).\n- Quantified sensitivity (hypothetical, not realized): an immediate, uniform 1-percentage-point increase in market rates would reduce the net fair value of marketable securities by approximately **$53 million** at Dec 31, 2024 (2024 10-K, chunk 1682852/mrna-20241231:499200) and approximately **$83 million** at Dec 31, 2023 (2023 10-K, chunk 1682852/mrna-20231231:505600). The decline in the sensitivity tracks the smaller portfolio.\n- Income effect: interest income rose $221 million in 2023 and $4 million in 2024, both attributed mainly to an overall higher interest rate environment, partly offset by lower average investment balances (2023 10-K chunk 1682852/mrna-20231231:488000; 2024 10-K chunk 1682852/mrna-20241231:483200). Conversely, falling rates would reduce interest income.\n- Realized effects: losses on investments were $72 million in 2023 and $56 million in 2024, described as net realized losses on available-for-sale debt securities (2024 10-K chunk 1682852/mrna-20241231:483200; 2023 10-K chunk 1682852/mrna-20231231:488000).\n- Risk-factor framing: the investments are subject to credit, liquidity, market, inflation and interest rate risks; the company \"may realize losses in the fair value of these investments,\" and if investments cease paying or reduce interest, interest income would suffer (2024 10-K chunk 1682852/mrna-20241231:355200; 2023 10-K chunk 1682852/mrna-20231231:363200).\n\n**Caveats:** The $53 million/$83 million figures are management's hypothetical 1-point parallel-shift sensitivity, not forecasts or actual losses; the reports do not disclose a sensitivity for rate decreases, nor a duration/maturity breakdown in these passages.",
+    "status": "completed",
+    "tool_calls": 2,
+    "model_calls": 2,
+    "usage": {
+      "prompt_tokens": 12357,
+      "completion_tokens": 888,
+      "total_tokens": 13245,
+      "prompt_cache_hit_tokens": 6144,
+      "prompt_cache_miss_tokens": 6213
+    },
+    "elapsed_seconds": 5.746681916993111
+  },
+  {
+    "question_id": "FQA-1373715-07",
+    "log": "logs/003.jsonl",
+    "answer": "**Overall: both liquidity and the asset base strengthened in the most recent period.**\n\nThe latest period in the database is the quarter ended **June 30, 2025** (10-Q filed 2025-07-24, accession 0001373715-25-000276); the latest audited year-end is **December 31, 2024** (10-K filed 2025-01-30, accession 0001373715-25-000010). All figures below are point-in-time balances in USD.\n\n**Liquidity (current assets vs. current liabilities)**\n- Current assets: $9,275M at 2025-06-30 vs. $9,187M at 2024-12-31 vs. $7,777M at 2023-12-31 (fact IDs 1335270, 1335266, 1335258).\n- Current liabilities: $8,495M vs. $8,358M vs. $7,365M (fact IDs 1344291, 1344287, 1344279).\n- Current ratio (derived): **1.09x** at 2025-06-30, 1.10x at 2024-12-31, 1.06x at 2023-12-31 — essentially flat quarter-over-quarter but modestly higher than a year earlier.\n- Cash and cash equivalents: $3,124M at 2025-06-30, up from $2,304M at 2024-12-31 and $1,897M at 2023-12-31 (fact IDs 1336650, 1336646, 1336636). Current available-for-sale debt securities were $3,008M vs. $3,458M vs. $2,980M (fact IDs 1336083, 1336079, 1336071), so total cash plus current investments rose to about $6.13B from $5.76B at year-end 2024.\n\n**Asset base**\n- Total assets: $22,051M at 2025-06-30, up **8.2%** from $20,383M at 2024-12-31, which itself was up 17.2% from $17,387M at 2023-12-31 (fact IDs 1335164, 1335160, 1335152).\n- Stockholders' equity: $10,139M at 2025-03-31 vs. $9,609M at 2024-12-31 and $7,628M at 2023-12-31 (fact IDs 1351554, 1351551, 1351540). Total liabilities also grew ($11,119M at 2025-06-30 vs. $10,774M at 2024-12-31), so the balance sheet expanded on both sides.\n\n**Management's own assessment (FY2024 10-K)**\nThe 10-K states the company \"has generated positive operating cash flows for more than ten years\" and that cash, cash equivalents, short-term and long-term investments totaled **$9.9 billion** at December 31, 2024 (vs. $8.1 billion at December 31, 2023), and that it anticipates operating cash flows and investments \"will be sufficient to meet our liquidity needs for at least the next 12 months.\" Net cash provided by operating activities rose to $4,267M in 2024 from $3,398M in 2023 (chunk 1373715/now-20241231:220800 and :224000).\n\n**Caveats:** The current ratio is only marginally above 1.0x, so liquidity is adequate rather than abundant, and the improvement in the June 2025 quarter is small (current assets +$88M against current liabilities +$137M). The 2025 figures come from quarterly 10-Q filings, not an audited annual report, and the bundled annual report covers only FY2024.",
+    "status": "completed",
+    "tool_calls": 9,
+    "model_calls": 6,
+    "usage": {
+      "prompt_tokens": 60237,
+      "completion_tokens": 1458,
+      "total_tokens": 61695,
+      "prompt_cache_hit_tokens": 45184,
+      "prompt_cache_miss_tokens": 15053
+    },
+    "elapsed_seconds": 9.978110707976157
+  },
+  {
+    "question_id": "FQA-702165-05",
+    "log": "logs/004.jsonl",
+    "answer": "The calculated ratios (66.4% and 76.5%) match the disclosed figures exactly. I have sufficient evidence.\n\n**Norfolk Southern Corp. (CIK 702165) — Railway Operating Ratio, FY2024 vs. FY2023**\n\n**Answer: Operating efficiency improved markedly in 2024.** The railway operating ratio (railway operating expenses ÷ railway operating revenues) fell to **66.4% in 2024 from 76.5% in 2023** — a 10.1 percentage-point improvement (lower is better, since it means less revenue is consumed by expenses).\n\n**Supporting figures (FY ended Dec 31, $ millions):**\n- Railway operating revenues: $12,123 (2024) vs. $12,156 (2023) — roughly flat (−0.3%)\n- Railway operating expenses: $8,052 (2024) vs. $9,305 (2023) — down 13%\n- Income from railway operations: $4,071 (2024) vs. $2,851 (2023) — up 43%\n\nI verified the ratio from the underlying facts: 8,052 / 12,123 = 66.4% and 9,305 / 12,156 = 76.5%, matching the disclosed percentages (fact IDs 847174, 859736, 847165, 859727, 855259, 855250; 10-K accession 0000702165-25-000008, filed 2025-02-10).\n\n**Context and caveats:**\n- The 2023 ratio was heavily distorted by the Eastern Ohio Incident. On a non-GAAP basis excluding Incident costs, the **adjusted operating ratio was 67.4% in 2023 vs. 65.8% in 2024** — still an improvement, but only about 1.6 percentage points. The 2024 GAAP ratio also benefited from $433 million of gains on railway line sales and other non-GAAP items (10-K, MD&A, chunk 702165/nsc-20241231:115200 and :121600).\n- Management attributed the improvement to operational gains while handling 5% higher volumes, lower fuel prices, and reduced purchased-services and other costs (chunks :113600 and :121600).\n- Longer trend from the five-year statistics table: 62.3% (2022), 60.1% (2021), 69.3% (2020) — so 2024's 66.4% is better than 2023 but still worse than 2021–2022 levels (chunk :38400).\n\n**Material uncertainty:** The database contains only the 2023 and 2024 annual reports, so the \"recent period\" comparison is limited to FY2024 vs. FY2023; no 2025 annual data is available.",
+    "status": "completed",
+    "tool_calls": 10,
+    "model_calls": 8,
+    "usage": {
+      "prompt_tokens": 88319,
+      "completion_tokens": 1513,
+      "total_tokens": 89832,
+      "prompt_cache_hit_tokens": 72960,
+      "prompt_cache_miss_tokens": 15359
+    },
+    "elapsed_seconds": 12.602355417009676
+  },
+  {
+    "question_id": "FQA-702165-07",
+    "log": "logs/005.jsonl",
+    "answer": "I have both the numbers and the narrative drivers. Here is the answer.\n\n## Norfolk Southern Corp (CIK 702165) — Profitability margins, FY2022–FY2024\n\n**Margin levels (calculated from reported GAAP figures, USD):**\n\n| Metric | 2022 | 2023 | 2024 |\n|---|---|---|---|\n| Railway operating revenues | $12,745M | $12,156M | $12,123M |\n| Income from railway operations | $4,809M | $2,851M | $4,071M |\n| Net income | $3,270M | $1,827M | $2,622M |\n| Operating margin (calc.) | 37.7% | 23.5% | 33.6% |\n| Net margin (calc.) | 25.7% | 15.0% | 21.6% |\n| Railway operating ratio (reported) | 62.3% | 76.5% | 66.4% |\n\nSources: revenue fact 859715/859727/859736, operating income 855238/855250/855259, net income 854451/854469/854482, all from the FY2024 10-K (accession 0000702165-25-000008, filed 2025-02-10).\n\n**Change in margins:**\n- **2023 vs 2022:** operating margin fell **14.3 percentage points** (37.7% → 23.5%); net margin fell **10.6 pp** (25.7% → 15.0%). Operating ratio deteriorated from 62.3% to 76.5%.\n- **2024 vs 2023:** operating margin rose **10.1 pp** (23.5% → 33.6%); net margin rose **6.6 pp** (15.0% → 21.6%). Operating ratio improved to 66.4%.\n- Net result over the two years: margins in 2024 remain below 2022 levels (operating margin −4.1 pp; net margin −4.0 pp).\n\n**What drove the change (per management's MD&A, FY2024 10-K):**\n\n*2023 decline* — driven by the Eastern Ohio derailment (\"the Incident\"): $1.1 billion of net expenses recorded in 2023 (chunk 702165/nsc-20241231:142400), plus a 5% revenue decline from lower fuel surcharge revenue, lower intermodal storage revenue and lower volume, and higher non-Incident operating expenses from inflation, operational-resiliency investment and service-related costs (chunk :115200). Net income also reflected the absence of a prior-year $136 million Pennsylvania deferred tax benefit (chunk :116800).\n\n*2024 recovery* — primarily lower railway operating expenses (−13%): net Incident expenses fell to $325 million (net of $650 million insurance recoveries), fuel expense dropped 16% to $987M on lower fuel prices, purchased services fell 2%, and \"Other\" expense swung to a $273M credit largely from $433 million of gains on railway line sales in Virginia and North Carolina (chunks :136000, :140800, :142400). Revenue was roughly flat (decreased fuel surcharge revenue, adverse traffic mix and lower pricing nearly offset by 5% higher volumes), so the margin gain came almost entirely from the cost side (chunk :115200).\n\n**Caveats:** The margin percentages above are my calculations (operating income or net income ÷ railway operating revenues); the company itself reports the operating ratio (66.4% GAAP; 65.8% adjusted in 2024). The 2024 improvement is flattered by non-recurring items — $433M of line-sale gains, a $20M OPEB curtailment gain, partly offset by $183M of restructuring charges — so the adjusted operating ratio (65.8%) is a better like-for-like comparison, and even on that basis 2024 remains above the 62.3% ratio of 2022.",
+    "status": "completed",
+    "tool_calls": 11,
+    "model_calls": 7,
+    "usage": {
+      "prompt_tokens": 70215,
+      "completion_tokens": 1877,
+      "total_tokens": 72092,
+      "prompt_cache_hit_tokens": 52736,
+      "prompt_cache_miss_tokens": 17479
+    },
+    "elapsed_seconds": 11.891094207996503
+  }
+]

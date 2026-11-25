@@ -21,3 +21,5 @@ C 是报告唯一作者，正式报告放仓库 `report/extension2.md`，PDF 由
 ## C 策略实现与验收入口
 
 本分支的独立策略配置为 `configs/skill_optimized.json`，实现与命令见 [C_README.md](C_README.md)，真实开发对比见 [c_strategy_v1](../../results/extension2/c_strategy_v1/README.md)。共同基线为已合并 PR 5 的 `8021a16`；本策略 PR 仍需其他成员审核。
+
+最终规则的第二轮实际验收见 [c_strategy_v2](../../results/extension2/c_strategy_v2/README.md)。两轮基础支持分别为 4/6、6/6，C 均 6/6；不可把首轮差异当作稳定准确率提升。最终 48 项测试通过；报告按用户要求暂停，本次只验收 C 策略。

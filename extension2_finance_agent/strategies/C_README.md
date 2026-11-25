@@ -41,8 +41,10 @@ python3 -m extension2_finance_agent.strategies.audit_trace --run extension2_fina
 
 ## 结果与交接
 
-真实结果、逐题对照与案例见 `results/extension2/c_strategy_v1/`。无 API Key 的成员仍可运行离线测试和真实数据工具检查，不能将此称作模型效果验证。
+真实结果、逐题对照与案例见 `results/extension2/c_strategy_v2/`（最终规则）与 `c_strategy_v1/`（保留首轮）。无 API Key 的成员仍可运行离线测试和真实数据工具检查，不能将此称作模型效果验证。
 
 本轮为 train 开发子集，不能替代 A 的 37 题四组统一对比或 19 题首次正式 test。单次支持性评分不是严格完整正确率；模型即使温度 0 也可能波动。额外提示词会增加输入成本，不保证指标提升。真实评分若显示无提升，按实际结果保留，不选择性丢弃失败题。
 
 A 集成时保留 C 的三个资源配置项，用自己的组合配置叠加 B 的工具和准备工厂；不要覆盖 baseline。C 的 PR 由作者以外成员审核，本分支不自行合并。按当前安排，报告等待 B 完成及 A 提供完整对比、首次 test 后再统一撰写；本次 PR 只交付 C 的策略与验证材料。
+
+最终规则的第二轮实际验收见 [c_strategy_v2](../../results/extension2/c_strategy_v2/README.md)。两轮基础支持分别为 4/6、6/6，C 均 6/6；不可把首轮差异当作稳定准确率提升。最终 48 项测试通过；报告按用户要求暂停，本次只验收 C 策略。
