@@ -1,0 +1,381 @@
+{
+  "split": "train",
+  "source_question_count": 37,
+  "subset_evaluation": false,
+  "mode": "judge_api",
+  "model_calls": 4,
+  "judge_model": "deepseek-flash",
+  "expected_questions": 37,
+  "missing_predictions": 33,
+  "empty_answers": 0,
+  "correct_info": 4,
+  "incorrect_info": 0,
+  "insufficient_info": 33,
+  "api_failed": 0,
+  "evaluation_complete": true,
+  "support_percentage": 10.81081081081081,
+  "incorrect_percentage": 0.0,
+  "insufficient_percentage": 89.1891891891892,
+  "api_failed_percentage": 0.0,
+  "results": [
+    {
+      "question_id": "FQA-1640147-01",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "In the FY2025 Form 10-K ... the Overview states: \"To realize this vision, we deliver the AI Data Cloud, a network where Snowflake customers, partners, developers, data providers, and data consumers can break down data silos and derive value from a growing number of data sets in secure, governed, and compliant ways.\" ... Under \"Key Factors Affecting Our Performance — Adoption of our Platform and Expansion of the AI Data Cloud\": \"Our future growth is increasingly dependent on our ability to increase consumption of our platform by building and expanding the AI Data Cloud.\" It cites Snowpark and AI Technology such as Snowflake Cortex AI as key new functionality. ... Datavolo, Inc. — acquired November 25, 2024, a company that \"built a dataflow infrastructure to support the creation, management, and observability of multimodal data pipelines for enterprise AI\"",
+      "reasoning": "The context directly describes Snowflake's strategic repositioning around the 'AI Data Cloud,' explicitly tying future growth to increasing consumption via AI/developer-focused products such as Snowpark and Snowflake Cortex AI, and to AI-related acquisitions like Datavolo. This strongly aligns with and supports the ground truth answer that the company aggressively invested in AI and developer-focused offerings to expand use cases and drive higher consumption.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"In the FY2025 Form 10-K ... the Overview states: \\\"To realize this vision, we deliver the AI Data Cloud, a network where Snowflake customers, partners, developers, data providers, and data consumers can break down data silos and derive value from a growing number of data sets in secure, governed, and compliant ways.\\\" ... Under \\\"Key Factors Affecting Our Performance — Adoption of our Platform and Expansion of the AI Data Cloud\\\": \\\"Our future growth is increasingly dependent on our ability to increase consumption of our platform by building and expanding the AI Data Cloud.\\\" It cites Snowpark and AI Technology such as Snowflake Cortex AI as key new functionality. ... Datavolo, Inc. — acquired November 25, 2024, a company that \\\"built a dataflow infrastructure to support the creation, management, and observability of multimodal data pipelines for enterprise AI\\\"\",\n  \"reasoning\": \"The context directly describes Snowflake's strategic repositioning around the 'AI Data Cloud,' explicitly tying future growth to increasing consumption via AI/developer-focused products such as Snowpark and Snowflake Cortex AI, and to AI-related acquisitions like Datavolo. This strongly aligns with and supports the ground truth answer that the company aggressively invested in AI and developer-focused offerings to expand use cases and drive higher consumption.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-02",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-03",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-04",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-05",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Revenue rose from ~$97M in FY2019 to ~$3.63B in FY2025 (about 37x), but the year-over-year growth rate fell in every year: from ~174% in FY2020 to ~29% in FY2025. ... The FY2025 10-K itself reports total revenue growth of 29% (product revenue +30%, professional services and other +17%), consistent with the computed figure.",
+      "reasoning": "The context provides supporting evidence of strong revenue growth over recent years and explicitly notes double-digit growth of 29% in FY2025, which aligns with the ground truth answer. Although it does not explicitly discuss customer base and usage expansion, the revenue growth evidence is consistent with and supports the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Revenue rose from ~$97M in FY2019 to ~$3.63B in FY2025 (about 37x), but the year-over-year growth rate fell in every year: from ~174% in FY2020 to ~29% in FY2025. ... The FY2025 10-K itself reports total revenue growth of 29% (product revenue +30%, professional services and other +17%), consistent with the computed figure.\",\n  \"reasoning\": \"The context provides supporting evidence of strong revenue growth over recent years and explicitly notes double-digit growth of 29% in FY2025, which aligns with the ground truth answer. Although it does not explicitly discuss customer base and usage expansion, the revenue growth evidence is consistent with and supports the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-06",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The company's stated growth strategies lead with innovation: it says it will \"continue making significant investments in research and development and hiring top technical talent to enable new use cases, strengthen our technical lead in our platform's architecture, and increase our differentiation through enhanced collaboration capabilities\" (chunk 1640147/snow-20250131:62400). ... management names Snowpark, the Snowflake Marketplace and Snowflake Cortex AI as the key strategies (chunks :284800, :129600). ... Snowflake Cortex AI is highlighted as the flagship AI/ML technology ... Snowpark Container Services (2023), the Native Application Framework/program, and support for external Apache Iceberg tables — i.e., openness and multi-language developer support (chunks :51200, :56000). ... Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI and Snowflake ML reached GA",
+      "reasoning": "The context directly supports the ground truth by describing the company's emphasis on innovation, significant R&D investment, AI/ML technology including Snowflake Cortex AI and Snowflake ML, developer tools such as Snowpark, Snowpark Container Services, the Native Application Framework/program, and recent GA launches. These align with the answer's focus on product innovation, AI, developer tools, container services, Native Application program, recent launches, and continued R&D/platform investments.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The company's stated growth strategies lead with innovation: it says it will \\\"continue making significant investments in research and development and hiring top technical talent to enable new use cases, strengthen our technical lead in our platform's architecture, and increase our differentiation through enhanced collaboration capabilities\\\" (chunk 1640147/snow-20250131:62400). ... management names Snowpark, the Snowflake Marketplace and Snowflake Cortex AI as the key strategies (chunks :284800, :129600). ... Snowflake Cortex AI is highlighted as the flagship AI/ML technology ... Snowpark Container Services (2023), the Native Application Framework/program, and support for external Apache Iceberg tables — i.e., openness and multi-language developer support (chunks :51200, :56000). ... Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI and Snowflake ML reached GA\",\n  \"reasoning\": \"The context directly supports the ground truth by describing the company's emphasis on innovation, significant R&D investment, AI/ML technology including Snowflake Cortex AI and Snowflake ML, developer tools such as Snowpark, Snowpark Container Services, the Native Application Framework/program, and recent GA launches. These align with the answer's focus on product innovation, AI, developer tools, container services, Native Application program, recent launches, and continued R&D/platform investments.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-07",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-08",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-09",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-01",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-02",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-03",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-04",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-05",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The trend was a steep, continuous decline: revenue fell sharply in 2023 and fell again in 2024, leaving 2024 revenue about 83% below the 2022 level. ... the decline is attributed primarily to a significant reduction in net product sales of the COVID vaccine — COVID product sales fell from $18,435M (2022) to $6,671M (2023) to $3,084M (2024). The newly launched RSV vaccine contributed only $25M in 2024",
+      "reasoning": "The context directly supports the ground truth: it shows marked revenue decline from 2022 to 2024, attributes the decline primarily to reduced COVID vaccine sales, and notes only a small 2024 RSV vaccine contribution.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The trend was a steep, continuous decline: revenue fell sharply in 2023 and fell again in 2024, leaving 2024 revenue about 83% below the 2022 level. ... the decline is attributed primarily to a significant reduction in net product sales of the COVID vaccine — COVID product sales fell from $18,435M (2022) to $6,671M (2023) to $3,084M (2024). The newly launched RSV vaccine contributed only $25M in 2024\",\n  \"reasoning\": \"The context directly supports the ground truth: it shows marked revenue decline from 2022 to 2024, attributes the decline primarily to reduced COVID vaccine sales, and notes only a small 2024 RSV vaccine contribution.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-06",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-07",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-08",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-09",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-10",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-01",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-02",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-03",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-04",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-05",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-06",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-07",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-08",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-01",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-02",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-03",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-04",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-05",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-06",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-07",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-08",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-09",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-10",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    }
+  ],
+  "per_company": {
+    "1640147": {
+      "expected_questions": 9,
+      "missing_predictions": 6,
+      "empty_answers": 0,
+      "correct_info": 3,
+      "incorrect_info": 0,
+      "insufficient_info": 6,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 33.33333333333333,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 66.66666666666666,
+      "api_failed_percentage": 0.0
+    },
+    "1682852": {
+      "expected_questions": 10,
+      "missing_predictions": 9,
+      "empty_answers": 0,
+      "correct_info": 1,
+      "incorrect_info": 0,
+      "insufficient_info": 9,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 10.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 90.0,
+      "api_failed_percentage": 0.0
+    },
+    "1373715": {
+      "expected_questions": 8,
+      "missing_predictions": 8,
+      "empty_answers": 0,
+      "correct_info": 0,
+      "incorrect_info": 0,
+      "insufficient_info": 8,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 0.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 100.0,
+      "api_failed_percentage": 0.0
+    },
+    "702165": {
+      "expected_questions": 10,
+      "missing_predictions": 10,
+      "empty_answers": 0,
+      "correct_info": 0,
+      "incorrect_info": 0,
+      "insufficient_info": 10,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 0.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 100.0,
+      "api_failed_percentage": 0.0
+    }
+  },
+  "average_support_percentage": 10.833333333333332
+}

@@ -17,24 +17,35 @@
   },
   "official_format_check": {
     "mode": "check_only",
-    "expected_questions": 3,
-    "missing_predictions": 0,
-    "fixture_kind": "explicitly labelled placeholder answers; format only",
+    "expected_questions": 37,
+    "demo_predictions": 4,
+    "missing_predictions": 33,
     "model_calls": 0,
-    "support_percentage": null
+    "support_percentage": null,
+    "record": "demo_live_v1/official_format_check.json"
   },
   "documentation": {
-    "local_links_checked": 16
+    "local_links_checked": 29
   },
   "real_model_demo": {
-    "status": "not_run_missing_FINANCEQA_API_KEY",
+    "status": "passed",
     "model": "deepseek-flash",
     "chat_url": "https://api.deepseek.com/chat/completions",
-    "predictions_created": false
+    "predictions_created": true,
+    "questions": 4,
+    "generation_commit": "a02da9e788816a12979e9d687dcc269850a730d3",
+    "acceptance_record": "demo_live_v1/acceptance.json"
   },
   "model_evaluation": {
-    "status": "not_run",
-    "support_percentage": null
+    "status": "completed_for_demo",
+    "answered_subset_supported": 4,
+    "answered_subset_questions": 4,
+    "answered_subset_support_percentage": 100.0,
+    "official_denominator": 37,
+    "official_missing_predictions": 33,
+    "official_support_percentage": 10.81081081081081,
+    "raw_report": "demo_live_v1/official_score.json",
+    "api_failed": 0
   },
   "formal_test": {
     "status": "not_run_before_final_method_freeze"
@@ -138,5 +149,13 @@
     "automatically_loaded": true,
     "git_ignored": true,
     "secret_values_recorded": false
+  },
+  "offline_contract_fixture_check": {
+    "mode": "check_only",
+    "expected_questions": 3,
+    "missing_predictions": 0,
+    "fixture_kind": "explicitly labelled placeholder answers; format only",
+    "model_calls": 0,
+    "support_percentage": null
   }
 }
