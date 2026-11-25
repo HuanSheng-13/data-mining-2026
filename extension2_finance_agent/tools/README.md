@@ -24,4 +24,4 @@ class Registry:
 
 将优化配置的 `tool_factory` 设为 `extension2_finance_agent.tools.optimized:create_tools`。数据优化单独运行时，策略工厂和提示词保持基础版。新增验证放在 `tests/test_tools_optimized.py`，使用临时合成数据检查接口及失败情况，再用 train 案例验证真实效果。
 
-B 的 PR 由 A 审核，附索引构建命令、对比配置、实际验证结果与来源案例。根依赖和公共接口的变更由 A 协调。
+B 的 PR 由作者以外的成员按实际安排审核，不指定固定审核人；附索引构建命令、对比配置、实际验证结果与来源案例。根依赖和公共接口的变更由 A 协调。
