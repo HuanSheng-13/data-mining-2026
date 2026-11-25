@@ -1,26 +1,10 @@
 """Non-streaming Chat Completions tool calling, using only the stdlib."""
 import json
-import os
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
-
-
-def environment_secret(name):
-    value = os.environ.get(name)
-    if value:
-        return value
-    # A running desktop app may not inherit a newly set Windows user variable.
-    if os.name == "nt":
-        import winreg
-        try:
-            with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as key:
-                value, _ = winreg.QueryValueEx(key, name)
-                return value if isinstance(value, str) else None
-        except OSError:
-            pass
-    return None
+from extension2_finance_agent.core.env import environment_value as environment_secret
 
 
 class ModelError(RuntimeError):

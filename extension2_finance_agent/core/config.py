@@ -4,8 +4,8 @@ import hashlib
 import importlib
 import json
 import math
-import os
 from pathlib import Path
+from extension2_finance_agent.core.env import environment_value
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = ROOT / "extension2_finance_agent"
@@ -82,8 +82,9 @@ class Config:
     def load(cls, path):
         values = read_json(local_path(path))
         for field, env in (("chat_url", "FINANCEQA_CHAT_URL"), ("model", "FINANCEQA_MODEL")):
-            if os.environ.get(env):
-                values[field] = os.environ[env]
+            value = environment_value(env)
+            if value:
+                values[field] = value
         config = cls(**values)
         if config.artifacts.is_relative_to(config.data):
             raise ValueError("artifacts_dir must be outside the original data package")

@@ -48,13 +48,19 @@ train 参考答案和评分反馈可用于人工开发、优化，但基础作�
 
 `prepare` 构建确定性的文本块和输入指纹，输出到 `artifacts/baseline/`。运行前自动验证数据库、原始年报和文本块是否发生变化；变化后应重新准备并使用新实验目录。`smoke-tools` 直接运行真实数据工具，其中计算器使用明确标注的示例数值；其输出不是模型答案或问答分数。
 
-密钥通过 `FINANCEQA_API_KEY` 环境变量读取，支持当前进程或 Windows 用户环境变量。示例见 [.env.example](.env.example)，该文件不自动加载。请在自己的 PowerShell 中配置真实值，勿写入代码、配置 JSON、提交记录或聊天：
+推荐将 [.env.example](.env.example) 复制为本目录的 `.env`，在本机填入密钥。程序自动读取固定位置 `extension2_finance_agent/.env`，无需设置 Windows 永久环境变量，也不需要手动加载文件。已有 `.env` 时保留其内容，不用模板覆盖：
 
-```powershell
-$env:FINANCEQA_API_KEY = '<在本机填入密钥>'
+```dotenv
+FINANCEQA_API_KEY=在本机填入你的密钥
+FINANCEQA_CHAT_URL=https://api.deepseek.com/chat/completions
+FINANCEQA_MODEL=deepseek-flash
 ```
 
-可选 `FINANCEQA_CHAT_URL`、`FINANCEQA_MODEL` 覆盖端点和模型；其他参数通过复制配置文件修改。默认关闭 DeepSeek thinking；其他服务需兼容 `messages`、`tools`、`tool_choice`、非流式返回及 `choices[0].message.tool_calls`。不同服务的兼容性需用实际请求验证。
+查找顺序为非空的当前进程环境变量、本目录 `.env`、Windows 用户环境变量；端点与模型最后回退到 JSON 配置。当前终端已有变量会优先于文件。只读取这个固定位置，不从工作目录或父目录搜索其他 `.env`，不把文件内容写入全局环境、配置快照或日志。
+
+支持单行 `KEY=VALUE`、可选 `export`、单引号或双引号，以及空白分隔的行尾注释；带 `#` 的值可加引号。不展开 `${变量}`、转义序列或多行内容。文件格式错误只报告行号，不回显原始行。真实 `.env` 被 Git 忽略，仅提交无密钥的 `.env.example`。
+
+`FINANCEQA_CHAT_URL`、`FINANCEQA_MODEL` 可覆盖端点和模型；其他参数通过复制配置文件修改。默认关闭 DeepSeek thinking；其他服务需兼容 `messages`、`tools`、`tool_choice`、非流式返回及 `choices[0].message.tool_calls`。不同服务的兼容性需用实际请求验证。
 
 ## 4 单题与 demo 运行
 
@@ -95,11 +101,18 @@ $env:FINANCEQA_API_KEY = '<在本机填入密钥>'
 .\.venv\Scripts\python.exe -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_baseline_v1/predictions.json --check-only --output extension2_finance_agent/outputs/evaluation/train_baseline_v1_format.json
 ```
 
-真实评分需单独设置 `FINANCEQA_JUDGE_API_KEY`，并明确指定检查器端点和模型；可在自己的终端显式复用作答密钥，但评测与作答流程保持分离：
+真实评分在同一个本地 `.env` 中配置以下三项。需要复用作答密钥时，在本机将同一个实际值填入检查器密钥项；不能写 `${FINANCEQA_API_KEY}`，程序不会展开变量。评测与作答流程保持分离：
+
+```dotenv
+FINANCEQA_JUDGE_API_KEY=在本机填入检查器密钥
+FINANCEQA_JUDGE_URL=https://api.deepseek.com/chat/completions
+FINANCEQA_JUDGE_MODEL=deepseek-flash
+```
+
+配置后可直接执行；显式 `--judge-url`、`--model` 参数优先于文件和环境设置：
 
 ```powershell
-$env:FINANCEQA_JUDGE_API_KEY = $env:FINANCEQA_API_KEY
-.\.venv\Scripts\python.exe -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_baseline_v1/predictions.json --judge-url https://api.deepseek.com/chat/completions --model deepseek-flash --output extension2_finance_agent/outputs/evaluation/train_baseline_v1_score.json
+.\.venv\Scripts\python.exe -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_baseline_v1/predictions.json --output extension2_finance_agent/outputs/evaluation/train_baseline_v1_score.json
 ```
 
 支持率是宽松的支持性指标，不能称为完整答对率；检查 `evaluation_complete` 和服务失败记录。多组对比必须保持相同检查器配置。评分失败时可重评同一批已保存答案，不能据 test 反馈修改答案。

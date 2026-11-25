@@ -20,8 +20,8 @@ def evaluate(config, split, predictions, output, check_only=False, judge_url=Non
     if check_only:
         command.append("--check-only")
     else:
-        judge_url = judge_url or os.environ.get("FINANCEQA_JUDGE_URL")
-        model = model or os.environ.get("FINANCEQA_JUDGE_MODEL")
+        judge_url = judge_url or environment_secret("FINANCEQA_JUDGE_URL")
+        model = model or environment_secret("FINANCEQA_JUDGE_MODEL")
         if not judge_url or not model:
             raise ValueError("Set judge URL/model explicitly; use the same checker configuration across experiments")
         key = environment_secret("FINANCEQA_JUDGE_API_KEY")

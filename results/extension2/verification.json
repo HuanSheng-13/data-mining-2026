@@ -4,9 +4,9 @@
   "branch": "codex/financeqa-demo",
   "unit_tests": {
     "command": ".\\.venv\\Scripts\\python.exe -m pytest extension2_finance_agent/tests -q",
-    "passed": 27,
+    "passed": 36,
     "failed": 0,
-    "scope": "Synthetic fixtures and scripted local HTTP responses; not real model answers"
+    "scope": "Synthetic data, scripted local HTTP, project dotenv parsing/precedence, model and evaluator configuration; not real model answers"
   },
   "real_data_tools": {
     "record": "tool_smoke.json",
@@ -24,7 +24,7 @@
     "support_percentage": null
   },
   "documentation": {
-    "local_links_checked": 15
+    "local_links_checked": 16
   },
   "real_model_demo": {
     "status": "not_run_missing_FINANCEQA_API_KEY",
@@ -44,10 +44,11 @@
     "extension2_finance_agent/__main__.py": "5e07f378af78c2fba0c2675df0d766d108bf01bfe8d0fbb5b6badd6b479dee37",
     "extension2_finance_agent/core/__init__.py": "0abf1e0c0715709380d806653a6f388b4b75ee2d34a08a37f2d83ee857c8f07f",
     "extension2_finance_agent/core/agent.py": "9345f3def7eca54a93423fe0463454a9299bfd62f34535a38f11992ed5e9f5b8",
-    "extension2_finance_agent/core/client.py": "2c405462a8ebc85b5ec6f7236ed2ccee178ac656cb3b549fcdfc441106a384ea",
-    "extension2_finance_agent/core/config.py": "7ed8636e2438c6c7343f37cb9bca532b5caacd0ecd8e84afc5c0fde7f859ef15",
+    "extension2_finance_agent/core/client.py": "2516e2f471c675a6776f26917413abe727aef4deec4df15f0c0ccf1caf2cc386",
+    "extension2_finance_agent/core/config.py": "21f17709c84f96058edcafbf5d089758824df39df048d7487966db0131ba1ee5",
+    "extension2_finance_agent/core/env.py": "f5d2edc0804d62231d67984b903de760c7d8b7c11b8c300d16181df3016e373c",
     "extension2_finance_agent/experiments/__init__.py": "2302f688962bde50e3fbbd84712734adc9d83186a477051bb01eedcb13d0082d",
-    "extension2_finance_agent/experiments/evaluate.py": "8b2bbef2e5deaf3a1c488f422a1c58214d54a583ceeb8635bd2af4411a5e98e8",
+    "extension2_finance_agent/experiments/evaluate.py": "5701ab675e63bb4622b583ca4cac3937f687897bc722b95db4b18119c3ce8258",
     "extension2_finance_agent/experiments/runner.py": "611005bc202208ad8866b7cc178030972c92b74201ab91eb8cd5b52953d8bb02",
     "extension2_finance_agent/experiments/smoke.py": "a9532c6303afc88f5f52a3a4a7af5e45545b8e1af2522286491c4a358c03e09b",
     "extension2_finance_agent/prepare/__init__.py": "99f954feebd2d7ba82221917f64f8ee44ef84781a1ff342d3c99f36c5bd9913e",
@@ -55,6 +56,7 @@
     "extension2_finance_agent/strategies/__init__.py": "aef6914565b69274a2513d70664c04b88916f0787c954cc0e8e9f4d3be8f8bbb",
     "extension2_finance_agent/strategies/baseline.py": "c4e64a3d830ddb067c463c8c64bfd83004aaf937646cff05230d8c7c6fe09ad1",
     "extension2_finance_agent/tests/test_baseline.py": "3a80873bd4ba659aef44e0c245f2c6f3e795a3bd59a1eac5adad4fa038b346cc",
+    "extension2_finance_agent/tests/test_env.py": "95509c5a4b48ca7903867d5ecebecf5fd4a0099ef5141461c7b140c935bc265a",
     "extension2_finance_agent/tools/__init__.py": "7583778963abafe99c13c0d9066158f2c45630c65b3c9b95aa91a2c7887fd8fd",
     "extension2_finance_agent/tools/baseline.py": "88e9fdc68f019e2f6c1ff601400cabe5b7a70732fe105d787a187ae1f7e251a1"
   },
@@ -130,5 +132,11 @@
     "chunk_chars": 1800,
     "overlap_chars": 200,
     "chunks_sha256": "9bd2fa9b5aadadacccf852f637a1d21ed8e74c6c59235f11497aec244e282b55"
+  },
+  "local_env": {
+    "path": "extension2_finance_agent/.env",
+    "automatically_loaded": true,
+    "git_ignored": true,
+    "secret_values_recorded": false
   }
 }
