@@ -11,6 +11,12 @@
 
 输出根目录包含 `design.json`、四组原始预测/日志/配置、独立评分、`comparison.json`、逐题配对、`metrics.csv` 和运行后 trace audit。空答案和失败题仍保留在 37 题分母中；服务失败必须修复评分后再比较，不通过重新作答替换失败结果。
 
+只重试 `API_FAILED` 请求时，使用独立恢复入口。它复用老师原评测函数、提示词和相同检查器，只对失败题重试，保留原评分，并在派生报告中记录恢复轨迹和预测指纹。成功判定不重评：
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent.experiments.recover_judge --output extension2_finance_agent/outputs/full_train_v1 --source-id judge_v1 --target-id judge_recovered_v1
+```
+
 只修复检查器服务并对同一批已保存的预测重评时，用新的评分目录，保留第一次结果：
 
 ```powershell
@@ -18,3 +24,5 @@
 ```
 
 仅重新生成统计表可用 `--summarize-only --evaluation-id judge_v1`，不会调用模型。支持率是宽松指标，需要结合矛盾、空答案、工具错误、伪工具正文和人工财务口径核对。根据 train 选择下一阶段方案，正式 test 留到方法冻结后。
+
+本轮完整实验与交接见[四配置train结果](../../results/extension2/full_train_v1/README.md)。

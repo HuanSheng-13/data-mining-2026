@@ -2,6 +2,8 @@
 
 这里是拓展二的实际开发目录。A 提供基础 Agent、可替换工具接口、运行和评测入口；B 在基础版上优化数据与检索；C 优化策略和 Skill，并独自撰写报告。详细任务和审核关系见[三人分工文档](../report/extension2_work_plan.md)。
 
+B、C 合并后的 A 集成包含 `configs/combined.json` 和[完整四配置train入口](experiments/README.md)。37题全量实验、错误与用量、候选方案及正式test前待办见[本轮交接结果](../results/extension2/full_train_v1/README.md)。
+
 ## 1 当前能力与数据位置
 
 基础版使用 Python 标准库实现 Chat Completions 工具调用循环，默认对接 `https://api.deepseek.com/chat/completions` 的 `deepseek-flash`，关闭 thinking。每轮由模型选择真实工具，根据工具返回继续决策或作答。模型、调用预算和入口均在 [baseline.json](configs/baseline.json) 配置，没有新增运行依赖。协议参考 [DeepSeek 工具调用说明](https://api-docs.deepseek.com/guides/tool_calls/)。

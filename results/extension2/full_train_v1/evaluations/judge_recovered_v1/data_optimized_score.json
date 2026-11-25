@@ -1,0 +1,430 @@
+{
+  "split": "train",
+  "source_question_count": 37,
+  "subset_evaluation": false,
+  "mode": "judge_api",
+  "model_calls": 38,
+  "judge_model": "deepseek-flash",
+  "expected_questions": 37,
+  "missing_predictions": 0,
+  "empty_answers": 0,
+  "correct_info": 31,
+  "incorrect_info": 3,
+  "insufficient_info": 3,
+  "api_failed": 0,
+  "evaluation_complete": true,
+  "support_percentage": 83.78378378378379,
+  "incorrect_percentage": 8.108108108108109,
+  "insufficient_percentage": 8.108108108108109,
+  "api_failed_percentage": 0.0,
+  "results": [
+    {
+      "question_id": "FQA-1640147-01",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Our platform powers the AI Data Cloud, a network of data providers, data consumers, and data application developers that enables our customers to securely share, monetize, and acquire live data sets and data products… Our future growth is increasingly dependent on our ability to increase consumption of our platform by building and expanding the AI Data Cloud. ... We intend to invest in our business to advance the AI Data Cloud through the adoption of our platform. ... during FY2025, Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI and Snowflake ML became generally available ... Snowflake Cortex AI ... as the central growth engine.",
+      "reasoning": "The context describes Snowflake's major strategic initiative as building and expanding the AI Data Cloud, with generative AI/Cortex AI as the central growth engine and heavy investment in AI/developer-focused platform capabilities to drive consumption. This aligns with the ground truth that the company pursued a significant strategic shift toward AI-enabled offerings to expand use cases and drive higher consumption, even though the exact products named in the ground truth are not all explicitly listed.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Our platform powers the AI Data Cloud, a network of data providers, data consumers, and data application developers that enables our customers to securely share, monetize, and acquire live data sets and data products… Our future growth is increasingly dependent on our ability to increase consumption of our platform by building and expanding the AI Data Cloud. ... We intend to invest in our business to advance the AI Data Cloud through the adoption of our platform. ... during FY2025, Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI and Snowflake ML became generally available ... Snowflake Cortex AI ... as the central growth engine.\",\n  \"reasoning\": \"The context describes Snowflake's major strategic initiative as building and expanding the AI Data Cloud, with generative AI/Cortex AI as the central growth engine and heavy investment in AI/developer-focused platform capabilities to drive consumption. This aligns with the ground truth that the company pursued a significant strategic shift toward AI-enabled offerings to expand use cases and drive higher consumption, even though the exact products named in the ground truth are not all explicitly listed.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-02",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "The context only shows a SQL query requesting revenue data for two fiscal years. It contains no results, facts, or observations about the company's geographic or cloud footprint, regional deployments, international focus, or data sovereignty.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INSUFFICIENT_INFO\",\n  \"evidence_text\": \"\",\n  \"reasoning\": \"The context only shows a SQL query requesting revenue data for two fiscal years. It contains no results, facts, or observations about the company's geographic or cloud footprint, regional deployments, international focus, or data sovereignty.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-03",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The company states plainly: \"Our stock price may be volatile, and the value of our common stock may decline,\" and that \"the market price of our common stock has been and may continue to be highly volatile and may fluctuate or decline substantially\" due to factors some beyond its control. ... The 10-K warns that \"stock price decreases and market volatility that impact the actual or perceived value of our equity awards\" can drive attrition, forcing the company to \"issue additional equity awards or provide our employees with increased cash compensation, which could negatively impact our results of operations and be dilutive to stockholders.\" ... Stock-based compensation, net of amounts capitalized, was $1,479.3 million in FY2025 and $1,168.0 million in FY2024 ... The company discloses this represented 41% of revenue in FY2025 and 42% in FY2024, and expects SBC to remain substantial. ... Grant-date fair values are estimated with the Black-Scholes model and are \"affected by the estimated fair value of the Company's common stock\" plus expected stock-price volatility...",
+      "reasoning": "The context directly supports the ground truth by describing stock-price volatility risk from public listing, the link between equity awards and compensation expense/dilution, large and substantial stock-based compensation in recent years, and fair-value measurement sensitivity to stock price and volatility. It provides sufficient evidence even though it does not explicitly use the term 'large public float.'",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The company states plainly: \\\"Our stock price may be volatile, and the value of our common stock may decline,\\\" and that \\\"the market price of our common stock has been and may continue to be highly volatile and may fluctuate or decline substantially\\\" due to factors some beyond its control. ... The 10-K warns that \\\"stock price decreases and market volatility that impact the actual or perceived value of our equity awards\\\" can drive attrition, forcing the company to \\\"issue additional equity awards or provide our employees with increased cash compensation, which could negatively impact our results of operations and be dilutive to stockholders.\\\" ... Stock-based compensation, net of amounts capitalized, was $1,479.3 million in FY2025 and $1,168.0 million in FY2024 ... The company discloses this represented 41% of revenue in FY2025 and 42% in FY2024, and expects SBC to remain substantial. ... Grant-date fair values are estimated with the Black-Scholes model and are \\\"affected by the estimated fair value of the Company's common stock\\\" plus expected stock-price volatility...\",\n  \"reasoning\": \"The context directly supports the ground truth by describing stock-price volatility risk from public listing, the link between equity awards and compensation expense/dilution, large and substantial stock-based compensation in recent years, and fair-value measurement sensitivity to stock price and volatility. It provides sufficient evidence even though it does not explicitly use the term 'large public float.'\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-04",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The company states it intends to \"continue making significant investments in research and development and hiring top technical talent\" to strengthen its platform architecture and differentiation. R&D expense rose to **$1,783.4M** in FY2025 from **$1,287.9M** in FY2024... R&D includes third-party cloud infrastructure costs, \"including with respect to GPUs to develop AI Technology\". \"Drive growth by acquiring new customers\" — continued investment in sales and marketing... Selling & marketing expense rose to **$1,672.1M** in FY2025 from **$1,391.7M** in FY2024.",
+      "reasoning": "The context directly supports the ground truth by describing increased R&D investment in AI technology and platform enhancements, alongside continued sales and marketing investment to drive customer growth and enterprise adoption.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The company states it intends to \\\"continue making significant investments in research and development and hiring top technical talent\\\" to strengthen its platform architecture and differentiation. R&D expense rose to **$1,783.4M** in FY2025 from **$1,287.9M** in FY2024... R&D includes third-party cloud infrastructure costs, \\\"including with respect to GPUs to develop AI Technology\\\". \\\"Drive growth by acquiring new customers\\\" — continued investment in sales and marketing... Selling & marketing expense rose to **$1,672.1M** in FY2025 from **$1,391.7M** in FY2024.\",\n  \"reasoning\": \"The context directly supports the ground truth by describing increased R&D investment in AI technology and platform enhancements, alongside continued sales and marketing investment to drive customer growth and enterprise adoption.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-05",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Revenue rose from ~$97M in FY2019 to ~$3.63B in FY2025 — roughly a 37.5x increase over six years — so the absolute top line has grown every year. ... The growth rate has fallen monotonically: from triple-digit percentages (174% → 124% → 106%) to high double digits (69% → 36%) and then ~29% in FY2025. Growth is still positive but at a much slower pace. ... product revenue rose $795.6M year over year, driven by increased consumption by existing customers (net revenue retention 126%)",
+      "reasoning": "The context provides supporting facts aligned with the ground truth: revenue grew strongly every year (from ~$97M to ~$3.63B), and the latest fiscal year (FY2025) still showed double-digit growth of ~29.2%, driven by increased consumption by existing customers (net revenue retention 126%). While it also notes decelerating growth rates, this is consistent with 'strong growth in recent years,' so the context supports the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Revenue rose from ~$97M in FY2019 to ~$3.63B in FY2025 — roughly a 37.5x increase over six years — so the absolute top line has grown every year. ... The growth rate has fallen monotonically: from triple-digit percentages (174% → 124% → 106%) to high double digits (69% → 36%) and then ~29% in FY2025. Growth is still positive but at a much slower pace. ... product revenue rose $795.6M year over year, driven by increased consumption by existing customers (net revenue retention 126%)\",\n  \"reasoning\": \"The context provides supporting facts aligned with the ground truth: revenue grew strongly every year (from ~$97M to ~$3.63B), and the latest fiscal year (FY2025) still showed double-digit growth of ~29.2%, driven by increased consumption by existing customers (net revenue retention 126%). While it also notes decelerating growth rates, this is consistent with 'strong growth in recent years,' so the context supports the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-06",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Under its stated growth strategy \"Innovate and advance our platform,\" the company said it intends to keep making significant investments in research and development and hiring top technical talent... AI was the most prominent theme. The company highlighted Snowflake Cortex AI and Snowflake ML, plus Cortex Analyst... Snowpark (Java/Scala launched 2021, Python added 2022) and Snowpark Container Services (2023) were emphasized as ways to let developers build in their language of choice and deploy containerized applications and AI models. ... Features reaching general availability in FY2025: Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI, and Snowflake ML became GA; lineage visualization, Snowflake Open Catalog, ML Operations, AI model sharing, and model explainability entered public preview, with GA expected in FY2026.",
+      "reasoning": "The context provides supporting evidence for the ground truth by describing Snowflake's emphasis on product innovation, R&D investment, AI initiatives (Cortex AI/ML), developer tools (Snowpark), container services (Snowpark Container Services), and recently launched or previewed capabilities. Although it does not explicitly name the Native Application program, it contains substantial aligned information, so it is CORRECT_INFO.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Under its stated growth strategy \\\"Innovate and advance our platform,\\\" the company said it intends to keep making significant investments in research and development and hiring top technical talent... AI was the most prominent theme. The company highlighted Snowflake Cortex AI and Snowflake ML, plus Cortex Analyst... Snowpark (Java/Scala launched 2021, Python added 2022) and Snowpark Container Services (2023) were emphasized as ways to let developers build in their language of choice and deploy containerized applications and AI models. ... Features reaching general availability in FY2025: Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI, and Snowflake ML became GA; lineage visualization, Snowflake Open Catalog, ML Operations, AI model sharing, and model explainability entered public preview, with GA expected in FY2026.\",\n  \"reasoning\": \"The context provides supporting evidence for the ground truth by describing Snowflake's emphasis on product innovation, R&D investment, AI initiatives (Cortex AI/ML), developer tools (Snowpark), container services (Snowpark Container Services), and recently launched or previewed capabilities. Although it does not explicitly name the Native Application program, it contains substantial aligned information, so it is CORRECT_INFO.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-07",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "INCORRECT_INFO",
+      "evidence_text": "the company identifies two primary types of market risk in Item 7A, \"Quantitative and Qualitative Disclosures About Market Risk\": 1. Interest rate risk ... 2. Foreign currency exchange risk ... Related but distinct: the notes also discuss credit/concentration risk ... This is a credit risk rather than a market risk category.",
+      "reasoning": "The context supports the FX and interest-rate portions of the answer, but it explicitly states that the company identifies only two primary types of market risk and classifies credit/concentration risk as not a market-risk category. This conflicts with the ground truth, which also includes equity/market-price risk and liquidity/credit risk including customer concentration as primary types of market risk exposure.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INCORRECT_INFO\",\n  \"evidence_text\": \"the company identifies two primary types of market risk in Item 7A, \\\"Quantitative and Qualitative Disclosures About Market Risk\\\": 1. Interest rate risk ... 2. Foreign currency exchange risk ... Related but distinct: the notes also discuss credit/concentration risk ... This is a credit risk rather than a market risk category.\",\n  \"reasoning\": \"The context supports the FX and interest-rate portions of the answer, but it explicitly states that the company identifies only two primary types of market risk and classifies credit/concentration risk as not a market-risk category. This conflicts with the ground truth, which also includes equity/market-price risk and liquidity/credit risk including customer concentration as primary types of market risk exposure.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-08",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Acquired all outstanding capital stock of Datavolo, a privately held company that built dataflow infrastructure for creating, managing, and observing multimodal data pipelines for enterprise AI. ... During fiscal 2025 the company incurred restructuring costs for a majority-owned subsidiary: $7.7 million recorded in cost of product revenue and $11.0 million in research and development — approximately $18.7 million total",
+      "reasoning": "The context directly supports the ground truth by identifying the Datavolo acquisition and restructuring actions at a majority-owned subsidiary with related charges. Although it does not mention planned office cease-use or asset adjustments, it provides relevant and consistent information without contradicting the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Acquired all outstanding capital stock of Datavolo, a privately held company that built dataflow infrastructure for creating, managing, and observing multimodal data pipelines for enterprise AI. ... During fiscal 2025 the company incurred restructuring costs for a majority-owned subsidiary: $7.7 million recorded in cost of product revenue and $11.0 million in research and development — approximately $18.7 million total\",\n  \"reasoning\": \"The context directly supports the ground truth by identifying the Datavolo acquisition and restructuring actions at a majority-owned subsidiary with related charges. Although it does not mention planned office cease-use or asset adjustments, it provides relevant and consistent information without contradicting the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-09",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Snowflake grew revenue very rapidly but remained loss-making on every reported profitability measure throughout the period; losses widened in absolute dollars even as gross margin improved. ... operating expense growth outpaced revenue growth in dollar terms — R&D rose from $68.7M (FY2019) to $1,783.4M (FY2025), sales & marketing from $1,106.5M (FY2023) to $1,672.1M (FY2025), and G&A from $36.1M to $412.3M — consistent with heavy investment in growth rather than a profitability deterioration in gross terms.",
+      "reasoning": "The context directly supports the ground truth: it states the company remained loss-making, losses widened in absolute dollars, net losses grew, and rising operating costs outpaced revenue growth despite strong revenue growth.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Snowflake grew revenue very rapidly but remained loss-making on every reported profitability measure throughout the period; losses widened in absolute dollars even as gross margin improved. ... operating expense growth outpaced revenue growth in dollar terms — R&D rose from $68.7M (FY2019) to $1,783.4M (FY2025), sales & marketing from $1,106.5M (FY2023) to $1,672.1M (FY2025), and G&A from $36.1M to $412.3M — consistent with heavy investment in growth rather than a profitability deterioration in gross terms.\",\n  \"reasoning\": \"The context directly supports the ground truth: it states the company remained loss-making, losses widened in absolute dollars, net losses grew, and rising operating costs outpaced revenue growth despite strong revenue growth.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-01",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Product sales and total revenue have fallen steeply for three consecutive years as the COVID vaccine market shifted from pandemic to endemic/seasonal, and the newly launched RSV vaccine has so far been too small to offset that decline. ... 2024 vs 2023: net product sales −$3.6B (−53%); total revenue −$3.6B (−53%). ... the 2024 revenue drop was \"primarily attributable to a significant reduction in net product sales of our COVID vaccine,\" mainly from lower volumes in Europe and the rest of the world ... \"Although we commenced sales of our RSV vaccine in the third quarter of 2024, these sales did not have a significant impact on our overall product sales for the year.\"",
+      "reasoning": "The context directly supports the ground truth: it states product sales and total revenue declined sharply in 2024 and prior years, primarily due to reduced COVID vaccine sales, while RSV vaccine sales were too small/immaterial to offset the decline. This aligns with the answer's claims of significant product sales decline driven by reduced COVID vaccine demand and a smaller-than-expected RSV contribution.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Product sales and total revenue have fallen steeply for three consecutive years as the COVID vaccine market shifted from pandemic to endemic/seasonal, and the newly launched RSV vaccine has so far been too small to offset that decline. ... 2024 vs 2023: net product sales −$3.6B (−53%); total revenue −$3.6B (−53%). ... the 2024 revenue drop was \\\"primarily attributable to a significant reduction in net product sales of our COVID vaccine,\\\" mainly from lower volumes in Europe and the rest of the world ... \\\"Although we commenced sales of our RSV vaccine in the third quarter of 2024, these sales did not have a significant impact on our overall product sales for the year.\\\"\",\n  \"reasoning\": \"The context directly supports the ground truth: it states product sales and total revenue declined sharply in 2024 and prior years, primarily due to reduced COVID vaccine sales, while RSV vaccine sales were too small/immaterial to offset the decline. This aligns with the answer's claims of significant product sales decline driven by reduced COVID vaccine demand and a smaller-than-expected RSV contribution.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-02",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "INCORRECT_INFO",
+      "evidence_text": "Moderna reports only ONE reportable business segment — it does not have multiple reportable segments. \"We operate in one reporting segment that primarily focuses on the discovery, development and commercialization of mRNA medicines. Our chief executive officer manages our operations and evaluates our financial performance on a consolidated basis.\" ... Because the company has a single reportable segment, any \"segment\" comparison would be a product-line or geographic analysis, not a segment analysis.",
+      "reasoning": "The context explicitly claims Moderna has only one reportable business segment and no multiple reportable segments, which directly contradicts the ground truth that Moderna’s business centers on four franchises: respiratory vaccines, latent/other virus vaccines, oncology therapeutics, and rare disease therapeutics. While the context notes Spikevax/COVID vaccine importance, it does not support the four-franchise segmentation and instead denies a multi-segment structure.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INCORRECT_INFO\",\n  \"evidence_text\": \"Moderna reports only ONE reportable business segment — it does not have multiple reportable segments. \\\"We operate in one reporting segment that primarily focuses on the discovery, development and commercialization of mRNA medicines. Our chief executive officer manages our operations and evaluates our financial performance on a consolidated basis.\\\" ... Because the company has a single reportable segment, any \\\"segment\\\" comparison would be a product-line or geographic analysis, not a segment analysis.\",\n  \"reasoning\": \"The context explicitly claims Moderna has only one reportable business segment and no multiple reportable segments, which directly contradicts the ground truth that Moderna’s business centers on four franchises: respiratory vaccines, latent/other virus vaccines, oncology therapeutics, and rare disease therapeutics. While the context notes Spikevax/COVID vaccine importance, it does not support the four-franchise segmentation and instead denies a multi-segment structure.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-03",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Item 5 \"Dividend Policy\" states: *\"We have never declared or paid cash dividends on our common stock and do not expect to pay dividends on our common stock for the foreseeable future… Investors should not purchase our common stock with the expectation of receiving cash dividends.\"*; The Risk Factors section adds that the company intends to retain future earnings \"to finance the growth and development of our business or to return cash to shareholders through share repurchases\"",
+      "reasoning": "The context directly supports the ground truth that the company does not pay cash dividends and does not expect to do so for the foreseeable future. Although it also discusses share repurchases, that does not contradict the core answer about the dividend policy; it provides additional related capital-return context.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Item 5 \\\"Dividend Policy\\\" states: *\\\"We have never declared or paid cash dividends on our common stock and do not expect to pay dividends on our common stock for the foreseeable future… Investors should not purchase our common stock with the expectation of receiving cash dividends.\\\"*; The Risk Factors section adds that the company intends to retain future earnings \\\"to finance the growth and development of our business or to return cash to shareholders through share repurchases\\\"\",\n  \"reasoning\": \"The context directly supports the ground truth that the company does not pay cash dividends and does not expect to do so for the foreseeable future. Although it also discusses share repurchases, that does not contradict the core answer about the dividend policy; it provides additional related capital-return context.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-04",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "1. **Foreign currency exchange risk (the main exposure).** Moderna transacts in various foreign currencies and has international sales and expenses denominated in foreign currencies. ... the company \"maintained a significant exposure to foreign currency risk, particularly in the Australian dollar, Brazilian real, British pound, and Canadian dollar markets.\" ... 2. **Interest rate risk on marketable securities.** Its cash equivalents and marketable debt securities are subject to interest rate risk and would fall in value if rates rise; because of short maturities and low-risk profiles, it does not anticipate significant exposure.",
+      "reasoning": "The context directly identifies the company's primary market risk exposures as foreign currency exchange risk, described as the main exposure and material in 2024, and interest rate risk on cash equivalents and marketable securities, described as relatively modest due to short maturities and low-risk profiles. This aligns with the ground truth answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"1. **Foreign currency exchange risk (the main exposure).** Moderna transacts in various foreign currencies and has international sales and expenses denominated in foreign currencies. ... the company \\\"maintained a significant exposure to foreign currency risk, particularly in the Australian dollar, Brazilian real, British pound, and Canadian dollar markets.\\\" ... 2. **Interest rate risk on marketable securities.** Its cash equivalents and marketable debt securities are subject to interest rate risk and would fall in value if rates rise; because of short maturities and low-risk profiles, it does not anticipate significant exposure.\",\n  \"reasoning\": \"The context directly identifies the company's primary market risk exposures as foreign currency exchange risk, described as the main exposure and material in 2024, and interest rate risk on cash equivalents and marketable securities, described as relatively modest due to short maturities and low-risk profiles. This aligns with the ground truth answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-05",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Overall trend: revenue fell sharply and continuously from 2022 to 2024 — a cumulative decline of about 83%. ... Total revenue decreased by $3.6 billion, or 53%, in 2024, primarily attributable to a significant reduction in net product sales of our COVID vaccine… mainly due to lower sales volumes in Europe and the rest of the world ... 2024 net product sales of $3.1 billion, largely from Spikevax, with RSV vaccine (mRESVIA) sales starting in Q3 2024 but not materially affecting the year.",
+      "reasoning": "The context directly supports the ground truth: it shows a marked revenue decline from 2022 to 2024, attributes the drop primarily to reduced COVID vaccine sales, and notes that RSV vaccine sales began in 2024 but were not material.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Overall trend: revenue fell sharply and continuously from 2022 to 2024 — a cumulative decline of about 83%. ... Total revenue decreased by $3.6 billion, or 53%, in 2024, primarily attributable to a significant reduction in net product sales of our COVID vaccine… mainly due to lower sales volumes in Europe and the rest of the world ... 2024 net product sales of $3.1 billion, largely from Spikevax, with RSV vaccine (mRESVIA) sales starting in Q3 2024 but not materially affecting the year.\",\n  \"reasoning\": \"The context directly supports the ground truth: it shows a marked revenue decline from 2022 to 2024, attributes the drop primarily to reduced COVID vaccine sales, and notes that RSV vaccine sales began in 2024 but were not material.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-06",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "In 2024 the trend reversed: the FY2024 10-K states \"in 2024, our share of the COVID vaccine market declined due in part to increased commercial competition\" (Item 1A, chunk 1682852/mrna-20241231:212172). **RSV (mRESVIA):** Launched into a market already held by Pfizer and GSK, \"who entered the U.S. market prior to us and achieved larger market shares in 2024\"; Moderna did not participate in the full 2024 U.S. contracting season (FY2024 10-K, Item 1, chunk 1682852/mrna-20241231:156829). Outlook (forward-looking, not results): product sales expected to decline further in 2025 on lower vaccination rates, fewer remaining APAs and increasing competitive pressure (chunk 1682852/mrna-20241231:445227).",
+      "reasoning": "The context directly supports the ground truth by describing increased commercial competition, a 2024 decline in COVID market share, RSV launch behind larger rivals Pfizer and GSK with larger 2024 shares, and increasing competitive pressure affecting future sales. It provides substantial evidence of commercial challenges and competitive pressure, even if it does not explicitly phrase the need to spend more to compete.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"In 2024 the trend reversed: the FY2024 10-K states \\\"in 2024, our share of the COVID vaccine market declined due in part to increased commercial competition\\\" (Item 1A, chunk 1682852/mrna-20241231:212172). **RSV (mRESVIA):** Launched into a market already held by Pfizer and GSK, \\\"who entered the U.S. market prior to us and achieved larger market shares in 2024\\\"; Moderna did not participate in the full 2024 U.S. contracting season (FY2024 10-K, Item 1, chunk 1682852/mrna-20241231:156829). Outlook (forward-looking, not results): product sales expected to decline further in 2025 on lower vaccination rates, fewer remaining APAs and increasing competitive pressure (chunk 1682852/mrna-20241231:445227).\",\n  \"reasoning\": \"The context directly supports the ground truth by describing increased commercial competition, a 2024 decline in COVID market share, RSV launch behind larger rivals Pfizer and GSK with larger 2024 shares, and increasing competitive pressure affecting future sales. It provides substantial evidence of commercial challenges and competitive pressure, even if it does not explicitly phrase the need to spend more to compete.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-07",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Moderna describes itself as having become a \"multi-product company\" in 2024 with two commercial vaccines: **Spikevax** (COVID-19 vaccine, its first commercial product) and **mRESVIA** (RSV vaccine for older adults, approved 2024). In 2024, net product sales were **$3.1 billion, \"largely from sales of Spikevax\"**; RSV vaccine sales (begun Q3 2024) \"did not have a significant impact on our overall product sales for the year\"",
+      "reasoning": "The context directly supports the ground truth: it states Moderna's revenue is primarily from net product sales largely driven by Spikevax, while mRESVIA was approved in 2024 making it a multi-product company, and RSV sales were not yet significant. This aligns with the answer that the business is beginning to diversify but Spikevax remains dominant near-term.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Moderna describes itself as having become a \\\"multi-product company\\\" in 2024 with two commercial vaccines: **Spikevax** (COVID-19 vaccine, its first commercial product) and **mRESVIA** (RSV vaccine for older adults, approved 2024). In 2024, net product sales were **$3.1 billion, \\\"largely from sales of Spikevax\\\"**; RSV vaccine sales (begun Q3 2024) \\\"did not have a significant impact on our overall product sales for the year\\\"\",\n  \"reasoning\": \"The context directly supports the ground truth: it states Moderna's revenue is primarily from net product sales largely driven by Spikevax, while mRESVIA was approved in 2024 making it a multi-product company, and RSV sales were not yet significant. This aligns with the answer that the business is beginning to diversify but Spikevax remains dominant near-term.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-08",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "We have never declared or paid cash dividends on our common stock and do not expect to pay dividends on our common stock for the foreseeable future. Any future determination to pay dividends will be made at the discretion of our board of directors… Investors should not purchase our common stock with the expectation of receiving cash dividends. We do not currently intend to declare or pay cash dividends on our capital stock. We currently intend to retain all of our future earnings, if any, to finance the growth and development of our business or to return cash to shareholders through share repurchases. The policy language is essentially unchanged — the FY2023 report (chunk `1682852/mrna-20231231:415476`) states the same \"never declared or paid cash dividends… do not expect to pay dividends… for the foreseeable future,\" and the FY2023 risk factor (chunk `1682852/mrna-20231231:392108`) is word-for-word identical to FY2024.",
+      "reasoning": "The context directly supports the ground truth that Moderna has not changed its dividend policy: it repeatedly states the company has never paid cash dividends and does not expect to pay them in the foreseeable future, and it notes the FY2023 and FY2024 policy language is essentially unchanged.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"We have never declared or paid cash dividends on our common stock and do not expect to pay dividends on our common stock for the foreseeable future. Any future determination to pay dividends will be made at the discretion of our board of directors… Investors should not purchase our common stock with the expectation of receiving cash dividends. We do not currently intend to declare or pay cash dividends on our capital stock. We currently intend to retain all of our future earnings, if any, to finance the growth and development of our business or to return cash to shareholders through share repurchases. The policy language is essentially unchanged — the FY2023 report (chunk `1682852/mrna-20231231:415476`) states the same \\\"never declared or paid cash dividends… do not expect to pay dividends… for the foreseeable future,\\\" and the FY2023 risk factor (chunk `1682852/mrna-20231231:392108`) is word-for-word identical to FY2024.\",\n  \"reasoning\": \"The context directly supports the ground truth that Moderna has not changed its dividend policy: it repeatedly states the company has never paid cash dividends and does not expect to pay them in the foreseeable future, and it notes the FY2023 and FY2024 policy language is essentially unchanged.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-09",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The company states exposure is limited because of short-term maturities and low-risk profiles, and it does \"not anticipate a significant exposure to interest rate risk.\" ... A hypothetical immediate, uniform +1 percentage point move in market rates from December 31, 2024 levels would reduce the net fair value of marketable securities by approximately $53 million — about 0.6% of the $9.5 billion portfolio.",
+      "reasoning": "The context directly supports the ground truth: it describes the portfolio as short-term and low-risk, states interest rate exposure is limited/not significant, and discloses that a 1% immediate rate increase would reduce fair value by approximately $53 million, consistent with 'roughly fifty million dollars' and limited but measurable exposure.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The company states exposure is limited because of short-term maturities and low-risk profiles, and it does \\\"not anticipate a significant exposure to interest rate risk.\\\" ... A hypothetical immediate, uniform +1 percentage point move in market rates from December 31, 2024 levels would reduce the net fair value of marketable securities by approximately $53 million — about 0.6% of the $9.5 billion portfolio.\",\n  \"reasoning\": \"The context directly supports the ground truth: it describes the portfolio as short-term and low-risk, states interest rate exposure is limited/not significant, and discloses that a 1% immediate rate increase would reduce fair value by approximately $53 million, consistent with 'roughly fifty million dollars' and limited but measurable exposure.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-10",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Moderna's profitability collapsed over the most recent years, moving from large profits in 2021–2022 to substantial losses in 2023–2024. Revenue fell from $19.26B in FY2022 to $6.85B in FY2023 (−64%) and $3.24B in FY2024 (−53%). Operating income swung from +$9.42B (FY2022) to −$4.24B (FY2023) and −$3.95B (FY2024). Net income followed the same path: +$8.36B (FY2022) → −$4.71B (FY2023) → −$3.56B (FY2024).",
+      "reasoning": "The context directly supports the ground truth by showing a swing from substantial 2022 net profit to net losses in 2023 and 2024, along with lower revenue and material operating losses.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Moderna's profitability collapsed over the most recent years, moving from large profits in 2021–2022 to substantial losses in 2023–2024. Revenue fell from $19.26B in FY2022 to $6.85B in FY2023 (−64%) and $3.24B in FY2024 (−53%). Operating income swung from +$9.42B (FY2022) to −$4.24B (FY2023) and −$3.95B (FY2024). Net income followed the same path: +$8.36B (FY2022) → −$4.71B (FY2023) → −$3.56B (FY2024).\",\n  \"reasoning\": \"The context directly supports the ground truth by showing a swing from substantial 2022 net profit to net losses in 2023 and 2024, along with lower revenue and material operating losses.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-01",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "\"Because we generally recognize revenues from our subscription service over the subscription term, a decrease in new subscriptions or renewals may not be immediately reflected in our operating results.\" ... \"a decrease in new or renewed subscriptions or expansion contracts in any single period has only a limited impact on that period's revenue, but will negatively affect operating results in future periods.\"",
+      "reasoning": "The context directly supports the core ground-truth risk: subscription revenue is recognized ratably over the subscription term, so declines in new subscriptions or renewals may not immediately appear in operating results and can affect future periods. Although the context does not explicitly discuss revenue-growth deceleration as the business matures, it provides substantial partial evidence for the stated subscription-related revenue-recognition risk.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"\\\"Because we generally recognize revenues from our subscription service over the subscription term, a decrease in new subscriptions or renewals may not be immediately reflected in our operating results.\\\" ... \\\"a decrease in new or renewed subscriptions or expansion contracts in any single period has only a limited impact on that period's revenue, but will negatively affect operating results in future periods.\\\"\",\n  \"reasoning\": \"The context directly supports the core ground-truth risk: subscription revenue is recognized ratably over the subscription term, so declines in new subscriptions or renewals may not immediately appear in operating results and can affect future periods. Although the context does not explicitly discuss revenue-growth deceleration as the business matures, it provides substantial partial evidence for the stated subscription-related revenue-recognition risk.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-02",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The prior year included a large non-recurring tax benefit: a **$1.05 billion release of valuation allowance** in 2023, producing a **$723 million income tax benefit** for 2023 (IncomeTaxExpenseBenefit fact ID 1342046/1342047, −$723M) versus **$313 million of income tax expense** in 2024 (fact ID 1342056). A valuation allowance was still maintained at December 31, 2024 (notably for California). This is a disclosed item, not an adjustment to prior statements, but it materially affects year-over-year comparability of net income ($1,731M in 2023 vs. $1,425M in 2024; fact IDs 1344906/1344916).",
+      "reasoning": "The context does not specifically mention share-based compensation, but it does identify notable accounting matters and provides tax-related disclosures, including valuation allowance releases and deferred tax asset valuation allowances. This partially supports the ground truth answer that the company reported material deferred tax assets and related tax adjustments.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The prior year included a large non-recurring tax benefit: a **$1.05 billion release of valuation allowance** in 2023, producing a **$723 million income tax benefit** for 2023 (IncomeTaxExpenseBenefit fact ID 1342046/1342047, −$723M) versus **$313 million of income tax expense** in 2024 (fact ID 1342056). A valuation allowance was still maintained at December 31, 2024 (notably for California). This is a disclosed item, not an adjustment to prior statements, but it materially affects year-over-year comparability of net income ($1,731M in 2023 vs. $1,425M in 2024; fact IDs 1344906/1344916).\",\n  \"reasoning\": \"The context does not specifically mention share-based compensation, but it does identify notable accounting matters and provides tax-related disclosures, including valuation allowance releases and deferred tax asset valuation allowances. This partially supports the ground truth answer that the company reported material deferred tax assets and related tax adjustments.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-03",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "ServiceNow describes AI — \"particularly Generative AI ('GenAI') and agentic AI\" — as \"driving a new wave of technology transformation,\" and calls itself \"an early leader in applying AI to enterprise workflows,\" working \"to remain at the forefront of AI\" (chunk `1373715/now-20241231:9187`). Now Assist is the company's AI solution, embedded in the Now Platform and \"available for certain products at an additional cost\" — i.e., a monetized upsell layer rather than a free feature. It is positioned as \"an AI platform for business transformation\" that accelerates customers' ROI on the Now Platform. Now Assist is offered as workflow-specific modules — CSM, ITOM, Security Operations, SPM, FSM, LSD, Creator, Source-to-Pay — plus industry solutions. Agentic AI is described as \"the next evolution of GenAI,\" available to customers as a Now Assist feature for building tailored agentic skills. \"Since launching AI-powered versions of our products, we have continued to expand the Now Assist product portfolio and plan to continue to embed AI capabilities in our portfolio in the future.\" The company states qualitatively that \"we expect AI to be an increasingly important driver of future growth, although, like many innovations, it presents risks and uncertainties.\"",
+      "reasoning": "The context directly supports the ground truth by describing ServiceNow's strategic positioning around Generative AI and agentic AI, the embedding of Now Assist across the Now Platform and workflow modules, expansion of AI-powered product versions, and AI as an increasingly important future growth driver. It also provides trend-related context showing revenue/RPO/customer growth, though it correctly notes that standalone Now Assist revenue is not separately disclosed.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"ServiceNow describes AI — \\\"particularly Generative AI ('GenAI') and agentic AI\\\" — as \\\"driving a new wave of technology transformation,\\\" and calls itself \\\"an early leader in applying AI to enterprise workflows,\\\" working \\\"to remain at the forefront of AI\\\" (chunk `1373715/now-20241231:9187`). Now Assist is the company's AI solution, embedded in the Now Platform and \\\"available for certain products at an additional cost\\\" — i.e., a monetized upsell layer rather than a free feature. It is positioned as \\\"an AI platform for business transformation\\\" that accelerates customers' ROI on the Now Platform. Now Assist is offered as workflow-specific modules — CSM, ITOM, Security Operations, SPM, FSM, LSD, Creator, Source-to-Pay — plus industry solutions. Agentic AI is described as \\\"the next evolution of GenAI,\\\" available to customers as a Now Assist feature for building tailored agentic skills. \\\"Since launching AI-powered versions of our products, we have continued to expand the Now Assist product portfolio and plan to continue to embed AI capabilities in our portfolio in the future.\\\" The company states qualitatively that \\\"we expect AI to be an increasingly important driver of future growth, although, like many innovations, it presents risks and uncertainties.\\\"\",\n  \"reasoning\": \"The context directly supports the ground truth by describing ServiceNow's strategic positioning around Generative AI and agentic AI, the embedding of Now Assist across the Now Platform and workflow modules, expansion of AI-powered product versions, and AI as an increasingly important future growth driver. It also provides trend-related context showing revenue/RPO/customer growth, though it correctly notes that standalone Now Assist revenue is not separately disclosed.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-04",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Total operating expenses (disclosed, USD millions): FY2022 $5,317 → FY2023 $6,288 → FY2024 $7,333. Growth: +18.3% in FY2023 and +16.6% in FY2024... Composition (disclosed, USD millions): Cost of revenue 1,573 | 1,921 | 2,287; Sales & marketing 2,814 | 3,301 | 3,854... What drove the FY2024 change (per the FY2024 10-K MD&A): Sales & marketing +$553M: higher headcount/personnel costs (+$330M), amortization of deferred commissions (+$90M) on more new/expansion/renewal contracts, and program/branding/event costs (+$95M)... Cost of subscription revenue +$336M, mainly personnel (+$230M) and data-center capacity costs (+$85M).",
+      "reasoning": "The context directly supports the ground truth by showing operating expenses increased over the period, with notable increases in cost of revenue and sales & marketing, including program/branding/event costs that relate to advertising/marketing investment, and by describing investments supporting growth.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Total operating expenses (disclosed, USD millions): FY2022 $5,317 → FY2023 $6,288 → FY2024 $7,333. Growth: +18.3% in FY2023 and +16.6% in FY2024... Composition (disclosed, USD millions): Cost of revenue 1,573 | 1,921 | 2,287; Sales & marketing 2,814 | 3,301 | 3,854... What drove the FY2024 change (per the FY2024 10-K MD&A): Sales & marketing +$553M: higher headcount/personnel costs (+$330M), amortization of deferred commissions (+$90M) on more new/expansion/renewal contracts, and program/branding/event costs (+$95M)... Cost of subscription revenue +$336M, mainly personnel (+$230M) and data-center capacity costs (+$85M).\",\n  \"reasoning\": \"The context directly supports the ground truth by showing operating expenses increased over the period, with notable increases in cost of revenue and sales & marketing, including program/branding/event costs that relate to advertising/marketing investment, and by describing investments supporting growth.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-05",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The company states governments \"have adopted, and likely will continue to adopt, laws and regulations affecting the use, storage and movement of data, including laws related to data privacy and security, the use of machine learning and artificial intelligence, and data sovereignty or residency requirements.\" ... Specific examples cited: the **EU Data Act** (data portability, interoperability, accessibility, and \"unclear data transfer restrictions\") and the **Trans-Atlantic Data Privacy Framework** governing U.S.–EU data transfers ... Offering region-specific services (locally hosted data, local support) requires \"significant investment, including to comply with applicable laws and regulations.\" ... \"requirements to have local partner(s), local entity ownership limitations or technology transfer or sharing requirements, or to comply with data residency and transfer laws and regulations, privacy and data protection laws and regulations, which may increase operational costs and restrictions.\"",
+      "reasoning": "The context directly discusses increased regulatory scrutiny around data use, transfers, and residency, explicitly naming the EU Data Act and Trans-Atlantic Data Privacy Framework, and describes compliance burdens, region-specific hosting requirements, and potential restrictions on service delivery. This aligns with and supports the ground truth answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The company states governments \\\"have adopted, and likely will continue to adopt, laws and regulations affecting the use, storage and movement of data, including laws related to data privacy and security, the use of machine learning and artificial intelligence, and data sovereignty or residency requirements.\\\" ... Specific examples cited: the **EU Data Act** (data portability, interoperability, accessibility, and \\\"unclear data transfer restrictions\\\") and the **Trans-Atlantic Data Privacy Framework** governing U.S.–EU data transfers ... Offering region-specific services (locally hosted data, local support) requires \\\"significant investment, including to comply with applicable laws and regulations.\\\" ... \\\"requirements to have local partner(s), local entity ownership limitations or technology transfer or sharing requirements, or to comply with data residency and transfer laws and regulations, privacy and data protection laws and regulations, which may increase operational costs and restrictions.\\\"\",\n  \"reasoning\": \"The context directly discusses increased regulatory scrutiny around data use, transfers, and residency, explicitly naming the EU Data Act and Trans-Atlantic Data Privacy Framework, and describes compliance burdens, region-specific hosting requirements, and potential restrictions on service delivery. This aligns with and supports the ground truth answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-06",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "INCORRECT_INFO",
+      "evidence_text": "One instrument: **1.40% fixed-rate senior notes, $1.5 billion aggregate principal, due September 1, 2030 (\"2030 Notes\")**, issued August 2020 at 99.63% of principal, with ~$13 million of debt issuance costs. ... **No convertible debt remains.** The 0% convertible senior notes ($782.5M issued 2017) were converted/settled by June 1, 2022 ... This ties to the XBRL tag `ConvertibleLongTermNotesPayable` = $1,489,000,000 at 2024-12-31 ... — note the tag name is a legacy label; the underlying instrument is the 2030 Notes.",
+      "reasoning": "The context confirms modest leverage but directly contradicts the ground truth on debt structure: it states the outstanding debt is a non-convertible 1.40% senior notes issue and that no convertible debt remains, whereas the ground truth says the company carries long-term convertible debt from the 2020 indenture.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INCORRECT_INFO\",\n  \"evidence_text\": \"One instrument: **1.40% fixed-rate senior notes, $1.5 billion aggregate principal, due September 1, 2030 (\\\"2030 Notes\\\")**, issued August 2020 at 99.63% of principal, with ~$13 million of debt issuance costs. ... **No convertible debt remains.** The 0% convertible senior notes ($782.5M issued 2017) were converted/settled by June 1, 2022 ... This ties to the XBRL tag `ConvertibleLongTermNotesPayable` = $1,489,000,000 at 2024-12-31 ... — note the tag name is a legacy label; the underlying instrument is the 2030 Notes.\",\n  \"reasoning\": \"The context confirms modest leverage but directly contradicts the ground truth on debt structure: it states the outstanding debt is a non-convertible 1.40% senior notes issue and that no convertible debt remains, whereas the ground truth says the company carries long-term convertible debt from the 2020 indenture.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-07",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Overall, ServiceNow's liquidity and asset base strengthened in the most recent period (Q2 2025, ended 2025-06-30, 10-Q accession 0001373715-25-000276), compared with FY2024 year-end (2024-12-31, 10-K accession 0001373715-25-000010). ... Total assets | $20.383B (fact 1335160) | $22.051B (fact 1335164) | +8.2% ... Current assets | $9.187B (fact 1335266) | $9.275B (fact 1335270) | +1.0% ... Cash & cash equivalents | $2.304B (fact 1336646) | $3.124B (fact 1336650) | +35.6% ... Asset base strengthened: total assets rose ~8.2% and stockholders' equity rose ~13.8% over the six months, indicating a larger and better-capitalized balance sheet. ... Liquidity improved on the cash side: cash and cash equivalents grew ~35.6% (from $2.30B to $3.12B), a clear strengthening of the most liquid resource.",
+      "reasoning": "The context directly states that liquidity and the asset base strengthened, and it provides supporting figures for total assets, current assets, cash and cash equivalents, and stockholders' equity that align with the ground truth. Although it does not explicitly mention short-term investments, it gives sufficient evidence consistent with the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Overall, ServiceNow's liquidity and asset base strengthened in the most recent period (Q2 2025, ended 2025-06-30, 10-Q accession 0001373715-25-000276), compared with FY2024 year-end (2024-12-31, 10-K accession 0001373715-25-000010). ... Total assets | $20.383B (fact 1335160) | $22.051B (fact 1335164) | +8.2% ... Current assets | $9.187B (fact 1335266) | $9.275B (fact 1335270) | +1.0% ... Cash & cash equivalents | $2.304B (fact 1336646) | $3.124B (fact 1336650) | +35.6% ... Asset base strengthened: total assets rose ~8.2% and stockholders' equity rose ~13.8% over the six months, indicating a larger and better-capitalized balance sheet. ... Liquidity improved on the cash side: cash and cash equivalents grew ~35.6% (from $2.30B to $3.12B), a clear strengthening of the most liquid resource.\",\n  \"reasoning\": \"The context directly states that liquidity and the asset base strengthened, and it provides supporting figures for total assets, current assets, cash and cash equivalents, and stockholders' equity that align with the ground truth. Although it does not explicitly mention short-term investments, it gives sufficient evidence consistent with the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-08",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Subsequent growth of the contract liability. After the reclassification, the current contract liability grew from $1,210.7M (2017) → $1,651.6M (2018) → $2,185.8M (2019) → $5,785M (2023) → $6,819M (2024) ... The noncurrent portion grew from $36.1M (2017) to $95M (2024) ... The 2024 current contract liability rose ~17.9% year over year. The filing describes deferred revenue as \"payments received related to unsatisfied performance obligations at the end of the period,\"",
+      "reasoning": "The context provides supporting facts that deferred revenue/contract liabilities increased materially over the recent period, including consistent growth in current contract liability, growth in the noncurrent portion, and a ~17.9% year-over-year increase in 2024. This aligns with the ground truth answer. Although the context also discusses ASC 606 reclassification, it does not directly contradict the answer and includes relevant growth data.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Subsequent growth of the contract liability. After the reclassification, the current contract liability grew from $1,210.7M (2017) → $1,651.6M (2018) → $2,185.8M (2019) → $5,785M (2023) → $6,819M (2024) ... The noncurrent portion grew from $36.1M (2017) to $95M (2024) ... The 2024 current contract liability rose ~17.9% year over year. The filing describes deferred revenue as \\\"payments received related to unsatisfied performance obligations at the end of the period,\\\"\",\n  \"reasoning\": \"The context provides supporting facts that deferred revenue/contract liabilities increased materially over the recent period, including consistent growth in current contract liability, growth in the noncurrent portion, and a ~17.9% year-over-year increase in 2024. This aligns with the ground truth answer. Although the context also discusses ASC 606 reclassification, it does not directly contradict the answer and includes relevant growth data.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-01",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "The context only describes a failed attempt to retrieve volume/unit and revenue-per-unit data from the database. It provides no actual facts, trends, or statistics about freight volumes or revenue intensity, so it cannot support or contradict the ground truth answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INSUFFICIENT_INFO\",\n  \"evidence_text\": \"\",\n  \"reasoning\": \"The context only describes a failed attempt to retrieve volume/unit and revenue-per-unit data from the database. It provides no actual facts, trends, or statistics about freight volumes or revenue intensity, so it cannot support or contradict the ground truth answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-02",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Interest-rate risk — the only market risk quantified in Item 7A / \"Market Risks\"; \"We manage overall exposure to fluctuations in interest rates by issuing both fixed- and floating-rate debt instruments. At December 31, 2024, we have no outstanding debt subject to interest rate fluctuations.\"; Fuel / energy commodity price risk — the most economically significant market risk in practice; Fuel expense (XBRL `FuelCosts`, USD): $987 million in 2024 (fact ID 850447), $1,170 million in 2023 (ID 850438), $1,459 million in 2022 (ID 850426).; No separate foreign-currency market-risk disclosure was located in the FY2024 or FY2023 reports",
+      "reasoning": "The context supports the ground truth by identifying interest-rate/financing risk and fuel/energy commodity price risk as key market risks, quantifying fuel expense and interest-rate sensitivity, and noting no separate foreign-currency market-risk disclosure was found, consistent with minimal currency risk.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Interest-rate risk — the only market risk quantified in Item 7A / \\\"Market Risks\\\"; \\\"We manage overall exposure to fluctuations in interest rates by issuing both fixed- and floating-rate debt instruments. At December 31, 2024, we have no outstanding debt subject to interest rate fluctuations.\\\"; Fuel / energy commodity price risk — the most economically significant market risk in practice; Fuel expense (XBRL `FuelCosts`, USD): $987 million in 2024 (fact ID 850447), $1,170 million in 2023 (ID 850438), $1,459 million in 2022 (ID 850426).; No separate foreign-currency market-risk disclosure was located in the FY2024 or FY2023 reports\",\n  \"reasoning\": \"The context supports the ground truth by identifying interest-rate/financing risk and fuel/energy commodity price risk as key market risks, quantifying fuel expense and interest-rate sensitivity, and noting no separate foreign-currency market-risk disclosure was found, consistent with minimal currency risk.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-03",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "The context only references an intention to search for 2023 intermodal units to compare with 2024's 4.1 million and a search query about intermodal units and railway operating revenues. It provides no actual data or statement about freight volume trends or operating revenue stability, so it contains no relevant evidence for the ground truth answer.",
+      "raw_judge_response": "{\"context_quality\": \"INSUFFICIENT_INFO\", \"evidence_text\": \"\", \"reasoning\": \"The context only references an intention to search for 2023 intermodal units to compare with 2024's 4.1 million and a search query about intermodal units and railway operating revenues. It provides no actual data or statement about freight volume trends or operating revenue stability, so it contains no relevant evidence for the ground truth answer.\"}"
+    },
+    {
+      "question_id": "FQA-702165-04",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "2024 | $12.123 bn | −0.3% (calculated) ... the 2024 10-K itself states revenues \"decreased $33 million in 2024 and $589 million in 2023 compared to the prior years.\" ... Revenue is cyclical rather than steadily rising ... declined modestly in 2023 and was essentially flat (slightly down) in 2024. ... the 2024 10-K MD&A states total volume was higher in 2024 (revenue fell only because of lower average revenue per unit — lower fuel surcharge, adverse mix, lower pricing), and volume declined in 2023 ... The pattern is a volume/revenue decoupling in 2024 — volumes grew but revenue slipped slightly because price/mix/fuel-surcharge per unit fell.",
+      "reasoning": "The context supports the ground truth by showing revenue was roughly stable/slightly down in the latest year, while volume was higher in 2024 and revenue fell due to lower average revenue per unit, consistent with steady volume and modest yield pressure. It also provides historical revenue and volume-direction context that aligns with the answer, even though it does not explicitly use revenue ton-miles.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"2024 | $12.123 bn | −0.3% (calculated) ... the 2024 10-K itself states revenues \\\"decreased $33 million in 2024 and $589 million in 2023 compared to the prior years.\\\" ... Revenue is cyclical rather than steadily rising ... declined modestly in 2023 and was essentially flat (slightly down) in 2024. ... the 2024 10-K MD&A states total volume was higher in 2024 (revenue fell only because of lower average revenue per unit — lower fuel surcharge, adverse mix, lower pricing), and volume declined in 2023 ... The pattern is a volume/revenue decoupling in 2024 — volumes grew but revenue slipped slightly because price/mix/fuel-surcharge per unit fell.\",\n  \"reasoning\": \"The context supports the ground truth by showing revenue was roughly stable/slightly down in the latest year, while volume was higher in 2024 and revenue fell due to lower average revenue per unit, consistent with steady volume and modest yield pressure. It also provides historical revenue and volume-direction context that aligns with the answer, even though it does not explicitly use revenue ton-miles.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-05",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "The railway operating ratio (railway operating expenses ÷ railway operating revenues — the share of revenue consumed by expenses, so lower is better) fell to 66.4% in FY2024 from 76.5% in FY2023, an improvement of 9.1 percentage points (a ~13% relative reduction). ... Management commentary: \"For the full year, we achieved an operating ratio of 66.4%, and an adjusted operating ratio of 65.8% … both of which improved on a year-over-year basis\"",
+      "reasoning": "The context explicitly states that the railway operating ratio decreased from 76.5% in FY2023 to 66.4% in FY2024, an improvement of 9.1 percentage points, which directly aligns with the ground truth that operating efficiency improved materially in 2024 versus 2023.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"The railway operating ratio (railway operating expenses ÷ railway operating revenues — the share of revenue consumed by expenses, so lower is better) fell to 66.4% in FY2024 from 76.5% in FY2023, an improvement of 9.1 percentage points (a ~13% relative reduction). ... Management commentary: \\\"For the full year, we achieved an operating ratio of 66.4%, and an adjusted operating ratio of 65.8% … both of which improved on a year-over-year basis\\\"\",\n  \"reasoning\": \"The context explicitly states that the railway operating ratio decreased from 76.5% in FY2023 to 66.4% in FY2024, an improvement of 9.1 percentage points, which directly aligns with the ground truth that operating efficiency improved materially in 2024 versus 2023.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-06",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Bottom line: ... What changed recently is the realized cost impact: fuel prices fell sharply, so fuel expense and fuel-surcharge revenue both declined, reducing the dollar magnitude of fuel-cost exposure in 2024 versus 2023. ... Fuel expense (XBRL `FuelCosts`, FY, 10-K): 2022 = $1,459M ...; 2023 = $1,170M ...; 2024 = $987M ... Derived change: 2024 vs 2023 = (987/1,170 − 1) = −15.6% ... Management attributes the decline to lower locomotive fuel prices: \"down 15% in 2024 and 20% in 2023,\" reducing fuel expense by $159M and $275M respectively.",
+      "reasoning": "The context directly supports the ground truth by stating that fuel prices fell, fuel expense declined from 2022 to 2023 to 2024, and the realized dollar magnitude of fuel-cost exposure was reduced in 2024 versus 2023. This aligns with the answer that fuel cost pressure eased recently and near-term commodity cost risk declined.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Bottom line: ... What changed recently is the realized cost impact: fuel prices fell sharply, so fuel expense and fuel-surcharge revenue both declined, reducing the dollar magnitude of fuel-cost exposure in 2024 versus 2023. ... Fuel expense (XBRL `FuelCosts`, FY, 10-K): 2022 = $1,459M ...; 2023 = $1,170M ...; 2024 = $987M ... Derived change: 2024 vs 2023 = (987/1,170 − 1) = −15.6% ... Management attributes the decline to lower locomotive fuel prices: \\\"down 15% in 2024 and 20% in 2023,\\\" reducing fuel expense by $159M and $275M respectively.\",\n  \"reasoning\": \"The context directly supports the ground truth by stating that fuel prices fell, fuel expense declined from 2022 to 2023 to 2024, and the realized dollar magnitude of fuel-cost exposure was reduced in 2024 versus 2023. This aligns with the answer that fuel cost pressure eased recently and near-term commodity cost risk declined.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-07",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Operating margin | 23.5% | 33.6% | +10.1 pts; Operating ratio (expenses/revenue) | 76.5% (reported) | 66.4% (reported) | −10.1 pts; Revenue was essentially flat (−$33M), so the entire margin gain came from the expense side: total costs and expenses fell from $9,305M to $8,052M (−$1,253M, −13.5%); Lower net Eastern Ohio (derailment) incident costs; $433 million of gains on sales of railway lines; Lower fuel prices; Lower purchased-services costs and lower other expenses, plus operational improvements",
+      "reasoning": "The context directly supports the ground truth: it shows profitability margins improved noticeably, the operating ratio declined, and the improvement was driven primarily by lower operating expenses/costs relative to essentially flat revenue, including cost-control and incident-cost effects.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Operating margin | 23.5% | 33.6% | +10.1 pts; Operating ratio (expenses/revenue) | 76.5% (reported) | 66.4% (reported) | −10.1 pts; Revenue was essentially flat (−$33M), so the entire margin gain came from the expense side: total costs and expenses fell from $9,305M to $8,052M (−$1,253M, −13.5%); Lower net Eastern Ohio (derailment) incident costs; $433 million of gains on sales of railway lines; Lower fuel prices; Lower purchased-services costs and lower other expenses, plus operational improvements\",\n  \"reasoning\": \"The context directly supports the ground truth: it shows profitability margins improved noticeably, the operating ratio declined, and the improvement was driven primarily by lower operating expenses/costs relative to essentially flat revenue, including cost-control and incident-cost effects.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-08",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "2023 → 2024: substantial recovery. Revenue was roughly flat (−0.3%), but operating income rose ~43% (2,851M → 4,071M) and net income ~44% (1,827M → 2,622M). Operating margin recovered ~10.1 percentage points and net margin ~6.6 points; the operating ratio improved 10.1 points to 66.4%. Management cites lower railway operating expenses, including lower net Eastern Ohio incident expense and $433M of gains on railway line sales, plus operational improvements while handling 5% higher volumes.",
+      "reasoning": "The context directly supports the ground truth by showing a material improvement in the most recent year: the operating ratio improved significantly, operating income and net income rose sharply, and profitability margins recovered, indicating better operating efficiency and profitability trends year-over-year.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"2023 → 2024: substantial recovery. Revenue was roughly flat (−0.3%), but operating income rose ~43% (2,851M → 4,071M) and net income ~44% (1,827M → 2,622M). Operating margin recovered ~10.1 percentage points and net margin ~6.6 points; the operating ratio improved 10.1 points to 66.4%. Management cites lower railway operating expenses, including lower net Eastern Ohio incident expense and $433M of gains on railway line sales, plus operational improvements while handling 5% higher volumes.\",\n  \"reasoning\": \"The context directly supports the ground truth by showing a material improvement in the most recent year: the operating ratio improved significantly, operating income and net income rose sharply, and profitability margins recovered, indicating better operating efficiency and profitability trends year-over-year.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-09",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "FY2022: $1,948 million (fact ID 858292); FY2023: $2,327 million (fact ID 858300; originally reported as $2,349M in the FY2023 10-K, fact ID 858299 — the FY2024 filing reflects the later figure); FY2024: $2,381 million (fact ID 858306). Growth: +19.5% in 2023 vs 2022, then +2.3% in 2024 vs 2023 (calculated). ... On March 15, 2024, the company completed the acquisition of a 337-mile railway line from Cincinnati, Ohio to Chattanooga, Tennessee from Cincinnati Southern Railway (CSR) for $1.7 billion; the prior operating lease on that line was terminated.",
+      "reasoning": "The context explicitly states that capital investment/property additions increased from FY2022 through FY2024 and that the company completed a major $1.7 billion acquisition of a 337-mile CSR railway line in 2024, directly supporting the ground truth answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"FY2022: $1,948 million (fact ID 858292); FY2023: $2,327 million (fact ID 858300; originally reported as $2,349M in the FY2023 10-K, fact ID 858299 — the FY2024 filing reflects the later figure); FY2024: $2,381 million (fact ID 858306). Growth: +19.5% in 2023 vs 2022, then +2.3% in 2024 vs 2023 (calculated). ... On March 15, 2024, the company completed the acquisition of a 337-mile railway line from Cincinnati, Ohio to Chattanooga, Tennessee from Cincinnati Southern Railway (CSR) for $1.7 billion; the prior operating lease on that line was terminated.\",\n  \"reasoning\": \"The context explicitly states that capital investment/property additions increased from FY2022 through FY2024 and that the company completed a major $1.7 billion acquisition of a 337-mile CSR railway line in 2024, directly supporting the ground truth answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-10",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Reported `InterestExpense` (USD, annual, 10-K):\n| Fiscal year | Interest expense | YoY change |\n|---|---|---|\n| 2022 | $692M | — |\n| 2023 | $722M | +4.3% |\n| 2024 | $807M | +11.8% |\n\nThe 2024 acceleration reflects refinancing at higher market rates and higher average debt balances earlier in the year, not floating-rate exposure.\n\nThe realized cost trend moved the other way — interest expense grew 4.3% in 2023 and 11.8% in 2024 — reflecting refinancing at higher rates and a larger average debt base, while total debt declined modestly.",
+      "reasoning": "The context provides the interest expense trend showing a 2024 increase (+11.8%) versus prior years and attributes it to refinancing at higher rates and a larger average debt base, which supports the ground truth that interest-related financing cost pressure increased in the most recent year. Although the context also frames structural interest-rate exposure as low/flat and notes lower fair-value sensitivity, it does not negate the rising realized interest expense and provides relevant supporting evidence.",
+      "raw_judge_response": "{\"context_quality\":\"CORRECT_INFO\",\"evidence_text\":\"Reported `InterestExpense` (USD, annual, 10-K):\\n| Fiscal year | Interest expense | YoY change |\\n|---|---|---|\\n| 2022 | $692M | — |\\n| 2023 | $722M | +4.3% |\\n| 2024 | $807M | +11.8% |\\n\\nThe 2024 acceleration reflects refinancing at higher market rates and higher average debt balances earlier in the year, not floating-rate exposure.\\n\\nThe realized cost trend moved the other way — interest expense grew 4.3% in 2023 and 11.8% in 2024 — reflecting refinancing at higher rates and a larger average debt base, while total debt declined modestly.\",\"reasoning\":\"The context provides the interest expense trend showing a 2024 increase (+11.8%) versus prior years and attributes it to refinancing at higher rates and a larger average debt base, which supports the ground truth that interest-related financing cost pressure increased in the most recent year. Although the context also frames structural interest-rate exposure as low/flat and notes lower fair-value sensitivity, it does not negate the rising realized interest expense and provides relevant supporting evidence.\"}"
+    }
+  ],
+  "per_company": {
+    "1640147": {
+      "expected_questions": 9,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 7,
+      "incorrect_info": 1,
+      "insufficient_info": 1,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 77.77777777777779,
+      "incorrect_percentage": 11.11111111111111,
+      "insufficient_percentage": 11.11111111111111,
+      "api_failed_percentage": 0.0
+    },
+    "1682852": {
+      "expected_questions": 10,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 9,
+      "incorrect_info": 1,
+      "insufficient_info": 0,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 90.0,
+      "incorrect_percentage": 10.0,
+      "insufficient_percentage": 0.0,
+      "api_failed_percentage": 0.0
+    },
+    "1373715": {
+      "expected_questions": 8,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 7,
+      "incorrect_info": 1,
+      "insufficient_info": 0,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 87.5,
+      "incorrect_percentage": 12.5,
+      "insufficient_percentage": 0.0,
+      "api_failed_percentage": 0.0
+    },
+    "702165": {
+      "expected_questions": 10,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 8,
+      "incorrect_info": 0,
+      "insufficient_info": 2,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 80.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 20.0,
+      "api_failed_percentage": 0.0
+    }
+  },
+  "average_support_percentage": 83.81944444444444,
+  "recovery": {
+    "kind": "derived report resuming failed requests with original teacher functions",
+    "source": "evaluations\\judge_v1\\data_optimized_score.json",
+    "source_sha256": "248f0cb265ea9efe848c99b1e60f4a04c56f03720b7d4098534303e4c266d9eb",
+    "teacher_script_sha256": "0ff1a77e00f9d5b2e269b8fff3e602eb8c46d70c2d2c2f7254f0d41824906fbe",
+    "predictions_sha256": "6dcdf7fc7f659fc3a9b09c696821406fa0ec3b0d565d1f0788658ba1c9a6251a",
+    "initial_model_calls": 37,
+    "retry_model_calls": 1,
+    "attempts": [
+      {
+        "question_id": "FQA-1682852-01",
+        "attempt": 1,
+        "status": "recovered"
+      }
+    ]
+  }
+}

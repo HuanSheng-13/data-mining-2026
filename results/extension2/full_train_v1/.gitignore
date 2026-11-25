@@ -1,0 +1,8 @@
+!baseline/logs/
+!baseline/logs/*.jsonl
+!data_optimized/logs/
+!data_optimized/logs/*.jsonl
+!skill_optimized/logs/
+!skill_optimized/logs/*.jsonl
+!combined/logs/
+!combined/logs/*.jsonl

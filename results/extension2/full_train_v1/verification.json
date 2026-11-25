@@ -1,0 +1,20 @@
+{
+  "verified_on": "2026-11-25",
+  "unit_tests_passed": 56,
+  "generation_commit": "3f7e3ec965e8156d3bf126f2abf37f4555b90665",
+  "full_train_questions_per_configuration": 37,
+  "total_predictions": 148,
+  "public_log_files": 148,
+  "source_hashes_checked_against_generation_commit_or_raw_data": 208,
+  "local_links_checked": 42,
+  "published_text_files_scanned_without_secret_values": 188,
+  "initial_judge_calls": 148,
+  "failed_only_retries": 4,
+  "all_successful_judgments_unchanged": true,
+  "all_recovered_evaluations_complete": true,
+  "teacher_script_unchanged": true,
+  "raw_inputs_unchanged": true,
+  "formal_test_run": false,
+  "final_method_frozen": false,
+  "next_gate": "Final-answer markup validation and financial-basis review before final freeze/test"
+}

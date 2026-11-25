@@ -1,0 +1,24 @@
+{
+  "status": "train-based candidate; not formally frozen",
+  "candidate": "skill_optimized",
+  "basis": {
+    "supported": 33,
+    "baseline_supported": 33,
+    "tokens_reduction_percent": 13.37491667643177,
+    "tool_call_reduction_percent": 15.18324607329843,
+    "time_reduction_percent_descriptive_only": 12.877321807757891
+  },
+  "reasons": [
+    "Matches the highest observed full-train support with fewer calls and tokens than baseline.",
+    "Combined does not outperform C-only in this run; B remains available as a controlled comparison."
+  ],
+  "before_formal_test": [
+    "Address or explicitly reject final answers containing tool-call markup; one case occurs in C-only.",
+    "Review financial-basis and citation failures with the saved source evidence.",
+    "Commit and freeze the final method; retain these original comparison results."
+  ],
+  "limitations": [
+    "One run, four training companies, permissive judge; not test accuracy or a guaranteed generalization improvement.",
+    "Shared concurrent API use/cache/load confound timing and billing inferences."
+  ]
+}

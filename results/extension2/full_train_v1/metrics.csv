@@ -1,0 +1,5 @@
+configuration,questions,completed,correct_info,incorrect_info,insufficient_info,support_percentage,tool_calls,model_calls,question_seconds,total_tokens
+baseline,37,37,33,3,1,89.1891891891892,382,222,431.8782945005223,2602805
+data_optimized,37,37,31,3,3,83.78378378378379,389,241,474.0118531000335,3826085
+skill_optimized,37,37,33,3,1,89.1891891891892,324,196,376.2639366998337,2254682
+combined,37,37,32,4,1,86.48648648648648,327,210,410.79180660052225,3099085

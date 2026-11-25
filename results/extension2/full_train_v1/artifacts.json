@@ -1,0 +1,47 @@
+{
+  "complete_local_archive": "extension2_finance_agent\\outputs\\full_train_v1_complete.zip",
+  "archive_sha256": "683a61d5aeebdd72725a6955171d209df35af8d4bca1b277d85bd32e7198980a",
+  "archive_bytes": 2290714,
+  "contents": "All four raw prediction arrays, full public model/tool logs, method snapshots, initial scores, failed-only recovery, analysis and execution logs.",
+  "generation_commit": "3f7e3ec965e8156d3bf126f2abf37f4555b90665",
+  "recovery_code_sha256": "b03527affa5ae334de4c85a38c0c9ed7e100558c3bbbbcdd65e608471e2916ac",
+  "original_teacher_script_sha256": "0ff1a77e00f9d5b2e269b8fff3e602eb8c46d70c2d2c2f7254f0d41824906fbe",
+  "retry_requests": 4,
+  "all_148_predictions_saved_before_first_scoring": true,
+  "formal_test_run": false,
+  "no_configured_secret_values_in_outputs": true,
+  "published_normalization": {
+    "evaluations/judge_v1/baseline_score.json": {
+      "original_bytes_sha256": "ae75b3ed4346b1d7d4c958f38dfa3302f0049bb193459629ff2c972f687b93ec",
+      "git_lf_sha256": "3fb1a66769aef9d2deb1756f2f9b29d237e180e93179367f4ed4171861ba4045"
+    },
+    "baseline/predictions.json": {
+      "original_bytes_sha256": "8b9e16d9f3889ba73b1c968b638486ec154730bd1bb261f768df21fba35275bf",
+      "git_lf_sha256": "ba021e44be5676ad2056c063b80352637455221b491ec4496991b514b5426c06"
+    },
+    "evaluations/judge_v1/data_optimized_score.json": {
+      "original_bytes_sha256": "248f0cb265ea9efe848c99b1e60f4a04c56f03720b7d4098534303e4c266d9eb",
+      "git_lf_sha256": "c81a45c7192ecdb1810a565a0169826784ddd88bfc45dc1639c0cbcbec723e0d"
+    },
+    "data_optimized/predictions.json": {
+      "original_bytes_sha256": "6dcdf7fc7f659fc3a9b09c696821406fa0ec3b0d565d1f0788658ba1c9a6251a",
+      "git_lf_sha256": "aef05cc4e3d9e74b234acb026d2946516ce7b1b60673643b324beb1d3aa3bec9"
+    },
+    "evaluations/judge_v1/skill_optimized_score.json": {
+      "original_bytes_sha256": "5cd2ab67d8efb1cb3911ccb6db94d96d4b52fc7fdc1c8ba2c5671441630f1300",
+      "git_lf_sha256": "bf8a0cde8bdaf3adad62316a334eb7c59b40e061b6b56db6d9f4ae5a7727f2bf"
+    },
+    "skill_optimized/predictions.json": {
+      "original_bytes_sha256": "f337e58561b6475e0164b2e50243aabe51b3493e7d645e984d3f810ee7a09443",
+      "git_lf_sha256": "472161f9ccf09fd539b5139a824a016805585b7b8d05ceb5473b51e4539cfb85"
+    },
+    "evaluations/judge_v1/combined_score.json": {
+      "original_bytes_sha256": "8cc1d6776c564de5c664ae288228dacc29cc424c93309843765f8947c6828a99",
+      "git_lf_sha256": "b67c6f4f8a95eff87df265ac081884c0d3e13a1ba4545fb4711ed6bcc49eb32f"
+    },
+    "combined/predictions.json": {
+      "original_bytes_sha256": "3e8c5a003e4fddf69330c52f5cbb8588bfd72d9b7c77410acb7c88ea3c3c9c59",
+      "git_lf_sha256": "0134d8d801e3f98e18e0c5b3d1499ea476c7a81b1457fb78334ade6fc93b0eac"
+    }
+  }
+}
