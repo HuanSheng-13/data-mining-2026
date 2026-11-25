@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-25T09:55:34.763515+00:00",
+  "common_baseline": "8021a1628c48990030d3ae2dfe2a8381102ca0da",
+  "question_ids": [
+    "FQA-1640147-01",
+    "FQA-1682852-05",
+    "FQA-1682852-09",
+    "FQA-1373715-07",
+    "FQA-702165-05",
+    "FQA-702165-07"
+  ],
+  "preparation_seconds": 10.705720541998744,
+  "reports": 9,
+  "chunks": 2787,
+  "judge_model": "deepseek-flash",
+  "judge_url": "https://api.deepseek.com/chat/completions",
+  "order": [
+    "baseline",
+    "skill_optimized"
+  ],
+  "test_run": false
+}

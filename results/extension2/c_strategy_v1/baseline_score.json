@@ -1,0 +1,383 @@
+{
+  "split": "train",
+  "source_question_count": 37,
+  "subset_evaluation": false,
+  "mode": "judge_api",
+  "model_calls": 6,
+  "judge_model": "deepseek-flash",
+  "expected_questions": 37,
+  "missing_predictions": 31,
+  "empty_answers": 0,
+  "correct_info": 4,
+  "incorrect_info": 0,
+  "insufficient_info": 33,
+  "api_failed": 0,
+  "evaluation_complete": true,
+  "support_percentage": 10.81081081081081,
+  "incorrect_percentage": 0.0,
+  "insufficient_percentage": 89.1891891891892,
+  "api_failed_percentage": 0.0,
+  "results": [
+    {
+      "question_id": "FQA-1640147-01",
+      "company_cik": "1640147",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Snowflake Inc. (CIK 1640147) frames its central growth initiative as building out and driving adoption of the **AI Data Cloud** — a network where customers, partners, developers, data providers, and data consumers share and monetize data and apply AI. ... The company states it intends to \"continue making significant investments in research and development\" to strengthen its technical lead and differentiation. In fiscal year ended January 31, 2025, capabilities including **Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI, and Snowflake ML** became generally available ... The 10-K explicitly notes the company invests in AI Technology through \"internally developing AI Technology, acquiring companies with complementary AI Technology, and partnering with companies to bring AI Technology to our platform\". ... The company also lists expanding its customer base (especially large enterprises) and increasing consumption as growth strategies, supported by sales/marketing investment.",
+      "reasoning": "The context describes a major strategic initiative centered on the AI Data Cloud and significant investments in AI/ML platform capabilities, AI-related acquisitions, and driving platform consumption. This aligns with the ground truth that the company aggressively invested in AI and developer-focused products to expand use cases and drive higher consumption, even though it does not name every specific product from the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Snowflake Inc. (CIK 1640147) frames its central growth initiative as building out and driving adoption of the **AI Data Cloud** — a network where customers, partners, developers, data providers, and data consumers share and monetize data and apply AI. ... The company states it intends to \\\"continue making significant investments in research and development\\\" to strengthen its technical lead and differentiation. In fiscal year ended January 31, 2025, capabilities including **Iceberg tables, hybrid tables, notebooks, Internal Marketplace, Universal Search, Document AI, Snowflake Cortex AI, and Snowflake ML** became generally available ... The 10-K explicitly notes the company invests in AI Technology through \\\"internally developing AI Technology, acquiring companies with complementary AI Technology, and partnering with companies to bring AI Technology to our platform\\\". ... The company also lists expanding its customer base (especially large enterprises) and increasing consumption as growth strategies, supported by sales/marketing investment.\",\n  \"reasoning\": \"The context describes a major strategic initiative centered on the AI Data Cloud and significant investments in AI/ML platform capabilities, AI-related acquisitions, and driving platform consumption. This aligns with the ground truth that the company aggressively invested in AI and developer-focused products to expand use cases and drive higher consumption, even though it does not name every specific product from the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1640147-02",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-03",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-04",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-05",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-06",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-07",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-08",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1640147-09",
+      "company_cik": "1640147",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-01",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-02",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-03",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-04",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-05",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Overall trend: a steep, two-year decline in revenue from 2022 to 2024. ... Cumulatively, revenue fell about 83.2% from 2022 to 2024 (a decline of roughly $16.0 billion). ... \"Total revenue decreased by $3.6 billion, or 53%, in 2024\" ... the decline was primarily a significant reduction in net product sales of the COVID vaccine, mainly from lower sales volumes in Europe and the rest of the world as revenue shifted from pandemic-era advance purchase agreements to a seasonal commercial market",
+      "reasoning": "The context directly supports the ground truth by documenting a marked revenue decline from 2022 to 2024 and attributing it primarily to a sharp reduction in COVID vaccine net product sales. Although it does not mention the RSV product contribution, it provides substantial evidence consistent with the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Overall trend: a steep, two-year decline in revenue from 2022 to 2024. ... Cumulatively, revenue fell about 83.2% from 2022 to 2024 (a decline of roughly $16.0 billion). ... \\\"Total revenue decreased by $3.6 billion, or 53%, in 2024\\\" ... the decline was primarily a significant reduction in net product sales of the COVID vaccine, mainly from lower sales volumes in Europe and the rest of the world as revenue shifted from pandemic-era advance purchase agreements to a seasonal commercial market\",\n  \"reasoning\": \"The context directly supports the ground truth by documenting a marked revenue decline from 2022 to 2024 and attributing it primarily to a sharp reduction in COVID vaccine net product sales. Although it does not mention the RSV product contribution, it provides substantial evidence consistent with the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-06",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-07",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-08",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1682852-09",
+      "company_cik": "1682852",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "If market interest rates were to increase immediately and uniformly by one percentage point from levels at December 31, 2024, the net fair value of marketable securities would decrease by approximately $53 million. ... Because of \"the short-term maturities and low risk profiles of our investments, we do not anticipate a significant exposure to interest rate risk.\" ... Moderna's investment portfolio is classified as available-for-sale, so its marketable securities \"are subject to interest rate risk and will fall in value if market interest rates increase.\"",
+      "reasoning": "The context directly supports the ground truth: it states the portfolio is short-term and low-risk with limited interest rate exposure, and quantifies that a 1% immediate rate increase would reduce fair value by approximately $53 million, consistent with roughly fifty million dollars and limited but measurable exposure.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"If market interest rates were to increase immediately and uniformly by one percentage point from levels at December 31, 2024, the net fair value of marketable securities would decrease by approximately $53 million. ... Because of \\\"the short-term maturities and low risk profiles of our investments, we do not anticipate a significant exposure to interest rate risk.\\\" ... Moderna's investment portfolio is classified as available-for-sale, so its marketable securities \\\"are subject to interest rate risk and will fall in value if market interest rates increase.\\\"\",\n  \"reasoning\": \"The context directly supports the ground truth: it states the portfolio is short-term and low-risk with limited interest rate exposure, and quantifies that a 1% immediate rate increase would reduce fair value by approximately $53 million, consistent with roughly fifty million dollars and limited but measurable exposure.\"\n}"
+    },
+    {
+      "question_id": "FQA-1682852-10",
+      "company_cik": "1682852",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-01",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-02",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-03",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-04",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-05",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-06",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-1373715-07",
+      "company_cik": "1373715",
+      "status": "SCORED",
+      "context_quality": "CORRECT_INFO",
+      "evidence_text": "Overall, ServiceNow's liquidity and asset base strengthened in the most recent period (Q2 2025, ended June 30, 2025), though the current ratio slipped slightly. ... Total assets: $22.051B at 2025-06-30 vs. $20.383B at 2024-12-31 → +8.2% ... Current assets: $9.275B vs. $9.187B → +$88M ... Cash and cash equivalents: $3.124B vs. $2.304B → +$820M ... Combined cash + current marketable securities: $6.132B vs. $5.762B → +6.4% (derived).",
+      "reasoning": "The context directly supports the ground truth by stating that liquidity and the asset base strengthened, with increases in total assets, current assets, cash and cash equivalents, and combined cash plus marketable securities. Although it notes a slight current-ratio decline, the overall conclusion aligns with the answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"CORRECT_INFO\",\n  \"evidence_text\": \"Overall, ServiceNow's liquidity and asset base strengthened in the most recent period (Q2 2025, ended June 30, 2025), though the current ratio slipped slightly. ... Total assets: $22.051B at 2025-06-30 vs. $20.383B at 2024-12-31 → +8.2% ... Current assets: $9.275B vs. $9.187B → +$88M ... Cash and cash equivalents: $3.124B vs. $2.304B → +$820M ... Combined cash + current marketable securities: $6.132B vs. $5.762B → +6.4% (derived).\",\n  \"reasoning\": \"The context directly supports the ground truth by stating that liquidity and the asset base strengthened, with increases in total assets, current assets, cash and cash equivalents, and combined cash plus marketable securities. Although it notes a slight current-ratio decline, the overall conclusion aligns with the answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-1373715-08",
+      "company_cik": "1373715",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-01",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-02",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-03",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-04",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-05",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "The context only shows a SQL query requesting OperatingExpenses data for 2024, 2023, and 2022. It does not provide any actual financial facts, values, operating ratios, or trends, so it cannot support or contradict the claim that operating efficiency improved in 2024 versus 2023.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INSUFFICIENT_INFO\",\n  \"evidence_text\": \"\",\n  \"reasoning\": \"The context only shows a SQL query requesting OperatingExpenses data for 2024, 2023, and 2022. It does not provide any actual financial facts, values, operating ratios, or trends, so it cannot support or contradict the claim that operating efficiency improved in 2024 versus 2023.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-06",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-07",
+      "company_cik": "702165",
+      "status": "SCORED",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "The context only contains unexplained arithmetic calculations and a generic statement about computing margin changes. It provides no identifiable facts about the company's profitability margins, railway operating ratio, operating expenses, revenue trends, or cost-control drivers, so it cannot support or contradict the ground truth answer.",
+      "raw_judge_response": "{\n  \"context_quality\": \"INSUFFICIENT_INFO\",\n  \"evidence_text\": \"\",\n  \"reasoning\": \"The context only contains unexplained arithmetic calculations and a generic statement about computing margin changes. It provides no identifiable facts about the company's profitability margins, railway operating ratio, operating expenses, revenue trends, or cost-control drivers, so it cannot support or contradict the ground truth answer.\"\n}"
+    },
+    {
+      "question_id": "FQA-702165-08",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-09",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    },
+    {
+      "question_id": "FQA-702165-10",
+      "company_cik": "702165",
+      "status": "MISSING_PREDICTION",
+      "context_quality": "INSUFFICIENT_INFO",
+      "evidence_text": "",
+      "reasoning": "No submitted answer."
+    }
+  ],
+  "per_company": {
+    "1640147": {
+      "expected_questions": 9,
+      "missing_predictions": 8,
+      "empty_answers": 0,
+      "correct_info": 1,
+      "incorrect_info": 0,
+      "insufficient_info": 8,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 11.11111111111111,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 88.88888888888889,
+      "api_failed_percentage": 0.0
+    },
+    "1682852": {
+      "expected_questions": 10,
+      "missing_predictions": 8,
+      "empty_answers": 0,
+      "correct_info": 2,
+      "incorrect_info": 0,
+      "insufficient_info": 8,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 20.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 80.0,
+      "api_failed_percentage": 0.0
+    },
+    "1373715": {
+      "expected_questions": 8,
+      "missing_predictions": 7,
+      "empty_answers": 0,
+      "correct_info": 1,
+      "incorrect_info": 0,
+      "insufficient_info": 7,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 12.5,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 87.5,
+      "api_failed_percentage": 0.0
+    },
+    "702165": {
+      "expected_questions": 10,
+      "missing_predictions": 8,
+      "empty_answers": 0,
+      "correct_info": 0,
+      "incorrect_info": 0,
+      "insufficient_info": 10,
+      "api_failed": 0,
+      "evaluation_complete": true,
+      "support_percentage": 0.0,
+      "incorrect_percentage": 0.0,
+      "insufficient_percentage": 100.0,
+      "api_failed_percentage": 0.0
+    }
+  },
+  "average_support_percentage": 10.902777777777779
+}

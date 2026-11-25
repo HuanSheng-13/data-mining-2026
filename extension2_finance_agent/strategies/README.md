@@ -17,3 +17,7 @@
 策略优化配置保持 `tool_factory`、准备工厂及数据配置为基础版，确保独立于 B 的优化运行。新增测试放在 `tests/test_strategy_optimized.py`，验证指导载入、状态重置和协议兼容，再使用 train 分析实际表现。
 
 C 是报告唯一作者，正式报告放仓库 `report/extension2.md`，PDF 由 C 统一导出。A、B 只提供结构化方法和实验材料。C 的策略 PR 与报告 PR 均由作者以外的成员按实际安排审核，不指定固定审核人。
+
+## C 策略实现与验收入口
+
+本分支的独立策略配置为 `configs/skill_optimized.json`，实现与命令见 [C_README.md](C_README.md)，真实开发对比见 [c_strategy_v1](../../results/extension2/c_strategy_v1/README.md)。共同基线为已合并 PR 5 的 `8021a16`；本策略 PR 仍需其他成员审核。
