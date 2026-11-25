@@ -134,7 +134,7 @@ B 复制 `configs/baseline.json` 为 `data_optimized.json`，修改工具与准�
 
 ## 7 分支与审核规范
 
-A 在 `codex/financeqa-demo` 完成基础开发与 4 题真实 demo 验收，向 `main` 提交基础 PR。PR 不指定固定审核人，由作者以外的成员按小组安排审核；基础 PR 合并并确定提交号后，B、C 再从共同基线创建各自分支。报告由 C 独自撰写并提交 PR，A、B 只提供结构化材料与事实核对意见。当前阶段状态与待办见[分工文档](../report/extension2_work_plan.md)。
+A 在 `codex/financeqa-demo` 完成基础开发与 4 题真实 demo 验收，已向 `main` 提交[基础 PR 5](https://github.com/HuanSheng-13/data-mining-2026/pull/5)，等待审核合并。PR 不指定固定审核人，由作者以外的成员按小组安排审核；基础 PR 合并并确定提交号后，B、C 再从共同基线创建各自分支。报告由 C 独自撰写并提交 PR，A、B 只提供结构化材料与事实核对意见。当前阶段状态与待办见[分工文档](../report/extension2_work_plan.md)。
 
 本目录内 `artifacts/` 和 `outputs/` 被 Git 忽略；`data/` 也被仓库忽略。源码、配置、测试和文档在本目录开发，精选验证材料放 `results/extension2/`。完整原始日志需本地保存并随最终提交材料交付。每个 PR 写明已完成与未完成的验证，不把离线脚本响应当成真实模型表现。
 

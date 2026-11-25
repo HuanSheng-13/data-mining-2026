@@ -25,7 +25,7 @@
     "record": "demo_live_v1/official_format_check.json"
   },
   "documentation": {
-    "local_links_checked": 29
+    "local_links_checked": 36
   },
   "real_model_demo": {
     "status": "passed",
