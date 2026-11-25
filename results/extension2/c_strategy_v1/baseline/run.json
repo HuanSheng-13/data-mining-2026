@@ -1,0 +1,160 @@
+{
+  "split": "train",
+  "started_utc": "2026-11-25T09:55:35.611105+00:00",
+  "git": {
+    "commit": "fbf0cbcf5b3f63295f615e28c8e6c03c856cecb4",
+    "branch": "codex/financeqa-agent-skill",
+    "dirty": false
+  },
+  "python": "3.13.1",
+  "method": {
+    "config": {
+      "data_root": "data/financeqa/FinanceQA",
+      "artifacts_dir": "extension2_finance_agent/artifacts/baseline",
+      "chat_url": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-flash",
+      "api_key_env": "FINANCEQA_API_KEY",
+      "temperature": 0,
+      "max_tokens": 2500,
+      "max_turns": 12,
+      "max_tool_calls": 16,
+      "timeout_seconds": 60,
+      "retries": 2,
+      "tool_factory": "extension2_finance_agent.tools.baseline:create_tools",
+      "prepare_factory": "extension2_finance_agent.prepare.reports:prepare",
+      "validate_factory": "extension2_finance_agent.prepare.reports:validate_artifacts",
+      "strategy_factory": "extension2_finance_agent.strategies.baseline:create_strategy",
+      "prompt_file": "extension2_finance_agent/prompts/baseline.txt",
+      "skill_files": []
+    },
+    "files": {
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/data/financeqa/FinanceQA/agent_workspace/data/business_rules.md": "7f2fdd6b28cdca26420d3fe96aab911670c9c576407f1d4ce9a893d5e9d6646b",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/data/financeqa/FinanceQA/agent_workspace/data/companies.json": "82d529cfe993278e49c6ae717383660bb116d2499da650d640b1ee95fe947689",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/data/financeqa/FinanceQA/agent_workspace/data/filings/README.md": "55798cfce6dd8a316e5189b3e7ca3e677e2ab3d76ef6574ad201b6391f4008c4",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/data/financeqa/FinanceQA/agent_workspace/data/schema.md": "1de4145dbf7498e2d67ab0048945c1b90ff64edc4135357201132b0f75d2fe39",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/README.md": "fa6e2c173207f14efcb01abf65d2425343b22ccc8c6ce691f2ee1e3e78893ae2",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/__init__.py": "7b24963255e3a97ba196b3f1b1350815daef278a89e6d6c19bb271ef9d8bf41d",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/__main__.py": "5e07f378af78c2fba0c2675df0d766d108bf01bfe8d0fbb5b6badd6b479dee37",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/configs/baseline.json": "c143d99308083be6940450c3d7ce54d96757e057fb31548476be8be133b3cb9a",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/configs/skill_optimized.json": "ed1942f85380761f0eb48f7bd85dec6a915cd81903d483fd0c3df6e2131d7df1",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/core/__init__.py": "0abf1e0c0715709380d806653a6f388b4b75ee2d34a08a37f2d83ee857c8f07f",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/core/agent.py": "9345f3def7eca54a93423fe0463454a9299bfd62f34535a38f11992ed5e9f5b8",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/core/client.py": "2516e2f471c675a6776f26917413abe727aef4deec4df15f0c0ccf1caf2cc386",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/core/config.py": "21f17709c84f96058edcafbf5d089758824df39df048d7487966db0131ba1ee5",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/core/env.py": "f5d2edc0804d62231d67984b903de760c7d8b7c11b8c300d16181df3016e373c",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/experiments/__init__.py": "2302f688962bde50e3fbbd84712734adc9d83186a477051bb01eedcb13d0082d",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/experiments/evaluate.py": "5701ab675e63bb4622b583ca4cac3937f687897bc722b95db4b18119c3ce8258",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/experiments/runner.py": "611005bc202208ad8866b7cc178030972c92b74201ab91eb8cd5b52953d8bb02",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/experiments/smoke.py": "a9532c6303afc88f5f52a3a4a7af5e45545b8e1af2522286491c4a358c03e09b",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/prepare/README.md": "672dd4231dbc3d8cf82737f36f583caae3faafbf54956544d7b1d332d3f44b7a",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/prepare/__init__.py": "99f954feebd2d7ba82221917f64f8ee44ef84781a1ff342d3c99f36c5bd9913e",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/prepare/reports.py": "7c64fc939f639b50e1d394019cb4245c0b775ad871dfee3304c178164bf015ed",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/prompts/baseline.txt": "b456d62056510cebbf9413c3dc0129ad2d383e0e4ce550a05ddc5aeaebf06a5c",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/prompts/skill_optimized.txt": "fab1f330a9423add90a0c43d38bd0b158ccecbe6f3851fc5fe533b2998680549",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/skills/README.md": "490af4bf64c4a764f3c82abafd3cde328e6628635afb372ce5542bc20424779c",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/skills/calculation_and_claims.txt": "49cc9895c909eae3ba9016d506fb04c46da926939820f7c489d2a4745316aef2",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/skills/financial_basis.txt": "58395959459a0b023ee9e608ddf1f1e48980af9a5b75e5ef745dd82f026e70e3",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/skills/recovery_and_stop.txt": "2e3a28dfd114b7c44fd5d597d3d5b6ced900b77262ee56e7e3d5c13f6e1035c8",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/strategies/README.md": "a6d2dfd543257980709de69595007e4c1e01819fd4b3aef4fbb40c890d017834",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/strategies/__init__.py": "aef6914565b69274a2513d70664c04b88916f0787c954cc0e8e9f4d3be8f8bbb",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/strategies/baseline.py": "c4e64a3d830ddb067c463c8c64bfd83004aaf937646cff05230d8c7c6fe09ad1",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/strategies/compare_train.py": "7c36d59bc8e0816512f57d313079c6d4823a9aa3ff3b6e60f799fe0c0a7e35cd",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/strategies/optimized.py": "dee5553efdf4ab27ce65537e0df867d71d2535abbb3e155c4c38c3babdefc0db",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tests/test_baseline.py": "3a80873bd4ba659aef44e0c245f2c6f3e795a3bd59a1eac5adad4fa038b346cc",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tests/test_env.py": "95509c5a4b48ca7903867d5ecebecf5fd4a0099ef5141461c7b140c935bc265a",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tests/test_strategy_optimized.py": "c30c36f1d12ec250a209a6eca77d8c4c00885320a26ea085430ffdccbe9c1945",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tools/README.md": "65e5680342fe70cfdbb11fe369334b4cf3691addcf86e2e404bbbdb4e9136b17",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tools/__init__.py": "7583778963abafe99c13c0d9066158f2c45630c65b3c9b95aa91a2c7887fd8fd",
+      "/Users/youran/Desktop/课堂字幕与讲义/数据挖掘/小组仓库/data-mining-2026/extension2_finance_agent/tools/baseline.py": "88e9fdc68f019e2f6c1ff601400cabe5b7a70732fe105d787a187ae1f7e251a1"
+    },
+    "prepared_files": {
+      "chunks.json": "ebbe4cad08b7d5000488975035595b4446ebe8719158101c9999569e91a6b0c2",
+      "manifest.json": "a1abe536cf2dad34864ea14051940e73ca4c8e4d90f3e412c2b7c3c8d41c2b93"
+    },
+    "artifacts": {
+      "parser_version": "baseline-html-v1",
+      "database_sha256": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
+      "reports": [
+        {
+          "company": "Palantir Technologies Inc.",
+          "company_cik": "1321655",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1321655/pltr-20241231.htm",
+          "sha256": "bb6a5c0f6020fcdd206f57691e08bfdc3f3fd2ddb075271fc3707374ac9b5e4a"
+        },
+        {
+          "company": "ServiceNow, Inc.",
+          "company_cik": "1373715",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2024-01-31",
+          "source": "data/filings/1640147/snow-20240131.htm",
+          "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2025-01-31",
+          "source": "data/filings/1640147/snow-20250131.htm",
+          "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2023-12-31",
+          "source": "data/filings/1682852/mrna-20231231.htm",
+          "sha256": "faa3b41c0ab8f5f2010d6669c4658a0641eeb3a6f3f6dd72900e7f35d8da3d9e"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1682852/mrna-20241231.htm",
+          "sha256": "6a3deff7504c734227dc8f0f4170a0ff7d3af17bdb9e7ff2c01984505eaef9db"
+        },
+        {
+          "company": "ABBOTT LABORATORIES",
+          "company_cik": "1800",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2023-12-31",
+          "source": "data/filings/702165/nsc-20231231.htm",
+          "sha256": "390a35fd2228fc5c2a55fd5a028a9fa3b28465556e306434b8975330d8b2b923"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2024-12-31",
+          "source": "data/filings/702165/nsc-20241231.htm",
+          "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
+        }
+      ],
+      "chunks": 2787,
+      "chunk_chars": 1800,
+      "overlap_chars": 200,
+      "chunks_sha256": "ebbe4cad08b7d5000488975035595b4446ebe8719158101c9999569e91a6b0c2"
+    }
+  },
+  "question_ids": [
+    "FQA-1640147-01",
+    "FQA-1682852-05",
+    "FQA-1682852-09",
+    "FQA-1373715-07",
+    "FQA-702165-05",
+    "FQA-702165-07"
+  ],
+  "status": "completed",
+  "questions_sha256": "cdcc46bffeb590afdfb1b6b54c7a53160247c4f55c1b022cf6eaa57b0278ebaa",
+  "preflight_seconds": 0.843005250004353,
+  "total_seconds": 72.65832033302286
+}

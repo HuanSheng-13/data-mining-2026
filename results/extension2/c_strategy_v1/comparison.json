@@ -1,0 +1,259 @@
+{
+  "scope": "train development; not a full train/test benchmark",
+  "question_ids": [
+    "FQA-1640147-01",
+    "FQA-1682852-05",
+    "FQA-1682852-09",
+    "FQA-1373715-07",
+    "FQA-702165-05",
+    "FQA-702165-07"
+  ],
+  "configurations": [
+    {
+      "configuration": "baseline",
+      "questions": 6,
+      "completed": 6,
+      "statuses": {
+        "completed": 6
+      },
+      "subset_quality_counts": {
+        "CORRECT_INFO": 4,
+        "INSUFFICIENT_INFO": 2
+      },
+      "subset_support_percentage": 66.66666666666667,
+      "official_expected_questions": 37,
+      "official_support_percentage": 10.81081081081081,
+      "evaluation_complete": true,
+      "api_failed": 0,
+      "model_calls": 39,
+      "tool_calls": 59,
+      "question_seconds": 70.60392658298952,
+      "usage": {
+        "prompt_tokens": 380369,
+        "completion_tokens": 7907,
+        "total_tokens": 388276,
+        "prompt_cache_hit_tokens": 261888,
+        "prompt_cache_miss_tokens": 118481
+      }
+    },
+    {
+      "configuration": "skill_optimized",
+      "questions": 6,
+      "completed": 6,
+      "statuses": {
+        "completed": 6
+      },
+      "subset_quality_counts": {
+        "CORRECT_INFO": 6
+      },
+      "subset_support_percentage": 100.0,
+      "official_expected_questions": 37,
+      "official_support_percentage": 16.216216216216218,
+      "evaluation_complete": true,
+      "api_failed": 0,
+      "model_calls": 34,
+      "tool_calls": 55,
+      "question_seconds": 71.50227324999287,
+      "usage": {
+        "prompt_tokens": 298638,
+        "completion_tokens": 8651,
+        "total_tokens": 307289,
+        "prompt_cache_hit_tokens": 201600,
+        "prompt_cache_miss_tokens": 97038
+      }
+    }
+  ],
+  "paired": [
+    {
+      "question_id": "FQA-1640147-01",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 5,
+        "model_calls": 4,
+        "seconds": 9.754876166000031,
+        "usage": {
+          "prompt_tokens": 41706,
+          "completion_tokens": 973,
+          "total_tokens": 42679,
+          "prompt_cache_hit_tokens": 25088,
+          "prompt_cache_miss_tokens": 16618
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 4,
+        "model_calls": 3,
+        "seconds": 7.050117167003918,
+        "usage": {
+          "prompt_tokens": 27832,
+          "completion_tokens": 792,
+          "total_tokens": 28624,
+          "prompt_cache_hit_tokens": 12160,
+          "prompt_cache_miss_tokens": 15672
+        }
+      }
+    },
+    {
+      "question_id": "FQA-1682852-05",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 9,
+        "model_calls": 6,
+        "seconds": 11.689920040982543,
+        "usage": {
+          "prompt_tokens": 47302,
+          "completion_tokens": 1529,
+          "total_tokens": 48831,
+          "prompt_cache_hit_tokens": 34560,
+          "prompt_cache_miss_tokens": 12742
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 7,
+        "model_calls": 5,
+        "seconds": 8.284711750020506,
+        "usage": {
+          "prompt_tokens": 34171,
+          "completion_tokens": 1118,
+          "total_tokens": 35289,
+          "prompt_cache_hit_tokens": 24704,
+          "prompt_cache_miss_tokens": 9467
+        }
+      }
+    },
+    {
+      "question_id": "FQA-1682852-09",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 2,
+        "model_calls": 2,
+        "seconds": 6.600035999988904,
+        "usage": {
+          "prompt_tokens": 10122,
+          "completion_tokens": 833,
+          "total_tokens": 10955,
+          "prompt_cache_hit_tokens": 4096,
+          "prompt_cache_miss_tokens": 6026
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 4,
+        "model_calls": 3,
+        "seconds": 10.100193749996834,
+        "usage": {
+          "prompt_tokens": 31447,
+          "completion_tokens": 1448,
+          "total_tokens": 32895,
+          "prompt_cache_hit_tokens": 15360,
+          "prompt_cache_miss_tokens": 16087
+        }
+      }
+    },
+    {
+      "question_id": "FQA-1373715-07",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 12,
+        "model_calls": 7,
+        "seconds": 14.651011500012828,
+        "usage": {
+          "prompt_tokens": 79596,
+          "completion_tokens": 1851,
+          "total_tokens": 81447,
+          "prompt_cache_hit_tokens": 62464,
+          "prompt_cache_miss_tokens": 17132
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 10,
+        "model_calls": 6,
+        "seconds": 16.143770249997033,
+        "usage": {
+          "prompt_tokens": 60536,
+          "completion_tokens": 1374,
+          "total_tokens": 61910,
+          "prompt_cache_hit_tokens": 44800,
+          "prompt_cache_miss_tokens": 15736
+        }
+      }
+    },
+    {
+      "question_id": "FQA-702165-05",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "INSUFFICIENT_INFO",
+        "tool_calls": 15,
+        "model_calls": 12,
+        "seconds": 15.987951667018933,
+        "usage": {
+          "prompt_tokens": 100723,
+          "completion_tokens": 1391,
+          "total_tokens": 102114,
+          "prompt_cache_hit_tokens": 79488,
+          "prompt_cache_miss_tokens": 21235
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 14,
+        "model_calls": 10,
+        "seconds": 15.34400016698055,
+        "usage": {
+          "prompt_tokens": 70888,
+          "completion_tokens": 1687,
+          "total_tokens": 72575,
+          "prompt_cache_hit_tokens": 59904,
+          "prompt_cache_miss_tokens": 10984
+        }
+      }
+    },
+    {
+      "question_id": "FQA-702165-07",
+      "baseline": {
+        "status": "completed",
+        "context_quality": "INSUFFICIENT_INFO",
+        "tool_calls": 16,
+        "model_calls": 8,
+        "seconds": 11.920131208986277,
+        "usage": {
+          "prompt_tokens": 100920,
+          "completion_tokens": 1330,
+          "total_tokens": 102250,
+          "prompt_cache_hit_tokens": 56192,
+          "prompt_cache_miss_tokens": 44728
+        }
+      },
+      "skill_optimized": {
+        "status": "completed",
+        "context_quality": "CORRECT_INFO",
+        "tool_calls": 16,
+        "model_calls": 7,
+        "seconds": 14.579480165994028,
+        "usage": {
+          "prompt_tokens": 73764,
+          "completion_tokens": 2232,
+          "total_tokens": 75996,
+          "prompt_cache_hit_tokens": 44672,
+          "prompt_cache_miss_tokens": 29092
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "One run per configuration; model and judge are stochastic.",
+    "Official support is permissive, not strict complete correctness.",
+    "No monetary cost inferred from tokens; consult provider billing."
+  ]
+}

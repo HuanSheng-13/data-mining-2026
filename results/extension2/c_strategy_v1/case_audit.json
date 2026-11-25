@@ -1,0 +1,102 @@
+{
+  "kind": "manual source cross-check, not an additional model score",
+  "facts": [
+    {
+      "id": 847164,
+      "cik": "702165",
+      "fact_name": "CostsAndExpenses",
+      "fact_value": 9305000000.0,
+      "unit": "USD",
+      "end_date": "2023-12-31",
+      "frame": "",
+      "accession_number": "0000702165-24-000005"
+    },
+    {
+      "id": 847174,
+      "cik": "702165",
+      "fact_name": "CostsAndExpenses",
+      "fact_value": 8052000000.0,
+      "unit": "USD",
+      "end_date": "2024-12-31",
+      "frame": "CY2024",
+      "accession_number": "0000702165-25-000008"
+    },
+    {
+      "id": 854482,
+      "cik": "702165",
+      "fact_name": "NetIncomeLoss",
+      "fact_value": 2622000000.0,
+      "unit": "USD",
+      "end_date": "2024-12-31",
+      "frame": "CY2024",
+      "accession_number": "0000702165-25-000008"
+    },
+    {
+      "id": 855259,
+      "cik": "702165",
+      "fact_name": "OperatingIncomeLoss",
+      "fact_value": 4071000000.0,
+      "unit": "USD",
+      "end_date": "2024-12-31",
+      "frame": "CY2024",
+      "accession_number": "0000702165-25-000008"
+    },
+    {
+      "id": 859726,
+      "cik": "702165",
+      "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "fact_value": 12156000000.0,
+      "unit": "USD",
+      "end_date": "2023-12-31",
+      "frame": "",
+      "accession_number": "0000702165-24-000005"
+    },
+    {
+      "id": 859736,
+      "cik": "702165",
+      "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "fact_value": 12123000000.0,
+      "unit": "USD",
+      "end_date": "2024-12-31",
+      "frame": "CY2024",
+      "accession_number": "0000702165-25-000008"
+    },
+    {
+      "id": 2606780,
+      "cik": "1682852",
+      "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "fact_value": 19263000000.0,
+      "unit": "USD",
+      "end_date": "2022-12-31",
+      "frame": "CY2022",
+      "accession_number": "0001682852-25-000022"
+    },
+    {
+      "id": 2606789,
+      "cik": "1682852",
+      "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "fact_value": 6848000000.0,
+      "unit": "USD",
+      "end_date": "2023-12-31",
+      "frame": "CY2023",
+      "accession_number": "0001682852-25-000022"
+    },
+    {
+      "id": 2606798,
+      "cik": "1682852",
+      "fact_name": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "fact_value": 3236000000.0,
+      "unit": "USD",
+      "end_date": "2024-12-31",
+      "frame": "CY2024",
+      "accession_number": "0001682852-25-000022"
+    }
+  ],
+  "notes": [
+    "Moderna annual revenues 19263000000, 6848000000, 3236000000 USD match cited database facts.",
+    "Norfolk 2024 expenses 8052000000 / revenue 12123000000 match 66.4192%; 2023 9305000000 /12156000000 match 76.5466%.",
+    "Do not interpret support as full accuracy. Optimized cases 004/005 still contain invalid calculator attempts before recovery.",
+    "Baseline cases 004/005 finish with DSML-like tool markup in assistant content; the common runner marks completed but official judge says insufficient. No extra tool call was executed for that markup.",
+    "Citation limitation: optimized final Norfolk answers group several fact IDs under accession 0000702165-25-000008, but fact IDs 847164 and 859726 actually come from 0000702165-24-000005. Numeric support does not imply fully accurate citations."
+  ]
+}
