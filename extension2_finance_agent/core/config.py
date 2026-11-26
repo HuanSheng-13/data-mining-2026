@@ -46,22 +46,22 @@ def load_factory(name):
 @dataclass(frozen=True)
 class Config:
     data_root: str = "data/financeqa/FinanceQA"
-    artifacts_dir: str = "extension2_finance_agent/artifacts/baseline"
+    artifacts_dir: str = "extension2_finance_agent/artifacts/final"
     chat_url: str = "https://api.deepseek.com/chat/completions"
     model: str = "deepseek-flash"
     api_key_env: str = "FINANCEQA_API_KEY"
     temperature: float = 0
-    max_tokens: int = 2500
-    max_turns: int = 12
-    max_tool_calls: int = 16
-    timeout_seconds: float = 60
+    max_tokens: int = 3000
+    max_turns: int = 16
+    max_tool_calls: int = 24
+    timeout_seconds: float = 90
     retries: int = 2
-    tool_factory: str = "extension2_finance_agent.tools.baseline:create_tools"
+    tool_factory: str = "extension2_finance_agent.tools.data:create_tools"
     prepare_factory: str = "extension2_finance_agent.prepare.reports:prepare"
     validate_factory: str = "extension2_finance_agent.prepare.reports:validate_artifacts"
-    strategy_factory: str = "extension2_finance_agent.strategies.baseline:create_strategy"
-    prompt_file: str = "extension2_finance_agent/prompts/baseline.txt"
-    skill_files: tuple = ()
+    strategy_factory: str = "extension2_finance_agent.strategies.finance:create_strategy"
+    prompt_file: str = "extension2_finance_agent/prompts/agent.txt"
+    skill_files: tuple = ("extension2_finance_agent/skills/financial_basis.txt", "extension2_finance_agent/skills/calculation_and_claims.txt", "extension2_finance_agent/skills/recovery_and_stop.txt")
 
     @property
     def data(self):
@@ -91,6 +91,8 @@ class Config:
         for field in ("max_tokens", "max_turns", "max_tool_calls"):
             if type(getattr(config, field)) is not int or getattr(config, field) < 1:
                 raise ValueError(f"{field} must be a positive integer")
+        if config.max_turns < 3:
+            raise ValueError("max_turns must reserve a tool phase and two finalization turns")
         if not math.isfinite(config.timeout_seconds) or config.timeout_seconds <= 0:
             raise ValueError("timeout_seconds must be positive and finite")
         if type(config.retries) is not int or not 0 <= config.retries <= 5:

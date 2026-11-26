@@ -9,10 +9,10 @@ from extension2_finance_agent.core.config import Config, local_path, load_factor
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("prepare", "smoke-tools", "run", "freeze", "evaluate"):
+    for name in ("prepare", "run", "freeze", "evaluate"):
         command = commands.add_parser(name)
-        command.add_argument("--config", default="extension2_finance_agent/configs/baseline.json")
-        if name in ("smoke-tools", "run", "freeze", "evaluate"):
+        command.add_argument("--config", default="extension2_finance_agent/configs/final.json")
+        if name in ("run", "freeze", "evaluate"):
             command.add_argument("--output", type=Path, required=True)
         if name in ("run", "evaluate"):
             command.add_argument("--split", choices=["train", "test"], default="train")
@@ -33,9 +33,6 @@ def main():
         if args.command == "prepare":
             manifest = load_factory(config.prepare_factory)(config)
             print(json.dumps({"reports": len(manifest["reports"]), "chunks": manifest["chunks"]}))
-        elif args.command == "smoke-tools":
-            from extension2_finance_agent.experiments.smoke import smoke_tools
-            print(json.dumps(smoke_tools(config, local_path(args.output))))
         elif args.command == "freeze":
             from extension2_finance_agent.experiments.runner import freeze
             print(json.dumps(freeze(config, local_path(args.output))))

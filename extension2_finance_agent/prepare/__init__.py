@@ -1,1 +1,1 @@
-"""Report preparation; B may add optimized builders here."""
+"""Deterministic local report preparation and input integrity."""

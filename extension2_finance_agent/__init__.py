@@ -1,1 +1,1 @@
-"""FinanceQA baseline: model-driven local financial question answering."""
+"""FinanceQA: a single model-driven financial question answering method."""

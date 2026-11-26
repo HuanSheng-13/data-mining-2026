@@ -1,25 +1,5 @@
-# C 的策略与 Skill 开发规范
+# 财务策略
 
-保留 `baseline.py` 和 `prompts/baseline.txt`。C 可以先复制基础配置，在 `skill_files` 中列出新增指导文件，无需修改公共调用循环：
+`finance.py` 加载唯一提示词及三份财务Skill，绑定已校验的公司CIK和当前预算，题目原文保留在user消息。每次创建全新消息，不携带上一题状态。模型通过实际返回的证据决策，不按题号选择答案、SQL或固定步骤。
 
-```json
-{
-  "strategy_factory": "extension2_finance_agent.strategies.baseline:create_strategy",
-  "prompt_file": "extension2_finance_agent/prompts/baseline.txt",
-  "skill_files": ["extension2_finance_agent/skills/period_checks.txt"]
-}
-```
-
-也可新增策略模块，通过 `strategy_factory` 配置加载。统一接口为 `create_strategy(config)` 返回对象，该对象的 `messages(task)` 返回新的 system/user 消息列表。不得修改传入任务、在题目之间保留执行状态，或读取独立评测资料。通用初始 memory 可作为版本化指导文件加载，每题恢复同一内容。
-
-当前公共循环根据模型真实返回的工具调用执行行动，策略负责初始指导；如需题内动态策略回调，应先与 A 对齐接口，不直接覆盖公共循环。指导可包括指标定位、期间与单位检查、去重、计算条件、证据核查和失败恢复，不能按 test 题号硬编码答案或固定每题全部步骤。
-
-策略优化配置保持 `tool_factory`、准备工厂及数据配置为基础版，确保独立于 B 的优化运行。新增测试放在 `tests/test_strategy_optimized.py`，验证指导载入、状态重置和协议兼容，再使用 train 分析实际表现。
-
-C 是报告唯一作者，正式报告放仓库 `report/extension2.md`，PDF 由 C 统一导出。A、B 只提供结构化方法和实验材料。C 的策略 PR 与报告 PR 均由作者以外的成员按实际安排审核，不指定固定审核人。
-
-## C 策略实现与验收入口
-
-本分支的独立策略配置为 `configs/skill_optimized.json`，实现与命令见 [C_README.md](C_README.md)，真实开发对比见 [c_strategy_v1](../../results/extension2/c_strategy_v1/README.md)。共同基线为已合并 PR 5 的 `8021a16`；本策略 PR 仍需其他成员审核。
-
-最终规则的第二轮实际验收见 [c_strategy_v2](../../results/extension2/c_strategy_v2/README.md)。两轮基础支持分别为 4/6、6/6，C 均 6/6；不可把首轮差异当作稳定准确率提升。最终 48 项测试通过；报告按用户要求暂停，本次只验收 C 策略。
+程序校验协议和引用片段可追溯性，模型负责财务口径与语义判断；工具被调用或有引用不自动证明结论正确。正式test前固定资源，评分后仅可整理结果，不用反馈改变方法。

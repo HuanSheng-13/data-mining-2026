@@ -8,7 +8,7 @@
 
 `agent_workspace/data/` 中的数据库与年报用于作答，`train/` 用于开发，`test/` 在方法冻结后统一运行。`evaluation_only/` 及评分输出仅用于独立评测，不接入作答 Agent。代码在仓库根目录的 `extension2_finance_agent/` 开发，索引和输出另存，不放入原始数据目录。
 
-完整数据约定、准备方法和 B、C 的开发规范见[拓展二开发说明](../extension2_finance_agent/README.md)。
+完整数据约定、准备方法和最终方案规范见[拓展二开发说明](../extension2_finance_agent/README.md)。
 
 ## 解压方式
 

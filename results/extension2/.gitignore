@@ -1,0 +1,4 @@
+!train/logs/
+!train/logs/*.jsonl
+!test/logs/
+!test/logs/*.jsonl

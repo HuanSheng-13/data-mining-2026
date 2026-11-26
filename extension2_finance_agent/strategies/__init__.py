@@ -1,1 +1,1 @@
-"""C adds strategies here; retain the baseline."""
+"""Stateless financial guidance and parameterized Skills."""

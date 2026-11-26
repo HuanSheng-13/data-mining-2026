@@ -2,9 +2,9 @@
 
 完成图像无监督聚类、图像异常检测、时间序列预测和无监督疾病判断四项任务。
 
-拓展二的开发安排见[企业财务问答 Agent 三人分工与 PR 协作方案](report/extension2_work_plan.md)。
+拓展二的最终交接安排见[财务问答 Agent 交接说明](report/extension2_work_plan.md)。
 
-拓展二基础 Agent 的数据规范、运行命令及 B、C 开发入口见 [extension2_finance_agent/README.md](extension2_finance_agent/README.md)。
+拓展二最终 Agent 的数据规范、运行命令和开发说明见 [extension2_finance_agent/README.md](extension2_finance_agent/README.md)。
 
 ## 项目结构
 
