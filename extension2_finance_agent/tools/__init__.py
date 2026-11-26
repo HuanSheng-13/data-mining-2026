@@ -1,1 +1,1 @@
-"""B adds optimized registries here, preserving the baseline contract."""
+"""Read-only financial data, report evidence and scalar arithmetic."""

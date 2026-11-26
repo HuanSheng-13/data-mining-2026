@@ -24,9 +24,10 @@ class ChatClient:
             raise ValueError("Use HTTPS, or HTTP on localhost")
 
     def complete(self, messages, tools, allow_tools=True):
-        payload = {"model": self.config.model, "messages": messages, "tools": tools,
-                   "tool_choice": "auto" if allow_tools else "none", "stream": False,
+        payload = {"model": self.config.model, "messages": messages, "stream": False,
                    "temperature": self.config.temperature, "max_tokens": self.config.max_tokens}
+        if allow_tools:
+            payload.update(tools=tools, tool_choice="auto")
         if urllib.parse.urlsplit(self.config.chat_url).hostname == "api.deepseek.com":
             payload["thinking"] = {"type": "disabled"}
         request = urllib.request.Request(self.config.chat_url, data=json.dumps(payload).encode("utf-8"),

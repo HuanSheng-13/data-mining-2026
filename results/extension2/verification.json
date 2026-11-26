@@ -1,161 +1,17 @@
 {
-  "verified_on": "2026-11-25",
-  "python": "3.11.15",
-  "branch": "codex/financeqa-demo",
-  "unit_tests": {
-    "command": ".\\.venv\\Scripts\\python.exe -m pytest extension2_finance_agent/tests -q",
-    "passed": 36,
-    "failed": 0,
-    "scope": "Synthetic data, scripted local HTTP, project dotenv parsing/precedence, model and evaluator configuration; not real model answers"
+  "method_train_test_current_identical": true,
+  "test_used_clean_frozen_commit": true,
+  "unit_tests_passed": 37,
+  "saved_question_logs_verified": 56,
+  "final_markup_answers": 0,
+  "prediction_coverage_and_model_usage_verified": true,
+  "published_byte_checksums_verified": true,
+  "teacher_files_sha256": {
+    "evaluate.py": "0ff1a77e00f9d5b2e269b8fff3e602eb8c46d70c2d2c2f7254f0d41824906fbe",
+    "evaluator_system.txt": "db3ab9e3cd1aeb49fa9644590bb571d0157367b2116c1ac1319585c0c3714780",
+    "evaluator_user.txt": "0cef331f2de5df085c9abba08d5c70e831f349013d82d32f7bf7289c61c91e96"
   },
-  "real_data_tools": {
-    "record": "tool_smoke.json",
-    "passed": 6,
-    "reports": 9,
-    "chunks": 2787,
-    "raw_inputs_unchanged_after_smoke": true
-  },
-  "official_format_check": {
-    "mode": "check_only",
-    "expected_questions": 37,
-    "demo_predictions": 4,
-    "missing_predictions": 33,
-    "model_calls": 0,
-    "support_percentage": null,
-    "record": "demo_live_v1/official_format_check.json"
-  },
-  "documentation": {
-    "local_links_checked": 36
-  },
-  "real_model_demo": {
-    "status": "passed",
-    "model": "deepseek-flash",
-    "chat_url": "https://api.deepseek.com/chat/completions",
-    "predictions_created": true,
-    "questions": 4,
-    "generation_commit": "a02da9e788816a12979e9d687dcc269850a730d3",
-    "acceptance_record": "demo_live_v1/acceptance.json"
-  },
-  "model_evaluation": {
-    "status": "completed_for_demo",
-    "answered_subset_supported": 4,
-    "answered_subset_questions": 4,
-    "answered_subset_support_percentage": 100.0,
-    "official_denominator": 37,
-    "official_missing_predictions": 33,
-    "official_support_percentage": 10.81081081081081,
-    "raw_report": "demo_live_v1/official_score.json",
-    "api_failed": 0
-  },
-  "formal_test": {
-    "status": "not_run_before_final_method_freeze"
-  },
-  "source_sha256": {
-    "extension2_finance_agent/__init__.py": "7b24963255e3a97ba196b3f1b1350815daef278a89e6d6c19bb271ef9d8bf41d",
-    "extension2_finance_agent/__main__.py": "5e07f378af78c2fba0c2675df0d766d108bf01bfe8d0fbb5b6badd6b479dee37",
-    "extension2_finance_agent/core/__init__.py": "0abf1e0c0715709380d806653a6f388b4b75ee2d34a08a37f2d83ee857c8f07f",
-    "extension2_finance_agent/core/agent.py": "9345f3def7eca54a93423fe0463454a9299bfd62f34535a38f11992ed5e9f5b8",
-    "extension2_finance_agent/core/client.py": "2516e2f471c675a6776f26917413abe727aef4deec4df15f0c0ccf1caf2cc386",
-    "extension2_finance_agent/core/config.py": "21f17709c84f96058edcafbf5d089758824df39df048d7487966db0131ba1ee5",
-    "extension2_finance_agent/core/env.py": "f5d2edc0804d62231d67984b903de760c7d8b7c11b8c300d16181df3016e373c",
-    "extension2_finance_agent/experiments/__init__.py": "2302f688962bde50e3fbbd84712734adc9d83186a477051bb01eedcb13d0082d",
-    "extension2_finance_agent/experiments/evaluate.py": "5701ab675e63bb4622b583ca4cac3937f687897bc722b95db4b18119c3ce8258",
-    "extension2_finance_agent/experiments/runner.py": "611005bc202208ad8866b7cc178030972c92b74201ab91eb8cd5b52953d8bb02",
-    "extension2_finance_agent/experiments/smoke.py": "a9532c6303afc88f5f52a3a4a7af5e45545b8e1af2522286491c4a358c03e09b",
-    "extension2_finance_agent/prepare/__init__.py": "99f954feebd2d7ba82221917f64f8ee44ef84781a1ff342d3c99f36c5bd9913e",
-    "extension2_finance_agent/prepare/reports.py": "7c64fc939f639b50e1d394019cb4245c0b775ad871dfee3304c178164bf015ed",
-    "extension2_finance_agent/strategies/__init__.py": "aef6914565b69274a2513d70664c04b88916f0787c954cc0e8e9f4d3be8f8bbb",
-    "extension2_finance_agent/strategies/baseline.py": "c4e64a3d830ddb067c463c8c64bfd83004aaf937646cff05230d8c7c6fe09ad1",
-    "extension2_finance_agent/tests/test_baseline.py": "3a80873bd4ba659aef44e0c245f2c6f3e795a3bd59a1eac5adad4fa038b346cc",
-    "extension2_finance_agent/tests/test_env.py": "95509c5a4b48ca7903867d5ecebecf5fd4a0099ef5141461c7b140c935bc265a",
-    "extension2_finance_agent/tools/__init__.py": "7583778963abafe99c13c0d9066158f2c45630c65b3c9b95aa91a2c7887fd8fd",
-    "extension2_finance_agent/tools/baseline.py": "88e9fdc68f019e2f6c1ff601400cabe5b7a70732fe105d787a187ae1f7e251a1"
-  },
-  "data_manifest": {
-    "parser_version": "baseline-html-v1",
-    "database_sha256": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
-    "reports": [
-      {
-        "company": "Palantir Technologies Inc.",
-        "company_cik": "1321655",
-        "report_end": "2024-12-31",
-        "source": "data/filings/1321655/pltr-20241231.htm",
-        "sha256": "bb6a5c0f6020fcdd206f57691e08bfdc3f3fd2ddb075271fc3707374ac9b5e4a"
-      },
-      {
-        "company": "ServiceNow, Inc.",
-        "company_cik": "1373715",
-        "report_end": "2024-12-31",
-        "source": "data/filings/1373715/now-20241231.htm",
-        "sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
-      },
-      {
-        "company": "Snowflake Inc.",
-        "company_cik": "1640147",
-        "report_end": "2024-01-31",
-        "source": "data/filings/1640147/snow-20240131.htm",
-        "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
-      },
-      {
-        "company": "Snowflake Inc.",
-        "company_cik": "1640147",
-        "report_end": "2025-01-31",
-        "source": "data/filings/1640147/snow-20250131.htm",
-        "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
-      },
-      {
-        "company": "Moderna, Inc.",
-        "company_cik": "1682852",
-        "report_end": "2023-12-31",
-        "source": "data/filings/1682852/mrna-20231231.htm",
-        "sha256": "faa3b41c0ab8f5f2010d6669c4658a0641eeb3a6f3f6dd72900e7f35d8da3d9e"
-      },
-      {
-        "company": "Moderna, Inc.",
-        "company_cik": "1682852",
-        "report_end": "2024-12-31",
-        "source": "data/filings/1682852/mrna-20241231.htm",
-        "sha256": "6a3deff7504c734227dc8f0f4170a0ff7d3af17bdb9e7ff2c01984505eaef9db"
-      },
-      {
-        "company": "ABBOTT LABORATORIES",
-        "company_cik": "1800",
-        "report_end": "2024-12-31",
-        "source": "data/filings/1800/abt-20241231.htm",
-        "sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
-      },
-      {
-        "company": "NORFOLK SOUTHERN CORP",
-        "company_cik": "702165",
-        "report_end": "2023-12-31",
-        "source": "data/filings/702165/nsc-20231231.htm",
-        "sha256": "390a35fd2228fc5c2a55fd5a028a9fa3b28465556e306434b8975330d8b2b923"
-      },
-      {
-        "company": "NORFOLK SOUTHERN CORP",
-        "company_cik": "702165",
-        "report_end": "2024-12-31",
-        "source": "data/filings/702165/nsc-20241231.htm",
-        "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
-      }
-    ],
-    "chunks": 2787,
-    "chunk_chars": 1800,
-    "overlap_chars": 200,
-    "chunks_sha256": "9bd2fa9b5aadadacccf852f637a1d21ed8e74c6c59235f11497aec244e282b55"
-  },
-  "local_env": {
-    "path": "extension2_finance_agent/.env",
-    "automatically_loaded": true,
-    "git_ignored": true,
-    "secret_values_recorded": false
-  },
-  "offline_contract_fixture_check": {
-    "mode": "check_only",
-    "expected_questions": 3,
-    "missing_predictions": 0,
-    "fixture_kind": "explicitly labelled placeholder answers; format only",
-    "model_calls": 0,
-    "support_percentage": null
-  }
+  "test_feedback_used_for_tuning": false,
+  "manual_source_review_scope": "Only the three disputed answers; see source_checks.json",
+  "scope": "Current single method; runtime data and local .env remain outside Git"
 }

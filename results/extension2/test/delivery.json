@@ -1,0 +1,12 @@
+{
+  "split": "test",
+  "questions": 19,
+  "score_file": "score.json",
+  "generation_commit": "55e84187a485118aa8bbc7303dc49c641b705502",
+  "generation_worktree_clean": true,
+  "final_markup_answers": 0,
+  "source_directory": "extension2_finance_agent\\outputs\\final_test",
+  "configured_secret_scan_passed": true,
+  "frozen_method_sha256": "fcf775dfab7f3c896f700d770710a0165bb85960347e0a67a3074f8e0c71c931",
+  "train_test_method_identical": true
+}

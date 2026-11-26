@@ -1,0 +1,14 @@
+{
+  "git_commit": "55e84187a485118aa8bbc7303dc49c641b705502",
+  "python": "3.11.15",
+  "reports": 9,
+  "chunks": 2615,
+  "index_bytes": 5707921,
+  "rebuild_seconds": 2.2334001001436263,
+  "source_validation_seconds": 0.07170580001547933,
+  "rebuilt_index_byte_identical": true,
+  "cost_basis": "Fresh rebuild into a separate ignored directory; not the original preparation timing",
+  "source_database_sha256": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
+  "manifest_sha256": "528012f3b6e5697e8c48f312c7b69b0876d3af9fc561ad2bca6e8c14c418e3b4",
+  "chunks_sha256": "1045b65816045861fe1eb47d293d0486a9f40ddb64c99880d00316bfb1b2f4d8"
+}

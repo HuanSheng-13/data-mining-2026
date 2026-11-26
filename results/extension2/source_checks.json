@@ -1,0 +1,54 @@
+{
+  "scope": "Post-evaluation targeted review of three disputed answers, not a complete semantic audit; no answer or method changed",
+  "cases": [
+    {
+      "split": "train",
+      "question_id": "FQA-1373715-06",
+      "finding": "2024年报将2020年发行的2030年到期债券描述为固定利率债券；答案与参考答案对可转换债务的描述存在冲突。结构化标签不能直接替代债务附注。",
+      "sources": [
+        {
+          "chunk_id": "1373715/now-20241231:201600",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "report_sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        },
+        {
+          "chunk_id": "1373715/now-20241231:209600",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "report_sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        }
+      ],
+      "official_label_unchanged": "INCORRECT_INFO"
+    },
+    {
+      "split": "train",
+      "question_id": "FQA-702165-03",
+      "finding": "年报运输单位数由6744.4千增至7056.8千，报告列示增长5%；这不是收入吨英里。答案未对参考答案使用的收入吨英里口径作出核对，保留矛盾判定。",
+      "sources": [
+        {
+          "chunk_id": "702165/nsc-20241231:94400",
+          "source": "data/filings/702165/nsc-20241231.htm",
+          "report_sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
+        }
+      ],
+      "official_label_unchanged": "INCORRECT_INFO"
+    },
+    {
+      "split": "test",
+      "question_id": "FQA-1800-02",
+      "finding": "2024年报支持新冠检测收入下降，与参考答案强调其增长的描述存在冲突。答案表格另有呈现局限：分部之和为41934百万美元，加Other 16百万美元才等于合计41950；答案列了合计但未单列Other。不能据此认定整篇回答完全正确。",
+      "sources": [
+        {
+          "chunk_id": "1800/abt-20241231:112000",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "report_sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        },
+        {
+          "chunk_id": "1800/abt-20241231:281600",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "report_sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        }
+      ],
+      "official_label_unchanged": "INCORRECT_INFO"
+    }
+  ]
+}

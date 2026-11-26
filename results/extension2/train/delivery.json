@@ -1,0 +1,10 @@
+{
+  "split": "train",
+  "questions": 37,
+  "score_file": "score.json",
+  "generation_commit": "7445dd1d0ec8ddd17b6db6df0c4becdad7aaae9f",
+  "generation_worktree_clean": true,
+  "final_markup_answers": 0,
+  "source_directory": "extension2_finance_agent\\outputs\\final_train",
+  "configured_secret_scan_passed": true
+}

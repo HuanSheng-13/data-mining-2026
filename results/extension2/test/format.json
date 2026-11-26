@@ -1,0 +1,167 @@
+{
+  "split": "test",
+  "source_question_count": 19,
+  "subset_evaluation": false,
+  "mode": "check_only",
+  "model_calls": 0,
+  "judge_model": null,
+  "expected_questions": 19,
+  "missing_predictions": 0,
+  "empty_answers": 0,
+  "correct_info": 0,
+  "incorrect_info": 0,
+  "insufficient_info": 0,
+  "api_failed": 0,
+  "evaluation_complete": false,
+  "support_percentage": null,
+  "incorrect_percentage": null,
+  "insufficient_percentage": null,
+  "api_failed_percentage": null,
+  "results": [
+    {
+      "question_id": "FQA-1321655-01",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-02",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-03",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-04",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-05",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-06",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-07",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-08",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-09",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1321655-10",
+      "company_cik": "1321655",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-01",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-02",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-03",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-04",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-05",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-06",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-07",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-08",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    },
+    {
+      "question_id": "FQA-1800-09",
+      "company_cik": "1800",
+      "status": "CHECKED_ONLY",
+      "context_quality": null
+    }
+  ],
+  "per_company": {
+    "1321655": {
+      "expected_questions": 10,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 0,
+      "incorrect_info": 0,
+      "insufficient_info": 0,
+      "api_failed": 0,
+      "evaluation_complete": false,
+      "support_percentage": null,
+      "incorrect_percentage": null,
+      "insufficient_percentage": null,
+      "api_failed_percentage": null
+    },
+    "1800": {
+      "expected_questions": 9,
+      "missing_predictions": 0,
+      "empty_answers": 0,
+      "correct_info": 0,
+      "incorrect_info": 0,
+      "insufficient_info": 0,
+      "api_failed": 0,
+      "evaluation_complete": false,
+      "support_percentage": null,
+      "incorrect_percentage": null,
+      "insufficient_percentage": null,
+      "api_failed_percentage": null
+    }
+  },
+  "average_support_percentage": null
+}

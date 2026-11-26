@@ -1,10 +1,10 @@
-"""Deterministic plain-text chunks, not a semantic retrieval optimization."""
+"""Deterministic bounded report chunks with stable local evidence IDs."""
 from html.parser import HTMLParser
 import re
 from pathlib import Path
 from extension2_finance_agent.core.config import read_json, sha256, write_json
 
-PARSER_VERSION = "baseline-html-v1"
+PARSER_VERSION = "finance-reports-v2"
 
 
 class ReportParser(HTMLParser):
@@ -14,7 +14,7 @@ class ReportParser(HTMLParser):
         self.hidden = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag in ("script", "style", "head", "ix:hidden"):
+        if tag in ("script", "style", "head", "ix:hidden", "ix:header"):
             self.hidden += 1
         if not self.hidden:
             if tag in ("p", "div", "tr", "br", "h1", "h2", "h3", "li"):
@@ -23,7 +23,7 @@ class ReportParser(HTMLParser):
                 self.parts.append(" | ")
 
     def handle_endtag(self, tag):
-        if tag in ("script", "style", "head", "ix:hidden"):
+        if tag in ("script", "style", "head", "ix:hidden", "ix:header"):
             self.hidden = max(0, self.hidden - 1)
         elif not self.hidden and tag in ("p", "div", "tr", "h1", "h2", "h3", "li"):
             self.parts.append("\n")

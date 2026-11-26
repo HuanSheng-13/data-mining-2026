@@ -1,0 +1,372 @@
+{
+  "split": "train",
+  "questions": 37,
+  "generation_commit": "7445dd1d0ec8ddd17b6db6df0c4becdad7aaae9f",
+  "statuses": {
+    "completed": 37
+  },
+  "tool_usage": {
+    "search_reports": 95,
+    "get_schema": 37,
+    "read_report_chunks": 20,
+    "discover_metrics": 39,
+    "query_sql": 47,
+    "calculate": 97
+  },
+  "tool_calls": 335,
+  "model_calls": 208,
+  "question_seconds": 425.42371099907905,
+  "usage": {
+    "prompt_tokens": 2393122,
+    "completion_tokens": 52863,
+    "total_tokens": 2445985,
+    "prompt_cache_hit_tokens": 1840384,
+    "prompt_cache_miss_tokens": 552738
+  },
+  "events": {
+    "task_start": 37,
+    "model_response": 208,
+    "tool_result": 335,
+    "task_end": 37
+  },
+  "final_markup_answers": 0,
+  "questions_audit": [
+    {
+      "question_id": "FQA-1640147-01",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-02",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-03",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-04",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-05",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-06",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-07",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-08",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1640147-09",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-01",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-02",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-03",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-04",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-05",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-06",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-07",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-08",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-09",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1682852-10",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-01",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-02",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-03",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-04",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-05",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-06",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 1,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-07",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-1373715-08",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-01",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-02",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-03",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-04",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-05",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-06",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-07",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-08",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-09",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 0,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    },
+    {
+      "question_id": "FQA-702165-10",
+      "status": "completed",
+      "final_tool_markup": false,
+      "tool_errors": 1,
+      "protocol_recoveries": 0,
+      "final_rejections": 0
+    }
+  ],
+  "predictions_sha256": "1222605560fbca5266bda67a2e3e51cf6d3f4220e80dd3d9c1aafe18f98af8a1",
+  "log_sha256": {
+    "logs/000.jsonl": "5d9696cc17251546ad1421ba3787dbe53a94686b053f2814dc30c8ad1abef22b",
+    "logs/001.jsonl": "0e0c7d6921d9a5c94e925be14ae64d08963eb115bb20720dcc02fe07704829e7",
+    "logs/002.jsonl": "fa5e4a1e52a8a6439c79eacf985fdb76ecf843f31dbefa26703d5ff4739516e6",
+    "logs/003.jsonl": "a71744c787d26fb2d3b7fbd0c97ad26c589892c19007b84fd3f07d866cfb9bc4",
+    "logs/004.jsonl": "917c24f5838cdad54c8dd1eec4802e1767e5a7d206a975478b08a2aeb4021641",
+    "logs/005.jsonl": "9fdf9bfb60baac9871a3ae25a2a1b18bae7b934acc5e6cd0305ef1c350873b28",
+    "logs/006.jsonl": "000e9df3069e76c222566b019e4cf8029c9a9aaf0f975c18165709adcfb4efd5",
+    "logs/007.jsonl": "aafe6da85fb853489d8f6a9bdbd5d4cde595243e55cf0c760f7a23991f1d0d07",
+    "logs/008.jsonl": "90496cf40e2e67b4334e0649b80f6ff2b9602de1319ca6c0f811b1bc9e29b408",
+    "logs/009.jsonl": "7306dece4ba2d87bd351df6698ff6cfdc493b4c22e08fbd906d0ce2be1900c1b",
+    "logs/010.jsonl": "9253efaa6a73514f8ccf1dd3903921bec066f22871b0e8615bee71e423d0f8ab",
+    "logs/011.jsonl": "804a09a085a34792ef20a2f0d9b63e278d88cb6a0e709d9a300aed4ae11dd9f3",
+    "logs/012.jsonl": "0bbf06cbb1fa5b1af59d39a2f86a2ae9507d02aad480fe4375fff6891eab5373",
+    "logs/013.jsonl": "3a1aecc35206cf7126debcddd6a596eb1d15f33aab8abdb5e6a2848b4e64ecb1",
+    "logs/014.jsonl": "772acdee4be4dc633c5c1a10311bbd57c05254559f6dcf07d049e657f4a1eb23",
+    "logs/015.jsonl": "a2dbe176cde5766b4d76f0f393acbd67ed132309253797d6abc03fe36c42b1dd",
+    "logs/016.jsonl": "b1b4317c83171a64820fe61f4716c8c920b5704b749b9bd260c23ba550b6497e",
+    "logs/017.jsonl": "ebfa550d03c6da4f82b2602184b507edc700b300a83633e9f88c4d2070e1f49c",
+    "logs/018.jsonl": "3ba960efd873f437066c9e2c99d4d6dc8f999c375a3acb13a28ed14deef2ebc9",
+    "logs/019.jsonl": "6366b47343e8b746490dad106fda3885008be93e337a731ece19d6d0c3b06fec",
+    "logs/020.jsonl": "40072f91918dc35ec6a55973381b8ca010e8b8c185aa95620f5642b0e49d7c34",
+    "logs/021.jsonl": "8660b6c5d55835357bb08287772d39bca5ab47d507ffc920314bc1f4088ea257",
+    "logs/022.jsonl": "13763893214421b9e1e649dd9e9c58a0a403620e4c9f8a8abb25f9bd477e9ec2",
+    "logs/023.jsonl": "899a82ffb6e3d194bcbc85766af433e4b154c7a47b83845dbcd95b0e0179dbb3",
+    "logs/024.jsonl": "81e78546945e04c3f0cae10537ef1a7dc130abf4748b26ce74e6eeca92544f05",
+    "logs/025.jsonl": "e565c3d38b2366c50bf64efee1c5c01ddc5f3abc6699a070fdaca72fba0f7aba",
+    "logs/026.jsonl": "c6b434eca7c19f72e10cc280a7b991c3cf7a171923dc29e925da39ed8bbab56f",
+    "logs/027.jsonl": "6c5545d1ea7265a95202784e90787f4db648760d57ca31f90175bae38a148ca1",
+    "logs/028.jsonl": "002f3255f03808dc71e57c7b4c8ec29f1c859b837d8b5a5b5a54e5a61bd37cd0",
+    "logs/029.jsonl": "56d9a389428fa74f23491b737ba2886a35015938f890d920f3021673f604a337",
+    "logs/030.jsonl": "650ba58ce8fc24c7be3b010d1a20d7dc96610be92dc80df1db29d15be16aca04",
+    "logs/031.jsonl": "9acc324f93814129b6b17bffbb89649f2cdb2aa18ccd1371a609304190753ea8",
+    "logs/032.jsonl": "e69554bd6d82117fe3a9dbba52b006ab14cab41780920734cacd9fade6bb247b",
+    "logs/033.jsonl": "0b8f80eb8fe8c6e62a716a4c70ec0963e24f6b2f71a3ef2c743964060ab54091",
+    "logs/034.jsonl": "61358f7b7af0e1dd36e6718e6f1a64548406bb081f1a83e98df54532d710270b",
+    "logs/035.jsonl": "ca39c4d3e4962bcf3167508ad847eb8722f31aecfb143aee2b660ed2312c3281",
+    "logs/036.jsonl": "0a82341199ddeea3331a45209cc296536d185aa2b36411020b5390daf9d378ea"
+  },
+  "meaning": "Operational checks and permissive support; not exhaustive financial correctness"
+}

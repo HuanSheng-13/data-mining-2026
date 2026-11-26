@@ -2,7 +2,9 @@
 from dataclasses import dataclass
 import json
 import time
+import re
 from extension2_finance_agent.core.client import ModelError
+from extension2_finance_agent.core.protocol import has_tool_markup, recover_dsml
 
 
 @dataclass
@@ -22,12 +24,17 @@ def answer_question(task, config, client, tools, strategy, emit):
     tool_count = 0
     model_count = 0
     has_evidence = False
+    final_instruction_sent = False
+    known_chunks = set()
 
     def finish(text, status):
         return Answer(text, status, tool_count, model_count, usage, time.perf_counter() - started)
 
     for turn in range(config.max_turns):
-        allow_tools = tool_count < config.max_tool_calls and turn < config.max_turns - 1
+        allow_tools = tool_count < config.max_tool_calls and turn < config.max_turns - 2
+        if not allow_tools and not final_instruction_sent:
+            messages.append({"role": "user", "content": "Tool phase has ended. No more tools are available. Give the final English answer NOW using only evidence already returned. Include sources and material limitations. Do not propose further searches or emit tool-call markup."})
+            final_instruction_sent = True
         tick = time.perf_counter()
         model_count += 1
         try:
@@ -47,9 +54,26 @@ def answer_question(task, config, client, tools, strategy, emit):
         if response.get("finish_reason") == "length":
             return finish("", "truncated_response")
         calls = message.get("tool_calls") or []
+        content = message.get("content")
+        if not calls and has_tool_markup(content):
+            if allow_tools:
+                try:
+                    calls = recover_dsml(content, {t['function']['name'] for t in tools.definitions}, turn)
+                    message = {"role": "assistant", "content": None, "tool_calls": calls}
+                    emit({"event": "protocol_recovery", "turn": turn, "kind": "assistant_text_dsml", "calls": calls})
+                except (ValueError, TypeError):
+                    calls = []
+            if not calls:
+                emit({"event": "final_rejected", "turn": turn, "reason": "tool_markup_in_content"})
+                messages.extend([response["message"], {"role": "user", "content": "Your last message was tool markup, not an answer. Return plain English supported by evidence already retrieved. Do not claim an unexecuted call happened."}])
+                continue
         if not calls:
-            content = message.get("content")
             if isinstance(content, str) and content.strip() and has_evidence:
+                cited = set(re.findall(r"\b\d{3,}/[A-Za-z0-9_-]+:\d+\b", content))
+                if cited - known_chunks:
+                    emit({"event": "final_rejected", "turn": turn, "reason": "unretrieved_chunk_citation", "unknown_chunks": sorted(cited-known_chunks)})
+                    messages.extend([message, {"role": "user", "content": "Some report chunk IDs in that answer were not retrieved. Use only actual sources returned by tools, or omit unsupported citations and state the limitation."}])
+                    continue
                 return finish(content.strip(), "completed")
             if not allow_tools:
                 return finish("", "no_evidence" if not has_evidence else "empty_answer")
@@ -77,7 +101,9 @@ def answer_question(task, config, client, tools, strategy, emit):
                 except (ValueError, TypeError):
                     result = {"ok": False, "data": None, "sources": [], "error": "Invalid JSON object arguments"}
             has_evidence = has_evidence or (result["ok"] and bool(result.get("sources")))
+            if result["ok"]:
+                known_chunks.update(s["chunk_id"] for s in result.get("sources", []) if "chunk_id" in s)
             emit({"event": "tool_result", "turn": turn, "tool_call_id": call["id"], "name": name,
                   "arguments": raw_arguments, "result": result, "elapsed_seconds": time.perf_counter() - tick})
             messages.append({"role": "tool", "tool_call_id": call["id"], "content": json.dumps(result, ensure_ascii=False, allow_nan=False)})
-    return finish("", "budget_exhausted")
+    return finish("", "invalid_final_answer" if final_instruction_sent else "budget_exhausted")

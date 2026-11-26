@@ -1,0 +1,195 @@
+{
+  "split": "train",
+  "started_utc": "2026-11-26T02:49:04.954314+00:00",
+  "git": {
+    "commit": "7445dd1d0ec8ddd17b6db6df0c4becdad7aaae9f",
+    "branch": "codex/financeqa-final",
+    "dirty": false
+  },
+  "python": "3.11.15",
+  "method": {
+    "config": {
+      "data_root": "data/financeqa/FinanceQA",
+      "artifacts_dir": "extension2_finance_agent/artifacts/final",
+      "chat_url": "https://api.deepseek.com/chat/completions",
+      "model": "deepseek-flash",
+      "api_key_env": "FINANCEQA_API_KEY",
+      "temperature": 0,
+      "max_tokens": 3000,
+      "max_turns": 16,
+      "max_tool_calls": 24,
+      "timeout_seconds": 90,
+      "retries": 2,
+      "tool_factory": "extension2_finance_agent.tools.data:create_tools",
+      "prepare_factory": "extension2_finance_agent.prepare.reports:prepare",
+      "validate_factory": "extension2_finance_agent.prepare.reports:validate_artifacts",
+      "strategy_factory": "extension2_finance_agent.strategies.finance:create_strategy",
+      "prompt_file": "extension2_finance_agent/prompts/agent.txt",
+      "skill_files": [
+        "extension2_finance_agent/skills/financial_basis.txt",
+        "extension2_finance_agent/skills/calculation_and_claims.txt",
+        "extension2_finance_agent/skills/recovery_and_stop.txt"
+      ]
+    },
+    "files": {
+      "D:\\code\\data-mining-2026\\data\\financeqa\\FinanceQA\\agent_workspace\\data\\business_rules.md": "7f2fdd6b28cdca26420d3fe96aab911670c9c576407f1d4ce9a893d5e9d6646b",
+      "D:\\code\\data-mining-2026\\data\\financeqa\\FinanceQA\\agent_workspace\\data\\companies.json": "82d529cfe993278e49c6ae717383660bb116d2499da650d640b1ee95fe947689",
+      "D:\\code\\data-mining-2026\\data\\financeqa\\FinanceQA\\agent_workspace\\data\\filings\\README.md": "55798cfce6dd8a316e5189b3e7ca3e677e2ab3d76ef6574ad201b6391f4008c4",
+      "D:\\code\\data-mining-2026\\data\\financeqa\\FinanceQA\\agent_workspace\\data\\schema.md": "1de4145dbf7498e2d67ab0048945c1b90ff64edc4135357201132b0f75d2fe39",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\__init__.py": "c23a383deaa2b22153f38adba2a2cde3d72f46df616f06b5edee4ca120f0ae6e",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\__main__.py": "70b21d12c53e84e859232fd69e2a31ff4e45baa8b1b32c264d8e28d3959f0441",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\configs\\final.json": "aed5b14ac92b74aed839c2632aa61e9836c38fe6de3b52e8985cd97aefe653ed",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\__init__.py": "0abf1e0c0715709380d806653a6f388b4b75ee2d34a08a37f2d83ee857c8f07f",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\agent.py": "5cd5a08540bfe178eee11994aba523cb0f10219271ed5811af78dc0837e7e24d",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\client.py": "02267e026f96bd45372c13aab137aaed4b58c51d72deba834121e3fe81c8f4a8",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\config.py": "b09cbf4d7045c3edbdbe98c9407dec3ff41f33d759789c468f4f8c7fb49092a6",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\env.py": "f5d2edc0804d62231d67984b903de760c7d8b7c11b8c300d16181df3016e373c",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\core\\protocol.py": "bef14193960ece81f41a3131cc1b8adc95dade1339a7b0a2e89d6023699c441a",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\__init__.py": "2302f688962bde50e3fbbd84712734adc9d83186a477051bb01eedcb13d0082d",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\audit.py": "8577b134f4943b8804b0a836fe2289be4c2c834ccba2db8359a8a4645b3fc7eb",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\evaluate.py": "3ad10e542522c2fe16f0450974b32ceb17c7d46eec2c30a467e95bf546ba97d0",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\README.md": "b67c20eb8ff0cb7f02a27dedf327e932507258fe2dc86e59ae9cbd56e342dda6",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\recover_judge.py": "2ecbc8fe986dcd466da0a667838316a66485678592bc2c45d0b49ad6af3cac5f",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\experiments\\runner.py": "611005bc202208ad8866b7cc178030972c92b74201ab91eb8cd5b52953d8bb02",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\prepare\\__init__.py": "ce379d72b2cd429f58ab86f136fc8cd525bba270a41202d506906bc497767e0d",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\prepare\\README.md": "072c0f628f259c55e1e6d9c7bf04c2dfb81bc8423555d1cc848d98e720b3688c",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\prepare\\reports.py": "0fbd82527404da6ddc132532b7cf00c97baf63c72b653da3947be3999ea39b0a",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\prompts\\agent.txt": "9c9f772d00e106066322225aeae2957ace763dccf0586879eaa7559e1714b9c9",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\README.md": "26ee2084b5f18e5f2eea54d13d098816e1add052c80466dd43dfc70506f62c33",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\skills\\calculation_and_claims.txt": "67e354c029aabc0ffcf4c4e3f43972a6d35b79a56520b785e3cd34e45b4816c9",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\skills\\financial_basis.txt": "58395959459a0b023ee9e608ddf1f1e48980af9a5b75e5ef745dd82f026e70e3",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\skills\\README.md": "1c484339344055e70cf9ab145b5c56cc14f4c35121abd1487783a99d8bb34a75",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\skills\\recovery_and_stop.txt": "877cca0d39bc5eb4638db8784caf3459b88b7f3dd4c048038d64e6a61b65318b",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\strategies\\__init__.py": "020c6d04b1815136f203eba8a6b1946add895f036014dc71a6f541889a6c4488",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\strategies\\finance.py": "bd05b62d56da721cc4c33207e1766f29a48b390710fdccdc57769fd0a75edb1a",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\strategies\\README.md": "0c97f9566596ea51b9f3866d3e2bad3860d18d864b7c32ae2b4e5c2295bc5700",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tests\\conftest.py": "d3065bcfda1493bd7a0fed771f1c54d212857b9fbc11451593b3a2a2af5615f6",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tests\\test_env.py": "95509c5a4b48ca7903867d5ecebecf5fd4a0099ef5141461c7b140c935bc265a",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tests\\test_finance.py": "8e4ead680a2ce510152f2af696b228eea92bd6e7b21748e193dd0b83047fc71b",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tests\\test_judge_recovery.py": "e8fc10db63f4a35264e2260c285d4c1d1887c319b17df4267fe51b34d316be4e",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tools\\__init__.py": "6af7eded982dbb8a5d59f67647b2c4329b18780593c4c3520594c8b11d02029c",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tools\\data.py": "41f83648adac1977afdf434f74f16b52329773d65820cc0f61f7625bdb0834d4",
+      "D:\\code\\data-mining-2026\\extension2_finance_agent\\tools\\README.md": "a3a19e9e1ebad16b0b76daffd43bbf2c0ffa3408257ca12f3a544d647261b200"
+    },
+    "prepared_files": {
+      "chunks.json": "1045b65816045861fe1eb47d293d0486a9f40ddb64c99880d00316bfb1b2f4d8",
+      "manifest.json": "528012f3b6e5697e8c48f312c7b69b0876d3af9fc561ad2bca6e8c14c418e3b4"
+    },
+    "artifacts": {
+      "parser_version": "finance-reports-v2",
+      "database_sha256": "ea6f2e0a5e9ac882ae17a805e1c0381628ca13effff0581eba98dc56f4df203b",
+      "reports": [
+        {
+          "company": "Palantir Technologies Inc.",
+          "company_cik": "1321655",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1321655/pltr-20241231.htm",
+          "sha256": "bb6a5c0f6020fcdd206f57691e08bfdc3f3fd2ddb075271fc3707374ac9b5e4a"
+        },
+        {
+          "company": "ServiceNow, Inc.",
+          "company_cik": "1373715",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1373715/now-20241231.htm",
+          "sha256": "a79a5aed20eb0aa5c590da1ed238d61b4a3e177fb4089d6f77607b7ba4ad0485"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2024-01-31",
+          "source": "data/filings/1640147/snow-20240131.htm",
+          "sha256": "070f7568c083b577edbe6bd08dab696d84f9468524caa9f66d9a4f5830545d6f"
+        },
+        {
+          "company": "Snowflake Inc.",
+          "company_cik": "1640147",
+          "report_end": "2025-01-31",
+          "source": "data/filings/1640147/snow-20250131.htm",
+          "sha256": "8767a6ad72574f0f50d6b6a1aab43000df495c41eafbb9327beb9e2843063937"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2023-12-31",
+          "source": "data/filings/1682852/mrna-20231231.htm",
+          "sha256": "faa3b41c0ab8f5f2010d6669c4658a0641eeb3a6f3f6dd72900e7f35d8da3d9e"
+        },
+        {
+          "company": "Moderna, Inc.",
+          "company_cik": "1682852",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1682852/mrna-20241231.htm",
+          "sha256": "6a3deff7504c734227dc8f0f4170a0ff7d3af17bdb9e7ff2c01984505eaef9db"
+        },
+        {
+          "company": "ABBOTT LABORATORIES",
+          "company_cik": "1800",
+          "report_end": "2024-12-31",
+          "source": "data/filings/1800/abt-20241231.htm",
+          "sha256": "78bb271dfd6db9dc950811359c5a060a4797cdbb2f292be431bd3873fd9bd16a"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2023-12-31",
+          "source": "data/filings/702165/nsc-20231231.htm",
+          "sha256": "390a35fd2228fc5c2a55fd5a028a9fa3b28465556e306434b8975330d8b2b923"
+        },
+        {
+          "company": "NORFOLK SOUTHERN CORP",
+          "company_cik": "702165",
+          "report_end": "2024-12-31",
+          "source": "data/filings/702165/nsc-20241231.htm",
+          "sha256": "e41aaa08995f96bc49b9f035f2658dfd47d48c3f5028436c7fa7955ffb52ddea"
+        }
+      ],
+      "chunks": 2615,
+      "chunk_chars": 1800,
+      "overlap_chars": 200,
+      "chunks_sha256": "1045b65816045861fe1eb47d293d0486a9f40ddb64c99880d00316bfb1b2f4d8"
+    }
+  },
+  "question_ids": [
+    "FQA-1640147-01",
+    "FQA-1640147-02",
+    "FQA-1640147-03",
+    "FQA-1640147-04",
+    "FQA-1640147-05",
+    "FQA-1640147-06",
+    "FQA-1640147-07",
+    "FQA-1640147-08",
+    "FQA-1640147-09",
+    "FQA-1682852-01",
+    "FQA-1682852-02",
+    "FQA-1682852-03",
+    "FQA-1682852-04",
+    "FQA-1682852-05",
+    "FQA-1682852-06",
+    "FQA-1682852-07",
+    "FQA-1682852-08",
+    "FQA-1682852-09",
+    "FQA-1682852-10",
+    "FQA-1373715-01",
+    "FQA-1373715-02",
+    "FQA-1373715-03",
+    "FQA-1373715-04",
+    "FQA-1373715-05",
+    "FQA-1373715-06",
+    "FQA-1373715-07",
+    "FQA-1373715-08",
+    "FQA-702165-01",
+    "FQA-702165-02",
+    "FQA-702165-03",
+    "FQA-702165-04",
+    "FQA-702165-05",
+    "FQA-702165-06",
+    "FQA-702165-07",
+    "FQA-702165-08",
+    "FQA-702165-09",
+    "FQA-702165-10"
+  ],
+  "status": "completed",
+  "questions_sha256": "cdcc46bffeb590afdfb1b6b54c7a53160247c4f55c1b022cf6eaa57b0278ebaa",
+  "preflight_seconds": 0.3474176998715848,
+  "total_seconds": 429.39234249992296
+}
