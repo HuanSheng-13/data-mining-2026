@@ -1,18 +1,14 @@
 # 数据挖掘导论 2026 课程大作业
 
-完成图像无监督聚类、图像异常检测、时间序列预测和无监督疾病判断四项任务。
+完成图像无监督聚类、图像异常检测、时间序列预测和无监督疾病判断四项必做任务，以及选做拓展二：企业财务问答Agent。
 
-拓展二的最终交接安排见[财务问答 Agent 交接说明](report/extension2_work_plan.md)。
-
-拓展二最终 Agent 的数据规范、运行命令和开发说明见 [extension2_finance_agent/README.md](extension2_finance_agent/README.md)。
-
-该方案已完成全部37题train和首次正式19题test，官方支持率分别为94.59%和94.74%。预测、真实工具日志、评分与复现核查见[拓展二最终结果](results/extension2/README.md)。
+拓展二已完成全部37题train和首次正式19题test，官方支持率分别为94.59%和94.74%。方法与运行见[Agent开发说明](extension2_finance_agent/README.md)，分析见[初版报告](report/extension2.md)，预测、工具日志与评分索引见[结果说明](results/README.md#extension2)。
 
 ## 项目结构
 
 ```text
 data-mining-2026/
-├── README.md                       # 数据、环境与四项任务的运行说明
+├── README.md                       # 数据、环境与各任务的运行说明
 ├── requirements.txt                # 四项任务及测试的统一CPU依赖
 ├── data/                           # 本地数据，组织方式见下文
 │   └── README.md
@@ -20,16 +16,19 @@ data-mining-2026/
 ├── task2_image_anomaly/             # 图像异常检测代码与测试
 ├── task3_forecasting/               # 预测代码、推理入口、工具与pytest测试
 ├── task4_thyroid/                   # 检测代码、推理入口、工具与pytest测试
+├── extension2_finance_agent/        # 财务问答Agent、配置、Skill与测试
 ├── results/
-│   ├── README.md                   # 四项任务的结果文件说明
-│   └── task1/ … task4/             # 指标、配置、数据检查和图表
+│   ├── README.md                   # 各任务的结果文件说明
+│   ├── task1/ … task4/             # 指标、配置、数据检查和图表
+│   └── extension2/                 # train/test预测、工具日志、评分与冻结证据
 └── report/
-    └── task1.md … task4.md         # 四项任务的实验报告
+    ├── task1.md … task4.md         # 四项必做任务的实验报告
+    └── extension2.md               # 财务问答Agent初版报告
 ```
 
 ## 数据存放方式
 
-从[课程数据地址](https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665)下载以下四个文件。路径以仓库根目录为准；获取仓库的命令见下一节。
+从[课程数据地址](https://bhpan.buaa.edu.cn/link/AA29E06E1DF21C419D9A1F56FFB409B665)获取数据，按下表存放。前四项为必做任务，FinanceQA为拓展二数据。路径以仓库根目录为准；获取仓库的命令见下一节。
 
 | 下载文件 | 存放操作 | 程序使用的数据目录 |
 | --- | --- | --- |
@@ -37,6 +36,7 @@ data-mining-2026/
 | `Image_Anomaly_Detection.zip` | 将压缩包内容直接解压到 `data/image_anomaly/` | `data/image_anomaly` |
 | `weather.csv` | 不需要解压，直接复制到 `data/weather/weather.csv` | `data/weather` |
 | `thyroid.zip` | 将压缩包内容直接解压到 `data/thyroid/` | `data/thyroid` |
+| `FinanceQA.zip` | 将包内 `FinanceQA/` 放到 `data/financeqa/`，保留内部结构 | `data/financeqa/FinanceQA` |
 
 保留ZIP包内自带的文件夹，不需要解压后手动移动文件。例如，把 `Cluster.zip` 解压到 `data/cluster/` 后，实际图像位于 `data/cluster/Cluster/dataset/`。解压软件应直接以表中目录为目标，不要额外套一层压缩包同名文件夹。
 
@@ -64,13 +64,19 @@ data/
 │           └── test/
 ├── weather/
 │   └── weather.csv
-└── thyroid/
-    └── thyroid/
-        ├── train-set.csv
-        └── test-set.csv
+├── thyroid/
+│   └── thyroid/
+│       ├── train-set.csv
+│       └── test-set.csv
+└── financeqa/
+    └── FinanceQA/
+        ├── agent_workspace/        # 数据库、年报、问题与固定协议
+        ├── evaluation_only/        # 独立检查器和参考材料，不接入作答Agent
+        ├── README.md
+        └── TASK.md
 ```
 
-四项任务的命令已对应上述结构。`FinanceQA.zip` 是选做拓展数据，`course-report-template.zip` 是报告模板，运行四项必做任务不需要这两个文件。可复制的PowerShell解压命令见 [data/README.md](data/README.md)。
+运行四项必做任务不需要FinanceQA数据或API密钥。`course-report-template.zip` 是报告模板。可复制的PowerShell解压命令见 [data/README.md](data/README.md)。原始数据不提交Git，派生索引与新运行输出另存。
 
 ## 环境配置
 
@@ -93,9 +99,13 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m pip check
 ```
 
-根目录 `requirements.txt` 是唯一依赖清单，包含四项任务、测试及其传递依赖的锁定版本；PyTorch和torchvision使用CPU版本，安装一次即可运行全部任务。最后一条命令正常输出 `No broken requirements found.`。如果已经打开本仓库，跳过 `git clone` 和 `cd` 两行，从创建虚拟环境开始执行。后续命令均在仓库根目录运行，并直接使用虚拟环境内的解释器，无需额外执行激活命令。
+根目录 `requirements.txt` 包含四项任务、测试及其传递依赖的锁定版本；PyTorch和torchvision使用CPU版本。
+拓展二运行仅使用Python标准库，测试复用其中的pytest，无需另装Agent框架。
+最后一条命令正常输出 `No broken requirements found.`。
 
-依赖安装需要联网。任务1、2的默认方案首次运行还会下载约45MB的官方ResNet-18权重；已有权重时可用 `--weights-path` 指定本地文件。任务3、4在依赖与数据就位后可离线运行。四项任务可以分别运行，不依赖其他任务先生成结果。
+依赖安装需要联网。任务1、2的默认方案首次运行还会下载约45MB的官方ResNet-18权重；已有权重时可用 `--weights-path` 指定本地文件。任务3、4在依赖与数据就位后可离线运行。
+
+拓展二作答和独立评分需要联网访问模型服务。复制 `extension2_finance_agent/.env.example` 为同目录 `.env`（已有文件不要覆盖），填写 `FINANCEQA_API_KEY` 与 `FINANCEQA_JUDGE_API_KEY`；可使用同一密钥，前者用于作答，后者用于独立检查器。默认服务为DeepSeek，模型为 `deepseek-flash`，检查器地址和模型也在模板中配置。本地 `.env` 不提交Git，密钥不写入日志。
 
 <a id="task1"></a>
 
@@ -197,10 +207,51 @@ LOF测试ROC-AUC为0.9628，检出94个患病样本中的80个，误报117个正
 
 [实验报告](report/task4.md) · [结果文件说明](results/README.md#task4)
 
+<a id="extension2"></a>
+
+## 拓展二：企业财务问答 Agent
+
+### 运行
+
+数据与本地 `.env` 配置完成后，准备索引并运行完整train：
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent prepare
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent run --split train --output extension2_finance_agent/outputs/train_reproduce
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_reproduce/predictions.json --output extension2_finance_agent/outputs/train_reproduce/score.json
+```
+
+所有输出使用新目录，不覆盖已保存结果。确定方法并提交代码、保持工作区干净后，创建新的冻结快照，再自动完成全部19题test并独立评分：
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent freeze --output extension2_finance_agent/outputs/frozen_reproduce.json
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent run --split test --frozen extension2_finance_agent/outputs/frozen_reproduce.json --output extension2_finance_agent/outputs/test_reproduce
+.\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent evaluate --split test --predictions extension2_finance_agent/outputs/test_reproduce/predictions.json --output extension2_finance_agent/outputs/test_reproduce/score.json
+```
+
+首次正式test的答案、冻结文件和评分已保存在 `results/extension2/test/`，上述命令用于另建复现。每题状态独立，全部作答后才评分；不得用test参考答案或反馈调整方法。文档调整也会改变快照指纹，不能直接复用历史冻结文件。
+
+### 方法
+
+配置为 `extension2_finance_agent/configs/final.json`。DeepSeek自主调用只读SQL、指标发现、年报检索、相邻片段读取和标量计算工具；财务Skill指导期间、单位、口径和来源核查。每题最多16轮、24次工具调用，程序约束工具协议、引用可追溯性与最终回答，记录真实工具调用、错误、用量和耗时。
+
+### 结果
+
+train获支持35/37（94.59%），首次正式test获支持18/19（94.74%）；56题均完成，37项自动化测试通过。自动支持率不代表逐句人工确认的完整正确率，三条矛盾结果及其来源分析原样保留。
+
+[初版实验报告](report/extension2.md) · [结果文件说明](results/README.md#extension2) · [完整开发与运行说明](extension2_finance_agent/README.md)
+
 ## 验证检查
 
 四项任务的测试位于各自的 `tests/` 目录。准备好数据并完成上述四项实验后，可执行：
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest task1_clustering/tests task2_image_anomaly/tests task3_forecasting/tests task4_thyroid/tests -q
+```
+
+拓展二的自动化测试和已交付证据核查不调用付费模型接口：
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m pytest extension2_finance_agent/tests -q
+.\.venv\Scripts\python.exe -X utf8 -m results.extension2.build_delivery --verify-only
 ```

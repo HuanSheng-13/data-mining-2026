@@ -17,7 +17,8 @@ extension2_finance_agent/
 ├── tests/                   # 仅针对当前方案的测试
 ├── artifacts/final/         # 可重建索引，不提交
 └── outputs/                 # 新运行与冻结文件，不覆盖已有结果
-results/extension2/          # 当前最终方案的train/test证据与交付说明
+results/extension2/          # 当前最终方案的train/test原始证据
+report/extension2.md         # 方法、结果与分析的初版报告
 data/financeqa/FinanceQA/    # 老师的原始数据包，保持不变
 ```
 
@@ -40,9 +41,44 @@ Python 3.11及以上；运行使用标准库，测试使用根目录已有pytest
 
 ## 方法与工具
 
-模型自行选择调用顺序，读取结果后决定继续或结束。`get_schema` 返回核心表及报告目录；`discover_metrics` 发现实际标签；`query_sql` 只读、有时间/步数/结果限制；`search_reports` 返回公司及报告期对应的片段；`read_report_chunks` 取已知片段邻域解决表格切断；`calculate` 只接受标量算术，不执行代码。
+### 年报准备（prepare）
+
+`prepare/reports.py` 读取公开年报目录，提取HTML正文与表格单元格分隔，去掉隐藏XBRL内容，按1,800字符窗口、200字符重叠切块。片段保留公司、期末、文件、提取文本位置和稳定ID，临近片段可由工具补读。本方案不重建完整复杂表格，也不使用外网资料。
+
+准备产物写入 `artifacts/final/`，记录数据库、报告和片段文件指纹。运行前验证输入与产物是否失配，变化后重新准备并另建输出目录。原始数据不改；全部六家公司资料可无标签准备，参考答案与评分不得进入产物。
+
+### 数据工具（tools）
+
+`tools/data.py` 是唯一工具注册表。模型自行选择调用顺序，读取结果后决定继续或结束。
+
+| 工具 | 用途与限制 |
+| --- | --- |
+| `get_schema` | 返回核心表、字段和当前公司的报告目录 |
+| `discover_metrics` | 按当前公司发现实际指标标签，关键词按字面子串匹配 |
+| `query_sql` | 只读SQL查询，限制SQL长度、结果量、值大小与执行步数 |
+| `search_reports` | 按当前公司和可选报告期检索年报，保留片段位置与来源 |
+| `read_report_chunks` | 读取同公司片段及邻域，补全被切断的表格或段落，不接受任意文件路径 |
+| `calculate` | 标量算术计算，只接受加减乘除与括号，不执行代码 |
+
+所有工具返回 `ok`、`data`、`sources`、`error`，结果必须可严格JSON序列化。结构与指标发现不冒充数值证据；空查询无来源；报告来源保留文件、期末、片段ID和提取文本位置。
+
+数据库通过只读连接与授权器限制写入、附加库和扩展函数。模型仍需核对指标、单位、期间与重复披露；源数据NULL不能替换成零。报告检索和邻域读取始终绑定当前公司。真实调用、失败和协议恢复均由公共循环记录。
+
+### 财务Skill与策略（skills、strategies）
+
+`strategies/finance.py` 加载唯一提示词及三份财务Skill，绑定已校验的公司CIK和当前预算，题目原文保留在user消息。每次创建全新消息，不携带上一题状态。模型根据实际返回的证据决策，不按题号选择答案、SQL或固定步骤。
+
+| 初始资源 | 内容 |
+| --- | --- |
+| `skills/financial_basis.txt` | 指标定位、单位与期间口径 |
+| `skills/calculation_and_claims.txt` | 可比计算、事实与判断、来源引用 |
+| `skills/recovery_and_stop.txt` | 失败恢复、预算与停止条件 |
+
+三份Skill属于本财务Agent的初始资源，不是Codex系统技能。每题加载同一版本，参数仅为CIK和预算，不含逐题答案或test反馈。
 
 输入使用公开业务规则与财务Skill指导：核对指标、单位、实际期间、重复披露和报表口径；从真实操作数计算；区分财务分部与业务领域、实际结果与风险/假设/计划。规则是模型指导，不是语义正确性的保证。
+
+程序校验协议和引用片段可追溯性，模型负责财务口径与语义判断；工具被调用或有引用不自动证明结论正确。正式test前固定资源，评分后仅可整理结果，不用反馈改变方法。
 
 每题新建消息与工具实例。程序默认最多16轮、24次工具调用，最后两轮用于总结。若模型将DSML调用误放在正文，程序仅恢复注册工具的参数、真实执行并记录恢复事件；预算耗尽后不再执行。最终总结请求不再提供工具定义，残留工具标记会被拒绝并要求重答；完整写出的报告片段ID也会与已检索来源核对。无法形成有效最终答案则记录失败和空回答，不能冒充完成。
 
@@ -69,6 +105,17 @@ train开发可用 `--question-id` 或 `--limit`；完整验证使用全部37题�
 
 ## 独立评分与核查
 
+`experiments/` 统一负责运行与独立评测，只维护当前单一方案，不包含方法切换或候选比较。
+
+| 模块 | 职责 |
+| --- | --- |
+| `runner.py` | 完整预测、状态、真实日志、方法快照和冻结 |
+| `evaluate.py` | 在独立子进程调用老师原脚本，记录检查器设置及预测指纹 |
+| `recover_judge.py` | 仅重试API失败的评分请求 |
+| `audit.py` | 核查已保存记录，不生成或改写答案与判定 |
+
+所有输出新建目录，原结果不覆盖。正式test每题独立，整批保存后才评分，参考答案与评分材料不提供给Agent。
+
 ```powershell
 .\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_new/predictions.json --check-only --output extension2_finance_agent/outputs/train_format.json
 .\.venv\Scripts\python.exe -X utf8 -m extension2_finance_agent evaluate --split train --predictions extension2_finance_agent/outputs/train_new/predictions.json --output extension2_finance_agent/outputs/train_score.json
@@ -85,4 +132,12 @@ test评分替换为 `--split test` 与对应路径，要求完整test运行已�
 
 ## 交付
 
-最终运行证据见 [results/extension2](../results/extension2/README.md)。仅保留本方案的实现、测试、文档和结果，早期方案保存在Git历史。课程正式报告由C依据最终证据统一撰写，工程交接见[最终协作说明](../report/extension2_work_plan.md)。
+方法、结果与局限见[初版实验报告](../report/extension2.md)，文件索引见[结果说明](../results/README.md#extension2)，原始证据位于 `results/extension2/`。仅保留本方案的实现、测试、文档和结果，早期方案保存在Git历史。报告初稿供C统一核对、完善和导出正式课程报告。
+
+只核查已交付材料、不调用模型：
+
+```powershell
+.\.venv\Scripts\python.exe -X utf8 -m results.extension2.build_delivery --verify-only
+```
+
+已交付的56题答案和日志保留原始字节，`checksums.json` 可用于核查。重跑应使用新输出路径，例如 `outputs/frozen_reproduce.json`、`outputs/test_reproduce`。本次文档整理更改了方法快照覆盖的README文件，旧冻结快照只证明首次运行，不能直接用于当前提交；复现时应在干净提交上重新冻结，不覆盖旧证据。
