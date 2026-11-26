@@ -1,0 +1,17 @@
+{
+  "method_train_test_current_identical": true,
+  "test_used_clean_frozen_commit": true,
+  "unit_tests_passed": 37,
+  "saved_question_logs_verified": 56,
+  "final_markup_answers": 0,
+  "prediction_coverage_and_model_usage_verified": true,
+  "published_byte_checksums_verified": true,
+  "teacher_files_sha256": {
+    "evaluate.py": "0ff1a77e00f9d5b2e269b8fff3e602eb8c46d70c2d2c2f7254f0d41824906fbe",
+    "evaluator_system.txt": "db3ab9e3cd1aeb49fa9644590bb571d0157367b2116c1ac1319585c0c3714780",
+    "evaluator_user.txt": "0cef331f2de5df085c9abba08d5c70e831f349013d82d32f7bf7289c61c91e96"
+  },
+  "test_feedback_used_for_tuning": false,
+  "manual_source_review_scope": "Only the three disputed answers; see source_checks.json",
+  "scope": "Current single method; runtime data and local .env remain outside Git"
+}

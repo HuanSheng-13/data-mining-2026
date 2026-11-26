@@ -1,6 +1,5 @@
 """Publish and verify the single final method's immutable run evidence."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import shutil
@@ -8,6 +7,31 @@ import shutil
 from extension2_finance_agent.core.config import ROOT, read_json, write_json, sha256
 from extension2_finance_agent.core.env import environment_value
 from extension2_finance_agent.experiments.audit import audit_run
+
+
+def validate_records(folder):
+    """Check coverage and recompute per-question accounting from saved events."""
+    run = read_json(folder / "run.json")
+    predictions = read_json(folder / "predictions.json")
+    summaries = read_json(folder / "summary.json")
+    ids = run["question_ids"]
+    assert len(ids) == len(set(ids))
+    assert [p["question_id"] for p in predictions] == ids
+    assert [s["question_id"] for s in summaries] == ids
+    for summary in summaries:
+        path = (folder / summary["log"]).resolve()
+        assert path.is_relative_to(folder.resolve())
+        events = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
+        assert events[-1]["event"] == "task_end"
+        assert all(events[-1][k] == v for k, v in summary.items() if k not in ("question_id", "log"))
+        models = [e for e in events if e["event"] in ("model_response", "model_error")]
+        assert len(models) == summary["model_calls"]
+        usage = {}
+        for event in models:
+            for key, value in event.get("usage", {}).items():
+                if type(value) in (int, float):
+                    usage[key] = usage.get(key, 0) + value
+        assert usage == summary["usage"]
 
 
 def publish(split, source, score, frozen=None):
@@ -25,6 +49,8 @@ def publish(split, source, score, frozen=None):
     evaluation = read_json(score)
     if not evaluation["evaluation_complete"] or evaluation["api_failed"] or evaluation["expected_questions"] != expected:
         raise ValueError("Resolve checker failures before publishing")
+    validate_records(source)
+    assert read_json(score.with_suffix(".config.json"))["predictions_sha256"] == sha256(source / "predictions.json")
     extra = {}
     if split == "test":
         if frozen is None:
@@ -62,11 +88,17 @@ def verify(root):
     for split in ("train", "test"):
         folder = root / split
         checks = read_json(folder / "checksums.json")["files"]
+        assert set(checks) == {p.relative_to(folder).as_posix() for p in folder.rglob("*") if p.is_file() and p.name != "checksums.json"}
         for relative, digest in checks.items():
             assert sha256(folder / relative) == digest, (split, relative)
+        validate_records(folder)
         delivery = read_json(folder / "delivery.json")
+        score = folder / delivery["score_file"]
+        assert read_json(score.with_suffix(".config.json"))["predictions_sha256"] == sha256(folder / "predictions.json")
         result[split] = audit_run(folder, folder / delivery["score_file"])
-    assert read_json(root / "train/run.json")["method"] == read_json(root / "test/run.json")["method"]
+    test, frozen = read_json(root / "test/run.json"), read_json(root / "test/frozen.json")
+    assert test["git"] == frozen["git"] and not test["git"]["dirty"]
+    assert read_json(root / "train/run.json")["method"] == test["method"] == frozen["method"]
     return result
 
 

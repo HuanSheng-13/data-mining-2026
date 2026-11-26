@@ -1,0 +1,9 @@
+{
+  "command": "python -X utf8 -m pytest extension2_finance_agent/tests -q",
+  "git_commit": "55e84187a485118aa8bbc7303dc49c641b705502",
+  "python": "3.11.15 | packaged by conda-forge | (main, Mar  5 2026, 16:36:00) [MSC v.1944 64 bit (AMD64)]",
+  "exit_code": 0,
+  "seconds": 3.0959594999440014,
+  "stdout": ".....................................                                    [100%]\n37 passed in 2.22s\n",
+  "stderr": ""
+}

@@ -6,6 +6,8 @@
 
 拓展二最终 Agent 的数据规范、运行命令和开发说明见 [extension2_finance_agent/README.md](extension2_finance_agent/README.md)。
 
+该方案已完成全部37题train和首次正式19题test，官方支持率分别为94.59%和94.74%。预测、真实工具日志、评分与复现核查见[拓展二最终结果](results/extension2/README.md)。
+
 ## 项目结构
 
 ```text
